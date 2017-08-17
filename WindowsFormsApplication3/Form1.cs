@@ -16,5 +16,14 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            clsHtmlToC clsConvert = new clsHtmlToC();
+            clsConvert.convertHtml();
+
+            dataGridView1.DataSource = clsConvert.convertHtml();
+
+        }
     }
 }
