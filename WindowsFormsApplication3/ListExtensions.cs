@@ -25,13 +25,56 @@ namespace WindowsFormsApplication1
             tmp.Columns.Add("DIFF");
             tmp.Columns.Add("STRK");
             tmp.Columns.Add("L10");
-           
-           
+            tmp.Columns.Add("League");
+            tmp.Columns.Add("Subgroup");
+            tmp.Columns.Add("Position");
 
+            int i = 0;
+            int j = 1;
+            string leagueName = "";
+            string area = "";
 
             foreach (List<string> row in list)
             {
+
+                if (i >= 5)
+                { 
+                    i = 0;
+                j += 1;
+                }
+
+                i += 1;
+                
+
+                switch(j)
+                { 
+
+                    case 1:
+                        area = "EAST";
+                        break;
+
+                case 2:
+                        area = "CENTRAL";
+                        break;
+                case 3:
+                        area = "WEST";
+                        break;
+
+                }
+
+               
+
+
+
+                row.Add(i.ToString());
+                row.Add(area);
+                row.Add(i.ToString());
+
                 tmp.Rows.Add(row.ToArray());
+
+
+              
+
             }
             return tmp;
         }
