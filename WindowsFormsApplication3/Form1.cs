@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1
 
                 case 2:
 
-                    dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/cle", 1, 0, "standings has - team - logos");
+                    dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/cle", 1, 0, "standings has-team-logos");
                     break;
 
 
