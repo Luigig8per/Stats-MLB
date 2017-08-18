@@ -9,7 +9,7 @@ namespace WindowsFormsApplication1
 {
     static class ListExtensions
     {
-        public static DataTable ToDataTable(this List<List<string>> list)
+        public static DataTable ToDataTableWithPosition(this List<List<string>> list)
         {
             DataTable tmp = new DataTable();
 
@@ -75,6 +75,30 @@ namespace WindowsFormsApplication1
 
               
 
+            }
+            return tmp;
+        }
+
+        public static DataTable ToDataTable(this List<List<string>> list)
+        {
+            DataTable tmp = new DataTable();
+
+            tmp.Columns.Add("Team");
+            tmp.Columns.Add("Win");
+            tmp.Columns.Add("Lost");
+            tmp.Columns.Add("PCT");
+            tmp.Columns.Add("GB");
+            tmp.Columns.Add("HOME");
+            tmp.Columns.Add("ROAD");
+            tmp.Columns.Add("RS");
+            tmp.Columns.Add("RA");
+            tmp.Columns.Add("DIFF");
+            tmp.Columns.Add("STRK");
+            tmp.Columns.Add("L10");
+           
+            foreach (List<string> row in list)
+            {
+                tmp.Rows.Add(row.ToArray());
             }
             return tmp;
         }

@@ -10,8 +10,10 @@ namespace WindowsFormsApplication1
 {
     class clsHtmlToC
     {
-        public DataTable convertHtml(string webpage, int League)
+        public DataTable convertHtml(string webpage, int League, int extraColumns, string cls)
         {
+            DataTable res= new DataTable();
+
             WebClient webClient = new WebClient();
             string page = webClient.DownloadString(webpage);
 
@@ -19,15 +21,31 @@ namespace WindowsFormsApplication1
             doc.LoadHtml(page);
             
 
-            List<List<string>> table = doc.DocumentNode.SelectSingleNode("(//table[@class='standings has-team-logos'])[" + League + "]")
+            List<List<string>> table = doc.DocumentNode.SelectSingleNode("(//table[@class='" + cls + "'])[" + League + "]")
                         .Descendants("tr")
                         //.Skip(1)
                         .Where(tr => tr.Elements("td").Count() > 1)
                         .Select(tr => tr.Elements("td").Select(td => td.InnerText.Trim()).ToList())
                         .ToList();
+            
+                
+            switch (extraColumns)
+            {
+                case 0:
+                   res= table.ToDataTable();
+                    break;
 
 
-            return table.ToDataTable();
+                case 1:
+                   res= table.ToDataTableWithPosition();
+                    break;
+
+            }
+
+            return res;
+
+
+            
         }
 
        
