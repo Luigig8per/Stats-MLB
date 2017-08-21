@@ -20,11 +20,11 @@ namespace WindowsFormsApplication1
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(page);
             
-            switch (cls)
-            {
-                //case ;
+            //switch (cls)
+            //{
+            //    //case ;
 
-            }
+            //}
 
             List<List<string>> table = doc.DocumentNode.SelectSingleNode("(//table[@class='" + cls + "'])[" + League + "]")
                         .Descendants("tr")
