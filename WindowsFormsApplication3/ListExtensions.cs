@@ -28,6 +28,10 @@ namespace WindowsFormsApplication1
             tmp.Columns.Add("League");
             tmp.Columns.Add("Subgroup");
             tmp.Columns.Add("Position");
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
 
             int i = 0;
             int j = 1;
@@ -71,10 +75,7 @@ namespace WindowsFormsApplication1
                 row.Add(i.ToString());
 
                 tmp.Rows.Add(row.ToArray());
-
-
-              
-
+                
             }
             return tmp;
         }

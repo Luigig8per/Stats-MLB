@@ -80,7 +80,15 @@ namespace WindowsFormsApplication1
             ////this one is usefull for extract serie quantity
             //dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/cle", 1, 0, "tablehead");
 
-            dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/mia", 1, 0, "tablehead");
+            //Next one works very good, but its by teams.
+
+            dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/probables/_/date/20170824", 1, 1, "tablehead");
+
+            //clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/mia", 1, 0, "http://www.espn.com/mlb/schedule");
+
+            //clsConvert.convertHtml("http://www.espn.com/mlb/schedule", 1, 0, "schedule has - team - logos align - left");
+
+        
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
