@@ -10,7 +10,7 @@ namespace DataLayer
 {
     public class Dbconnection
     {
-        public SqlConnection con = new SqlConnection("Data Source=10.10.10.30;Initial Catalog=DGSDATA;User ID=luisma;Password=luis123");
+        public SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DGSDATA;User ID=luisma;Password=12345678");
 
         public SqlConnection getConn()
         {
@@ -230,7 +230,7 @@ namespace DataLayer
         public DataTable insertData(string spName, List<string> parametersList)
         {
             DataTable res = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.30;Initial Catalog=DGSDATA;User ID=luisma;Password=luis123"))
+            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DGSDATA;User ID=luisma;Password=12345678"))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "Report_Game_Statistic";
@@ -278,7 +278,7 @@ namespace DataLayer
         public DataTable insertData(string spName,int logIdUser, string prmStartDate, string prmEndDate)
         {
             DataTable res = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.30;Initial Catalog=DGSDATA;User ID=luisma;Password=luis123"))
+            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DGSDATA;User ID=luisma;Password=12345678"))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "Report_Game_Statistic";
@@ -328,7 +328,7 @@ namespace DataLayer
         public DataTable extractDataSP(string spName, int logIdUser, string prmStartDate, string prmEndDate)
         {
             DataTable res = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.30;Initial Catalog=DGSDATA;User ID=luisma;Password=luis123"))
+            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DGSDATA;User ID=luisma;Password=12345678"))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "Report_Game_Statistic";
@@ -378,7 +378,7 @@ namespace DataLayer
         public DataTable extractDataSP(string spName)
         {
             DataTable res = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.30;Initial Catalog=DGSDATA;User ID=luisma;Password=luis123"))
+            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DGSDATA;User ID=luisma;Password=12345678"))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = spName;
@@ -414,7 +414,7 @@ namespace DataLayer
         public DataTable extractDataSP(string spName, string idSport)
         {
             DataTable res = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.30;Initial Catalog=DGSDATA;User ID=luisma;Password=luis123"))
+            using (SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DGSDATA;User ID=luisma;Password=12345678"))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = spName;
@@ -453,7 +453,7 @@ namespace DataLayer
         public DataTable getGameStats(string spName, int logIdUser, string League,  string prmStartDate, string prmEndDate)
         {
             DataTable res = new DataTable();
-            using (con = new SqlConnection("Data Source=10.10.10.30;Initial Catalog=DGSDATA;User ID=luisma;Password=luis123"))
+            using (con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DGSDATA;User ID=luisma;Password=12345678"))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "Report_Game_Statistic";
