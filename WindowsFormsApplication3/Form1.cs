@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MLBBusiness;
+using clsModel;
+
+
 
 namespace WindowsFormsApplication1
 {
@@ -88,7 +92,16 @@ namespace WindowsFormsApplication1
 
             //clsConvert.convertHtml("http://www.espn.com/mlb/schedule", 1, 0, "schedule has - team - logos align - left");
 
-        
+            
+
+
+
+
+        }
+
+        public void addGame(mlb_game theGame)
+        {
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

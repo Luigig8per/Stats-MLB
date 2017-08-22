@@ -8,5 +8,14 @@ namespace clsModel
 {
     public class Class1
     {
+        mlb_game theGame = new mlb_game();
+
+       
+
+
+      
+
+
+
     }
 }
