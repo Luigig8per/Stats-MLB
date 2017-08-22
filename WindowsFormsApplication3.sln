@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLB Stats Report", "WindowsFormsApplication3\MLB Stats Report.csproj", "{7E4BA584-3C46-48F8-920D-2362FCB4C3D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLBModel", "clsModel\MLBModel.csproj", "{27734E3E-F176-4ED3-B4F8-342C1271DF25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLBData", "MLBData\MLBData.csproj", "{25ECDF10-290F-4D53-849B-46EBAE027B6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7E4BA584-3C46-48F8-920D-2362FCB4C3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E4BA584-3C46-48F8-920D-2362FCB4C3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E4BA584-3C46-48F8-920D-2362FCB4C3D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27734E3E-F176-4ED3-B4F8-342C1271DF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27734E3E-F176-4ED3-B4F8-342C1271DF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27734E3E-F176-4ED3-B4F8-342C1271DF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27734E3E-F176-4ED3-B4F8-342C1271DF25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25ECDF10-290F-4D53-849B-46EBAE027B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25ECDF10-290F-4D53-849B-46EBAE027B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25ECDF10-290F-4D53-849B-46EBAE027B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25ECDF10-290F-4D53-849B-46EBAE027B6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
