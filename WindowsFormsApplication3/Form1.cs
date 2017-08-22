@@ -82,7 +82,7 @@ namespace WindowsFormsApplication1
 
             //Next one works very good, but its by teams.
 
-            dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/probables/_/date/20170824", 1, 1, "tablehead");
+            dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/schedule/_/date/20170821", 1, 1, "schedule has-team-logos align-left");
 
             //clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/mia", 1, 0, "http://www.espn.com/mlb/schedule");
 
@@ -119,6 +119,32 @@ namespace WindowsFormsApplication1
         //http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/mlb/players/player114276.html
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ERA();
+    
+           
+
+
+        }
+
+        private float ERA()
+        {
+            DataTable dTpitchers = new DataTable();
+            string sEra = "";
+
+
+            dTpitchers = clsConvert.convertHtml("http://www.espn.com/mlb/player/_/id/31803/tim-melville", 2, 0, "tablehead");
+
+            dataGridView1.DataSource = dTpitchers; 
+          sEra = dTpitchers.Rows[0][17].ToString();
+
+
+            MessageBox.Show(sEra);
+
+            return float.Parse(sEra);
         }
     }
 }

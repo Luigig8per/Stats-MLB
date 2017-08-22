@@ -96,7 +96,14 @@ namespace WindowsFormsApplication1
             tmp.Columns.Add("DIFF");
             tmp.Columns.Add("STRK");
             tmp.Columns.Add("L10");
-           
+
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
+            tmp.Columns.Add("");
+
             foreach (List<string> row in list)
             {
                 tmp.Rows.Add(row.ToArray());
