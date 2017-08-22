@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ModelsMLB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mlb_game">
+          <Key>
+            <PropertyRef Name="game_id" />
+            <PropertyRef Name="game_serie_id" />
+          </Key>
+          <Property Name="game_date" Type="datetime" />
+          <Property Name="game_id" Type="int" Nullable="false" />
+          <Property Name="game_serie_id" Type="int" Nullable="false" />
+          <Property Name="game_number" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DonBest.dbo.mlb_pitcher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mlb_pitcher">
+          <Key>
+            <PropertyRef Name="pitcher_id" />
+          </Key>
+          <Property Name="pitcher_id" Type="int" Nullable="false" />
+          <Property Name="pitcher_name" Type="varchar(max)" />
+          <Property Name="pitcher_era" Type="float" />
+          <Property Name="pitcher_last3_era" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DonBest.dbo.mlb_serie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mlb_serie">
+          <Key>
+            <PropertyRef Name="serie_id" />
+            <PropertyRef Name="mlb_game_id" />
+          </Key>
+          <Property Name="serie_id" Type="int" Nullable="false" />
+          <Property Name="mlb_game_id" Type="int" Nullable="false" />
+          <Property Name="mlb_quantity_games" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DonBest.dbo.mlb_team' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mlb_team">
+          <Key>
+            <PropertyRef Name="team_name" />
+          </Key>
+          <Property Name="team_id" Type="int" />
+          <Property Name="team_name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelsMLBStoreContainer">
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mlb_game].[game_date] AS [game_date], 
+    [mlb_game].[game_id] AS [game_id], 
+    [mlb_game].[game_serie_id] AS [game_serie_id], 
+    [mlb_game].[game_number] AS [game_number]
+    FROM [dbo].[mlb_game] AS [mlb_game]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mlb_pitcher" EntityType="Self.mlb_pitcher" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mlb_pitcher].[pitcher_id] AS [pitcher_id], 
+    [mlb_pitcher].[pitcher_name] AS [pitcher_name], 
+    [mlb_pitcher].[pitcher_era] AS [pitcher_era], 
+    [mlb_pitcher].[pitcher_last3_era] AS [pitcher_last3_era]
+    FROM [dbo].[mlb_pitcher] AS [mlb_pitcher]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mlb_serie" EntityType="Self.mlb_serie" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mlb_serie].[serie_id] AS [serie_id], 
+    [mlb_serie].[mlb_game_id] AS [mlb_game_id], 
+    [mlb_serie].[mlb_quantity_games] AS [mlb_quantity_games]
+    FROM [dbo].[mlb_serie] AS [mlb_serie]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mlb_team" EntityType="Self.mlb_team" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mlb_team].[team_id] AS [team_id], 
+    [mlb_team].[team_name] AS [team_name]
+    FROM [dbo].[mlb_team] AS [mlb_team]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelsMLB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="mlb_game">
+          <Key>
+            <PropertyRef Name="game_id" />
+            <PropertyRef Name="game_serie_id" />
+          </Key>
+          <Property Name="game_date" Type="DateTime" Precision="3" />
+          <Property Name="game_id" Type="Int32" Nullable="false" />
+          <Property Name="game_serie_id" Type="Int32" Nullable="false" />
+          <Property Name="game_number" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_pitcher">
+          <Key>
+            <PropertyRef Name="pitcher_id" />
+          </Key>
+          <Property Name="pitcher_id" Type="Int32" Nullable="false" />
+          <Property Name="pitcher_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="pitcher_era" Type="Double" />
+          <Property Name="pitcher_last3_era" Type="Double" />
+        </EntityType>
+        <EntityType Name="mlb_serie">
+          <Key>
+            <PropertyRef Name="serie_id" />
+            <PropertyRef Name="mlb_game_id" />
+          </Key>
+          <Property Name="serie_id" Type="Int32" Nullable="false" />
+          <Property Name="mlb_game_id" Type="Int32" Nullable="false" />
+          <Property Name="mlb_quantity_games" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_team">
+          <Key>
+            <PropertyRef Name="team_name" />
+          </Key>
+          <Property Name="team_id" Type="Int32" />
+          <Property Name="team_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DonBestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" />
+          <EntitySet Name="mlb_pitcher" EntityType="Self.mlb_pitcher" />
+          <EntitySet Name="mlb_serie" EntityType="Self.mlb_serie" />
+          <EntitySet Name="mlb_team" EntityType="Self.mlb_team" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsMLBStoreContainer" CdmEntityContainer="DonBestEntities">
+          <EntitySetMapping Name="mlb_game">
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_game">
+              <MappingFragment StoreEntitySet="mlb_game">
+                <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="game_id" ColumnName="game_id" />
+                <ScalarProperty Name="game_serie_id" ColumnName="game_serie_id" />
+                <ScalarProperty Name="game_number" ColumnName="game_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_pitcher">
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_pitcher">
+              <MappingFragment StoreEntitySet="mlb_pitcher">
+                <ScalarProperty Name="pitcher_id" ColumnName="pitcher_id" />
+                <ScalarProperty Name="pitcher_name" ColumnName="pitcher_name" />
+                <ScalarProperty Name="pitcher_era" ColumnName="pitcher_era" />
+                <ScalarProperty Name="pitcher_last3_era" ColumnName="pitcher_last3_era" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_serie">
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_serie">
+              <MappingFragment StoreEntitySet="mlb_serie">
+                <ScalarProperty Name="serie_id" ColumnName="serie_id" />
+                <ScalarProperty Name="mlb_game_id" ColumnName="mlb_game_id" />
+                <ScalarProperty Name="mlb_quantity_games" ColumnName="mlb_quantity_games" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_team">
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_team">
+              <MappingFragment StoreEntitySet="mlb_team">
+                <ScalarProperty Name="team_id" ColumnName="team_id" />
+                <ScalarProperty Name="team_name" ColumnName="team_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
