@@ -81,21 +81,8 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/mia", 2, 0, "schedule has-team-logos align-left");
-            //Original for this should be: /*http://www.espn.com/mlb/schedule/_/date/20170821 its working, but not show time on extraction
-            ////this one is usefull for extract serie quantity
-            //dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/cle", 1, 0, "tablehead");
+            extractNextGames();
 
-            //Next one works very good, but its by teams.
-
-            //dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/schedule/_/date/20170822", 1, 1, "schedule has-team-logos align-left");
-
-            //clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/mia", 1, 0, "http://www.espn.com/mlb/schedule");
-
-            //clsConvert.convertHtml("http://www.espn.com/mlb/schedule", 1, 0, "schedule has - team - logos align - left");
-
-
-           
 
 
         }
@@ -146,13 +133,13 @@ namespace WindowsFormsApplication1
         {
             //original is 3:05 PM ET
 
-            string pattern = "h:mm tt zzz";
+            //string pattern = "h:mm tt zzz";
 
             DateTime dt = Convert.ToDateTime(date);
 
             return dt;
 
-            DateTime gameTime = DateTime.Today;
+            //DateTime gameTime = DateTime.Today;
 
             //gameTime.
                 //game= new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, )
@@ -162,7 +149,7 @@ namespace WindowsFormsApplication1
         }
         mlb_game addGameFromESPNProbables(DataRow row, mlb_game theGame)
         {
-            string pitchers = "", lineText = "";
+            //string pitchers = "", lineText = "";
             int indexNum;
             string rowText = "";
 
@@ -218,7 +205,7 @@ namespace WindowsFormsApplication1
             }
 
            
-            indexNum = pitchers.IndexOf("vs");
+            //indexNum = pitchers.IndexOf("vs");
 
             //theGame.game_name_pitcher_home = pitchers.Substring(0, indexNum);
             //theGame.game_name_pitcher_away = pitchers.Substring(indexNum + 3, pitchers.Length - indexNum - 3);
