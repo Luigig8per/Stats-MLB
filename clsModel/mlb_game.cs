@@ -24,5 +24,7 @@ namespace clsModel
         public string game_name_team_away { get; set; }
         public string game_name_pitcher_home { get; set; }
         public string game_name_pitcher_away { get; set; }
+        public Nullable<double> game_pitcher_home_ERA { get; set; }
+        public Nullable<double> game_pitcher_away_ERA { get; set; }
     }
 }

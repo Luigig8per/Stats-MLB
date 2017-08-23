@@ -126,26 +126,47 @@ namespace WindowsFormsApplication1
             return theGame;
         }
 
+
+        DateTime convert(string date)
+        {
+            //original is 3:05 PM ET
+
+            string pattern = "h:mm tt zzz";
+
+            DateTime dt = Convert.ToDateTime(date);
+
+            return dt;
+
+            DateTime gameTime = DateTime.Today;
+
+            //gameTime.
+                //game= new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, )
+
+
+
+        }
         mlb_game addGameFromESPNProbables(DataRow row, mlb_game theGame)
         {
             string pitchers = "", lineText = "";
             int indexNum;
-            lineText =
+            string rowText = "";
 
-            pitchers = row["Team"].ToString();
+           rowText = row["Team"].ToString();
 
-            indexNum = pitchers.IndexOf(" at ");
+            indexNum = rowText.IndexOf(" at ");
             
 
-            if (pitchers.Contains(" at "))
+            if (rowText.Contains(" at "))
             { 
-            theGame.game_name_team_home = pitchers.Substring(0,indexNum);
-            theGame.game_name_team_away = pitchers.Substring(indexNum+4, pitchers.Length-indexNum-4);
+            theGame.game_name_team_home = rowText.Substring(0,indexNum);
+            theGame.game_name_team_away = rowText.Substring(indexNum+4, rowText.Length-indexNum-4);
+                //theGame.game_date = row["Win"].ToString();
+
 
 
                 //theGame.game_date = row["Win"].ToString();
 
-                theGame.game_date = DateTime.Today;
+                //theGame.game_date = convert(row["Win"].ToString());
                 theGame.game_serie_id = 1;
                 theGame.game_number = 20;
                 theGame.game_id_team_away = 20;
@@ -153,6 +174,33 @@ namespace WindowsFormsApplication1
             }
            
 
+            else
+            {
+
+
+            if (rowText.Contains("(R)") || rowText.Contains("(L)"))
+             {
+                if (Equals(theGame.game_name_pitcher_home, null))
+                    {
+                    theGame.game_name_pitcher_home = rowText;
+                    theGame.game_pitcher_home_ERA =  float.Parse(row["ROAD"].ToString());
+                    }
+                else
+                {
+                    theGame.game_name_pitcher_away = rowText;
+                        theGame.game_pitcher_away_ERA = float.Parse(row["ROAD"].ToString());
+                }
+
+
+                 
+
+
+             }
+            else
+                {
+
+                }
+            }
 
            
             indexNum = pitchers.IndexOf("vs");
@@ -163,9 +211,29 @@ namespace WindowsFormsApplication1
             return theGame;
         }
 
+        string dateUrl(int dayFromToday)
+        {
+            DateTime dt = DateTime.Today;
+
+            string datePage="";
+
+          
+
+                    datePage = String.Format("{0:yyyy/MM/dd/}", dt);
+                    return datePage;
+        
+
+            
+
+              //http://www.espn.com/mlb/probables/_/date/20170824
+        }
+
         public void addGame(string urlSource, string tableClass)
         {
             DataTable gamesTable = new DataTable();
+            clsModel.mlb_game theGame = new mlb_game();
+            List<String> theList = new List<String>();
+
 
             gamesTable = clsConvert.convertHtml(urlSource, 1, 0, tableClass);
             dataGridView1.DataSource = gamesTable;
@@ -174,13 +242,30 @@ namespace WindowsFormsApplication1
             {
 
               
-                clsModel.mlb_game theGame = new mlb_game();
+               
                 //theGame.game_date = 
                 theGame = addGameFromESPNProbables(row, theGame);
-                clsBusiness.insertGame(theGame);
+              
+                if (!Equals(theGame.game_name_pitcher_away, null))
+                {
+                    clsBusineesProcess theBusiness = new clsBusineesProcess();
+                    theBusiness.insertGame(theGame);
+                    theList.Add("[" + theGame.game_date + "] :" + theGame.game_name_team_home + " vs " +  theGame.game_name_team_away + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA +" vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA );
 
+
+
+                    theGame = new mlb_game();
+
+                }
+                //if (theGame.game_pitcher_away_ERA != "")
+                //{ 
+                //    clsBusiness.insertGame(theGame);
+                //    theGame = new mlb_game();
+
+                //}
             }
 
+            listBox1.DataSource = theList;
             
 
         }
@@ -266,6 +351,11 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = extractPitchersStats();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
