@@ -51,6 +51,7 @@
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dataGridView1.Size = new System.Drawing.Size(979, 628);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Visible = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // comboBox1
@@ -64,6 +65,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.Visible = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
@@ -84,6 +86,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
@@ -102,24 +105,26 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 6;
+            this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(443, 172);
+            this.button5.Location = new System.Drawing.Point(387, 35);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 7;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(38, 461);
+            this.listBox1.Location = new System.Drawing.Point(38, 112);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(979, 238);
+            this.listBox1.Size = new System.Drawing.Size(979, 576);
             this.listBox1.TabIndex = 8;
             // 
             // Form1
