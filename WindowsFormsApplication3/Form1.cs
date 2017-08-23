@@ -26,6 +26,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            extractNextGames();
 
             
 
@@ -93,14 +94,28 @@ namespace WindowsFormsApplication1
 
             //clsConvert.convertHtml("http://www.espn.com/mlb/schedule", 1, 0, "schedule has - team - logos align - left");
 
-          
+
+           
+
+
+        }
+
+        void extractNextGames()
+        {
+            List<String> theList = new List<String>();
+
             //addGame("http://www.espn.com/mlb/schedule/_/date/20170823");
-            addGame("http://www.espn.com/mlb/probables", "tablehead");
 
 
 
 
 
+
+            theList = addGame(dateUrl(DateTime.Today), "tablehead");
+            theList.AddRange(addGame(dateUrl(DateTime.Today.AddDays(1)), "tablehead"));
+            theList.AddRange(addGame(dateUrl(DateTime.Today.AddDays(2)), "tablehead"));
+
+            listBox1.DataSource = theList;
         }
 
         mlb_game addGameFrom(DataRow row, mlb_game theGame)
@@ -211,31 +226,30 @@ namespace WindowsFormsApplication1
             return theGame;
         }
 
-        string dateUrl(int dayFromToday)
+        string dateUrl(DateTime day)
         {
-            DateTime dt = DateTime.Today;
-
+           
             string datePage="";
 
           
 
-                    datePage = String.Format("{0:yyyy/MM/dd/}", dt);
+                    datePage = String.Format("{0:yyyyMMdd}", day);
+
                     return datePage;
         
-
-            
-
-              //http://www.espn.com/mlb/probables/_/date/20170824
+            //http://www.espn.com/mlb/probables/_/date/20170824
         }
 
-        public void addGame(string urlSource, string tableClass)
+        
+
+        public List<String> addGame(string urlSource, string tableClass)
         {
             DataTable gamesTable = new DataTable();
             clsModel.mlb_game theGame = new mlb_game();
             List<String> theList = new List<String>();
 
 
-            gamesTable = clsConvert.convertHtml(urlSource, 1, 0, tableClass);
+            gamesTable = clsConvert.convertHtml("http://www.espn.com/mlb/probables/_/date/" + urlSource , 1, 0, tableClass);
             dataGridView1.DataSource = gamesTable;
 
             foreach (DataRow row in gamesTable.Rows)
@@ -250,7 +264,7 @@ namespace WindowsFormsApplication1
                 {
                     clsBusineesProcess theBusiness = new clsBusineesProcess();
                     theBusiness.insertGame(theGame);
-                    theList.Add("[" + theGame.game_date + "] :" + theGame.game_name_team_home + " vs " +  theGame.game_name_team_away + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA +" vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA );
+                    theList.Add("[" + urlSource + "] :" + theGame.game_name_team_home + " vs " +  theGame.game_name_team_away + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA +" vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA );
 
 
 
@@ -265,7 +279,9 @@ namespace WindowsFormsApplication1
                 //}
             }
 
-            listBox1.DataSource = theList;
+            return theList;
+
+           
             
 
         }
