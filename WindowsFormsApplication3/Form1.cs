@@ -86,21 +86,39 @@ namespace WindowsFormsApplication1
 
             //Next one works very good, but its by teams.
 
-            dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/schedule/_/date/20170822", 1, 1, "schedule has-team-logos align-left");
+            //dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/schedule/_/date/20170822", 1, 1, "schedule has-team-logos align-left");
 
             //clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/mia", 1, 0, "http://www.espn.com/mlb/schedule");
 
             //clsConvert.convertHtml("http://www.espn.com/mlb/schedule", 1, 0, "schedule has - team - logos align - left");
 
-            
+          
+            addGame();
+
+
 
 
 
 
         }
 
-        public void addGame(mlb_game theGame)
+        
+
+        public void addGame()
         {
+            DataTable gamesTable = new DataTable();
+
+            gamesTable = clsConvert.convertHtml("http://www.espn.com/mlb/schedule/_/date/20170822", 1, 0, "schedule has-team-logos align-left");
+            dataGridView1.DataSource = gamesTable;
+
+            foreach (DataRow row in gamesTable.Rows)
+            {
+
+                textBox1.Text = row["Team"].ToString();
+                
+            }
+
+            
 
         }
 
@@ -158,6 +176,11 @@ namespace WindowsFormsApplication1
             MessageBox.Show(sEra);
 
             return float.Parse(sEra);
+        }
+
+        public void insertGame()
+        {
+            MLBBusiness.
         }
     }
 }

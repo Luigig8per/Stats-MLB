@@ -14,7 +14,7 @@ using clsModel;
 
 namespace MLBBusiness
 {
-    class clsBusineesProcess
+    public class clsBusineesProcess
     {
 
         public void selectTeam()
