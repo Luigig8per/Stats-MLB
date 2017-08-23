@@ -14,7 +14,7 @@ namespace clsModel
     
     public partial class mlb_team
     {
-        public Nullable<int> team_id { get; set; }
+        public int team_id { get; set; }
         public string team_name { get; set; }
     }
 }

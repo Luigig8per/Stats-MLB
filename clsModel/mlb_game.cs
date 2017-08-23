@@ -18,5 +18,11 @@ namespace clsModel
         public int game_id { get; set; }
         public int game_serie_id { get; set; }
         public Nullable<int> game_number { get; set; }
+        public int game_id_team_home { get; set; }
+        public int game_id_team_away { get; set; }
+        public string game_name_team_home { get; set; }
+        public string game_name_team_away { get; set; }
+        public string game_name_pitcher_home { get; set; }
+        public string game_name_pitcher_away { get; set; }
     }
 }

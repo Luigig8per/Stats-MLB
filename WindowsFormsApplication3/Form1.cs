@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         clsHtmlToC clsConvert = new clsHtmlToC();
+        clsBusineesProcess clsBusiness = new clsBusineesProcess();
 
         public Form1()
         {
@@ -93,8 +94,8 @@ namespace WindowsFormsApplication1
             //clsConvert.convertHtml("http://www.espn.com/mlb/schedule", 1, 0, "schedule has - team - logos align - left");
 
           
-            addGame();
-
+            //addGame("http://www.espn.com/mlb/schedule/_/date/20170823");
+            addGame("http://www.espn.com/mlb/probables", "tablehead");
 
 
 
@@ -102,23 +103,94 @@ namespace WindowsFormsApplication1
 
         }
 
-        
+        mlb_game addGameFrom(DataRow row, mlb_game theGame)
+        {
+            string pitchers = "";
+            int indexNum;
+            //   
+            theGame.game_name_team_home = row["Team"].ToString();
+            theGame.game_name_team_away = row["Win"].ToString();
+            theGame.game_date = DateTime.Today;
+            theGame.game_serie_id = 1;
+            theGame.game_number = 20;
+            theGame.game_id_team_away = 20;
+            theGame.game_id_team_home = 20;
 
-        public void addGame()
+
+            pitchers = row["GB"].ToString();
+            indexNum = pitchers.IndexOf("vs");
+
+            theGame.game_name_pitcher_home = pitchers.Substring(0, indexNum);
+            theGame.game_name_pitcher_away = pitchers.Substring(indexNum + 3, pitchers.Length - indexNum - 3);
+
+            return theGame;
+        }
+
+        mlb_game addGameFromESPNProbables(DataRow row, mlb_game theGame)
+        {
+            string pitchers = "", lineText = "";
+            int indexNum;
+            lineText =
+
+            pitchers = row["Team"].ToString();
+
+            indexNum = pitchers.IndexOf(" at ");
+            
+
+            if (pitchers.Contains(" at "))
+            { 
+            theGame.game_name_team_home = pitchers.Substring(0,indexNum);
+            theGame.game_name_team_away = pitchers.Substring(indexNum+4, pitchers.Length-indexNum-4);
+
+
+                //theGame.game_date = row["Win"].ToString();
+
+                theGame.game_date = DateTime.Today;
+                theGame.game_serie_id = 1;
+                theGame.game_number = 20;
+                theGame.game_id_team_away = 20;
+                theGame.game_id_team_home = 20;
+            }
+           
+
+
+           
+            indexNum = pitchers.IndexOf("vs");
+
+            //theGame.game_name_pitcher_home = pitchers.Substring(0, indexNum);
+            //theGame.game_name_pitcher_away = pitchers.Substring(indexNum + 3, pitchers.Length - indexNum - 3);
+
+            return theGame;
+        }
+
+        public void addGame(string urlSource, string tableClass)
         {
             DataTable gamesTable = new DataTable();
 
-            gamesTable = clsConvert.convertHtml("http://www.espn.com/mlb/schedule/_/date/20170822", 1, 0, "schedule has-team-logos align-left");
+            gamesTable = clsConvert.convertHtml(urlSource, 1, 0, tableClass);
             dataGridView1.DataSource = gamesTable;
 
             foreach (DataRow row in gamesTable.Rows)
             {
 
-                textBox1.Text = row["Team"].ToString();
-                
+              
+                clsModel.mlb_game theGame = new mlb_game();
+                //theGame.game_date = 
+                theGame = addGameFromESPNProbables(row, theGame);
+                clsBusiness.insertGame(theGame);
+
             }
 
             
+
+        }
+
+        public int extractPitcher(string urlPitcher)
+        {
+            DataTable pitchersTable = new DataTable();
+            //pitchersTable = clsConvert.convertHtml() 
+
+            return 0;
 
         }
 
@@ -152,6 +224,14 @@ namespace WindowsFormsApplication1
 
         }
 
+        private DataTable extractPitchersStats()
+        {
+           DataTable dTpitchers = clsConvert.convertHtml("http://www.rotowire.com/baseball/player_stats.htm?pos=P", 1, 1, "tablesorter headerfollows footballproj-table tablesorter-default hasStickyHeaders");
+
+            return dTpitchers;
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             ERA();
@@ -180,7 +260,13 @@ namespace WindowsFormsApplication1
 
         public void insertGame()
         {
-            MLBBusiness.
+            //MLBBusiness.
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = extractPitchersStats();
+
         }
     }
 }

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="x14ac" xmlns:x14ac="http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac">
+  <dimension ref="A11:A25" />
+  <sheetViews>
+    <sheetView workbookViewId="0">
+      <selection activeCell="A12" sqref="A12:A14" />
+    </sheetView>
+  </sheetViews>
+  <sheetFormatPr baseColWidth="10" defaultRowHeight="15" x14ac:dyDescent="0" />
+  <sheetData>
+    <row r="11" spans="1:1">
+      <c r="A11" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="12" spans="1:1">
+      <c r="A12" t="b">
+        <v>1</v>
+      </c>
+    </row>
+    <row r="13" spans="1:1">
+      <c r="A13" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="14" spans="1:1">
+      <c r="A14" t="b">
+        <v>1</v>
+      </c>
+    </row>
+    <row r="15" spans="1:1">
+      <c r="A15" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="16" spans="1:1">
+      <c r="A16" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="17" spans="1:1">
+      <c r="A17" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="18" spans="1:1">
+      <c r="A18" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="19" spans="1:1">
+      <c r="A19" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="20" spans="1:1">
+      <c r="A20" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="21" spans="1:1">
+      <c r="A21" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="22" spans="1:1">
+      <c r="A22" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="23" spans="1:1">
+      <c r="A23" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="24" spans="1:1">
+      <c r="A24" t="b">
+        <v>0</v>
+      </c>
+    </row>
+    <row r="25" spans="1:1">
+      <c r="A25" t="b">
+        <v>0</v>
+      </c>
+    </row>
+  </sheetData>
+  <pageMargins left="0.75" right="0.75" top="1" bottom="1" header="0.5" footer="0.5" />
+  <extLst>
+    <ext uri="{64002731-A6B0-56B0-2670-7721B7C09600}" xmlns:mx="http://schemas.microsoft.com/office/mac/excel/2008/main">
+      <mx:PLV Mode="0" OnePage="0" WScale="0" />
+    </ext>
+  </extLst>
+</worksheet>

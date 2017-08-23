@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="0" uniqueCount="0">
+  <si>
+    <r>
+      <rPr>
+        <b />
+        <sz val="14" />
+        <color theme="1" />
+        <rFont val="Calibri" />
+        <scheme val="minor" />
+      </rPr>
+      <t>As a</t>
+    </r>
+    <r>
+      <rPr>
+        <i />
+        <sz val="14" />
+        <color theme="1" />
+        <rFont val="Calibri" />
+        <scheme val="minor" />
+      </rPr>
+      <t xml:space="preserve"> &lt;type of user&gt;</t>
+    </r>
+  </si>
+  <si>
+    <r>
+      <t xml:space="preserve">so that I can </t>
+    </r>
+    <r>
+      <rPr>
+        <i />
+        <sz val="14" />
+        <color theme="1" />
+        <rFont val="Calibri" />
+        <scheme val="minor" />
+      </rPr>
+      <t>&lt;achieve some goal&gt;</t>
+    </r>
+  </si>
+  <si>
+    <r>
+      <rPr>
+        <b />
+        <sz val="14" />
+        <color theme="1" />
+        <rFont val="Calibri" />
+        <scheme val="minor" />
+      </rPr>
+      <t xml:space="preserve">I want to </t>
+    </r>
+    <r>
+      <rPr>
+        <i />
+        <sz val="14" />
+        <color theme="1" />
+        <rFont val="Calibri" />
+        <scheme val="minor" />
+      </rPr>
+      <t>&lt;perform some task&gt;</t>
+    </r>
+  </si>
+</sst>

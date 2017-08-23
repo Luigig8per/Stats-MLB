@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xdr:wsDr xmlns:xdr="http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>3</xdr:col>
+      <xdr:colOff>342900</xdr:colOff>
+      <xdr:row>9</xdr:row>
+      <xdr:rowOff>76200</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>4</xdr:col>
+      <xdr:colOff>787400</xdr:colOff>
+      <xdr:row>10</xdr:row>
+      <xdr:rowOff>152400</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="4" name="Pentagon 3" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="2819400" y="1600200" />
+          <a:ext cx="1816100" cy="266700" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent1">
+            <a:lumMod val="75000" />
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="ctr" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product 1</a:t>
+          </a:r>
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>4</xdr:col>
+      <xdr:colOff>1270000</xdr:colOff>
+      <xdr:row>12</xdr:row>
+      <xdr:rowOff>63500</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>8</xdr:col>
+      <xdr:colOff>25400</xdr:colOff>
+      <xdr:row>13</xdr:row>
+      <xdr:rowOff>152400</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="5" name="Pentagon 4" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="5118100" y="2159000" />
+          <a:ext cx="3886200" cy="279400" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent1">
+            <a:lumMod val="75000" />
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="ctr" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product</a:t>
+          </a:r>
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" baseline="0" />
+            <a:t> 2</a:t>
+          </a:r>
+          <a:endParaRPr lang="en-US" sz="1100" />
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>11</xdr:col>
+      <xdr:colOff>609600</xdr:colOff>
+      <xdr:row>15</xdr:row>
+      <xdr:rowOff>25400</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>11</xdr:col>
+      <xdr:colOff>1409700</xdr:colOff>
+      <xdr:row>15</xdr:row>
+      <xdr:rowOff>317500</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="6" name="Pentagon 5" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="14058900" y="2768600" />
+          <a:ext cx="800100" cy="292100" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent1">
+            <a:lumMod val="75000" />
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="l" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product</a:t>
+          </a:r>
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" baseline="0" />
+            <a:t> 3</a:t>
+          </a:r>
+          <a:endParaRPr lang="en-US" sz="1100" />
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>3</xdr:col>
+      <xdr:colOff>1320800</xdr:colOff>
+      <xdr:row>18</xdr:row>
+      <xdr:rowOff>152400</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>10</xdr:col>
+      <xdr:colOff>241300</xdr:colOff>
+      <xdr:row>20</xdr:row>
+      <xdr:rowOff>88900</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="7" name="Pentagon 6" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="3797300" y="3810000" />
+          <a:ext cx="8407400" cy="317500" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent3" />
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="ctr" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product 4</a:t>
+          </a:r>
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>9</xdr:col>
+      <xdr:colOff>355600</xdr:colOff>
+      <xdr:row>23</xdr:row>
+      <xdr:rowOff>88900</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>11</xdr:col>
+      <xdr:colOff>508000</xdr:colOff>
+      <xdr:row>24</xdr:row>
+      <xdr:rowOff>215900</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="8" name="Pentagon 7" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="10871200" y="4699000" />
+          <a:ext cx="3086100" cy="317500" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent3" />
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="ctr" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product 5</a:t>
+          </a:r>
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>4</xdr:col>
+      <xdr:colOff>406400</xdr:colOff>
+      <xdr:row>27</xdr:row>
+      <xdr:rowOff>50800</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>5</xdr:col>
+      <xdr:colOff>939800</xdr:colOff>
+      <xdr:row>28</xdr:row>
+      <xdr:rowOff>177800</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="9" name="Pentagon 8" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="4254500" y="5765800" />
+          <a:ext cx="1866900" cy="317500" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:srgbClr val="FF6600" />
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="ctr" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product 6</a:t>
+          </a:r>
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>6</xdr:col>
+      <xdr:colOff>1016000</xdr:colOff>
+      <xdr:row>32</xdr:row>
+      <xdr:rowOff>114300</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>8</xdr:col>
+      <xdr:colOff>304800</xdr:colOff>
+      <xdr:row>33</xdr:row>
+      <xdr:rowOff>241300</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="10" name="Pentagon 9" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="7416800" y="6972300" />
+          <a:ext cx="1866900" cy="317500" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:srgbClr val="FF6600" />
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="ctr" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product 7</a:t>
+          </a:r>
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>7</xdr:col>
+      <xdr:colOff>1384300</xdr:colOff>
+      <xdr:row>36</xdr:row>
+      <xdr:rowOff>177800</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>11</xdr:col>
+      <xdr:colOff>25400</xdr:colOff>
+      <xdr:row>38</xdr:row>
+      <xdr:rowOff>114300</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="12" name="Pentagon 11" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="8877300" y="8140700" />
+          <a:ext cx="4597400" cy="317500" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent2">
+            <a:lumMod val="75000" />
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="ctr" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product</a:t>
+          </a:r>
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" baseline="0" />
+            <a:t> 8</a:t>
+          </a:r>
+          <a:endParaRPr lang="en-US" sz="1100" />
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor>
+    <xdr:from>
+      <xdr:col>10</xdr:col>
+      <xdr:colOff>1371600</xdr:colOff>
+      <xdr:row>41</xdr:row>
+      <xdr:rowOff>101600</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>11</xdr:col>
+      <xdr:colOff>685800</xdr:colOff>
+      <xdr:row>42</xdr:row>
+      <xdr:rowOff>203200</xdr:rowOff>
+    </xdr:to>
+    <xdr:sp macro="" textlink="">
+      <xdr:nvSpPr>
+        <xdr:cNvPr id="13" name="Pentagon 12" />
+        <xdr:cNvSpPr />
+      </xdr:nvSpPr>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="13335000" y="9017000" />
+          <a:ext cx="800100" cy="292100" />
+        </a:xfrm>
+        <a:prstGeom prst="homePlate">
+          <a:avLst />
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent2">
+            <a:lumMod val="75000" />
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln>
+          <a:noFill />
+        </a:ln>
+        <a:effectLst />
+      </xdr:spPr>
+      <xdr:style>
+        <a:lnRef idx="1">
+          <a:schemeClr val="accent1" />
+        </a:lnRef>
+        <a:fillRef idx="3">
+          <a:schemeClr val="accent1" />
+        </a:fillRef>
+        <a:effectRef idx="2">
+          <a:schemeClr val="accent1" />
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1" />
+        </a:fontRef>
+      </xdr:style>
+      <xdr:txBody>
+        <a:bodyPr vertOverflow="clip" horzOverflow="clip" rtlCol="0" anchor="t" />
+        <a:lstStyle />
+        <a:p>
+          <a:pPr algn="l" />
+          <a:r>
+            <a:rPr lang="en-US" sz="1100" />
+            <a:t>Product 9</a:t>
+          </a:r>
+        </a:p>
+      </xdr:txBody>
+    </xdr:sp>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor editAs="oneCell">
+    <xdr:from>
+      <xdr:col>10</xdr:col>
+      <xdr:colOff>398744</xdr:colOff>
+      <xdr:row>1</xdr:row>
+      <xdr:rowOff>33868</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>11</xdr:col>
+      <xdr:colOff>1574800</xdr:colOff>
+      <xdr:row>3</xdr:row>
+      <xdr:rowOff>158199</xdr:rowOff>
+    </xdr:to>
+    <xdr:pic>
+      <xdr:nvPicPr>
+        <xdr:cNvPr id="16" name="Picture 15" />
+        <xdr:cNvPicPr>
+          <a:picLocks noChangeAspect="1" />
+        </xdr:cNvPicPr>
+      </xdr:nvPicPr>
+      <xdr:blipFill>
+        <a:blip xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:embed="rId1" />
+        <a:stretch>
+          <a:fillRect />
+        </a:stretch>
+      </xdr:blipFill>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="12404477" y="220135" />
+          <a:ext cx="2666190" cy="598464" />
+        </a:xfrm>
+        <a:prstGeom prst="rect">
+          <a:avLst />
+        </a:prstGeom>
+      </xdr:spPr>
+    </xdr:pic>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+  <xdr:twoCellAnchor editAs="oneCell">
+    <xdr:from>
+      <xdr:col>2</xdr:col>
+      <xdr:colOff>134271</xdr:colOff>
+      <xdr:row>54</xdr:row>
+      <xdr:rowOff>101600</xdr:rowOff>
+    </xdr:from>
+    <xdr:to>
+      <xdr:col>11</xdr:col>
+      <xdr:colOff>266700</xdr:colOff>
+      <xdr:row>76</xdr:row>
+      <xdr:rowOff>50800</xdr:rowOff>
+    </xdr:to>
+    <xdr:pic>
+      <xdr:nvPicPr>
+        <xdr:cNvPr id="17" name="Picture 16" />
+        <xdr:cNvPicPr>
+          <a:picLocks noChangeAspect="1" />
+        </xdr:cNvPicPr>
+      </xdr:nvPicPr>
+      <xdr:blipFill>
+        <a:blip xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:embed="rId2" />
+        <a:stretch>
+          <a:fillRect />
+        </a:stretch>
+      </xdr:blipFill>
+      <xdr:spPr>
+        <a:xfrm>
+          <a:off x="1785271" y="11938000" />
+          <a:ext cx="11930729" cy="4140200" />
+        </a:xfrm>
+        <a:prstGeom prst="rect">
+          <a:avLst />
+        </a:prstGeom>
+      </xdr:spPr>
+    </xdr:pic>
+    <xdr:clientData />
+  </xdr:twoCellAnchor>
+</xdr:wsDr>
