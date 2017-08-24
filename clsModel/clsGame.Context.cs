@@ -13,10 +13,10 @@ namespace clsModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DonBestEntities1 : DbContext
+    public partial class DonBestEntities : DbContext
     {
-        public DonBestEntities1()
-            : base("name=DonBestEntities1")
+        public DonBestEntities()
+            : base("name=DonBestEntities")
         {
         }
     
