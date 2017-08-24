@@ -10,10 +10,6 @@ warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key 
         <EntityType Name="mlb_game">
           <Key>
             <PropertyRef Name="game_id" />
-            <PropertyRef Name="game_serie_id" />
-            <PropertyRef Name="game_id_team_home" />
-            <PropertyRef Name="game_id_team_away" />
-            <PropertyRef Name="game_name_team_away" />
           </Key>
           <Property Name="game_date" Type="datetime" />
           <Property Name="game_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -56,10 +52,6 @@ warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key 
         <EntityType Name="mlb_game">
           <Key>
             <PropertyRef Name="game_id" />
-            <PropertyRef Name="game_serie_id" />
-            <PropertyRef Name="game_id_team_home" />
-            <PropertyRef Name="game_id_team_away" />
-            <PropertyRef Name="game_name_team_away" />
           </Key>
           <Property Name="game_date" Type="DateTime" Precision="3" />
           <Property Name="game_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
