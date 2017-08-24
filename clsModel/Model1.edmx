@@ -4,16 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ModelsMLB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+      <Schema Namespace="DonBestEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="mlb_game">
           <Key>
             <PropertyRef Name="game_id" />
-            <PropertyRef Name="game_serie_id" />
-            <PropertyRef Name="game_id_team_home" />
-            <PropertyRef Name="game_id_team_away" />
-            <PropertyRef Name="game_name_team_away" />
           </Key>
           <Property Name="game_date" Type="datetime" />
           <Property Name="game_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -28,38 +22,17 @@ warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key 
           <Property Name="game_pitcher_home_ERA" Type="float" />
           <Property Name="game_pitcher_away_ERA" Type="float" />
         </EntityType>
-        <EntityContainer Name="ModelsMLBStoreContainer">
-          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [mlb_game].[game_date] AS [game_date], 
-    [mlb_game].[game_id] AS [game_id], 
-    [mlb_game].[game_serie_id] AS [game_serie_id], 
-    [mlb_game].[game_number] AS [game_number], 
-    [mlb_game].[game_id_team_home] AS [game_id_team_home], 
-    [mlb_game].[game_id_team_away] AS [game_id_team_away], 
-    [mlb_game].[game_name_team_home] AS [game_name_team_home], 
-    [mlb_game].[game_name_team_away] AS [game_name_team_away], 
-    [mlb_game].[game_name_pitcher_home] AS [game_name_pitcher_home], 
-    [mlb_game].[game_name_pitcher_away] AS [game_name_pitcher_away], 
-    [mlb_game].[game_pitcher_home_ERA] AS [game_pitcher_home_ERA], 
-    [mlb_game].[game_pitcher_away_ERA] AS [game_pitcher_away_ERA]
-    FROM [dbo].[mlb_game] AS [mlb_game]</DefiningQuery>
-          </EntitySet>
+        <EntityContainer Name="DonBestEntitiesStoreContainer">
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ModelsMLB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="DonBestEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="mlb_game" EntityType="ModelsMLB.mlb_game" />
-        </EntityContainer>
+      <Schema Namespace="DonBestEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="mlb_game">
           <Key>
             <PropertyRef Name="game_id" />
-            <PropertyRef Name="game_serie_id" />
-            <PropertyRef Name="game_id_team_home" />
-            <PropertyRef Name="game_id_team_away" />
-            <PropertyRef Name="game_name_team_away" />
           </Key>
           <Property Name="game_date" Type="DateTime" Precision="3" />
           <Property Name="game_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
@@ -68,33 +41,36 @@ warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key 
           <Property Name="game_id_team_home" Type="Int32" Nullable="false" />
           <Property Name="game_id_team_away" Type="Int32" Nullable="false" />
           <Property Name="game_name_team_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="game_name_team_away" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_team_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="game_name_pitcher_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="game_name_pitcher_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="game_pitcher_home_ERA" Type="Double" />
           <Property Name="game_pitcher_away_ERA" Type="Double" />
         </EntityType>
+        <EntityContainer Name="DonBestEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelsMLBStoreContainer" CdmEntityContainer="DonBestEntities">
+        <EntityContainerMapping StorageEntityContainer="DonBestEntitiesStoreContainer" CdmEntityContainer="DonBestEntities1">
           <EntitySetMapping Name="mlb_game">
-            <EntityTypeMapping TypeName="ModelsMLB.mlb_game">
+            <EntityTypeMapping TypeName="DonBestEntities.mlb_game">
               <MappingFragment StoreEntitySet="mlb_game">
-                <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
-                <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
-                <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
-                <ScalarProperty Name="game_name_pitcher_home" ColumnName="game_name_pitcher_home" />
-                <ScalarProperty Name="game_name_team_away" ColumnName="game_name_team_away" />
-                <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
-                <ScalarProperty Name="game_id_team_away" ColumnName="game_id_team_away" />
-                <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
-                <ScalarProperty Name="game_number" ColumnName="game_number" />
-                <ScalarProperty Name="game_serie_id" ColumnName="game_serie_id" />
-                <ScalarProperty Name="game_id" ColumnName="game_id" />
                 <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="game_id" ColumnName="game_id" />
+                <ScalarProperty Name="game_serie_id" ColumnName="game_serie_id" />
+                <ScalarProperty Name="game_number" ColumnName="game_number" />
+                <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
+                <ScalarProperty Name="game_id_team_away" ColumnName="game_id_team_away" />
+                <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
+                <ScalarProperty Name="game_name_team_away" ColumnName="game_name_team_away" />
+                <ScalarProperty Name="game_name_pitcher_home" ColumnName="game_name_pitcher_home" />
+                <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
+                <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
+                <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

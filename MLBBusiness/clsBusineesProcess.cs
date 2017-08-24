@@ -7,6 +7,7 @@ using MLBData;
 using clsModel;
 
 
+
 namespace MLBBusiness
 {
     public class clsBusineesProcess
@@ -17,7 +18,7 @@ namespace MLBBusiness
             int res=0;
 
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (DonBestEntities1 context = new DonBestEntities1())
 
 
 
@@ -55,7 +56,7 @@ namespace MLBBusiness
 
         public void selectTeam()
         {
-            using (DonBestEntities context = new DonBestEntities())
+            using (DonBestEntities1 context = new DonBestEntities1())
             {
 
                 mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.game_id == 1);
@@ -69,7 +70,7 @@ namespace MLBBusiness
 
         public void updateTeam()
         {
-            using (DonBestEntities context = new DonBestEntities())
+            using (DonBestEntities1 context = new DonBestEntities1())
 
             {
                 mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.game_id == 1);
@@ -83,7 +84,7 @@ namespace MLBBusiness
         }
         public void insertNewTeam()
         {
-            using (DonBestEntities context = new DonBestEntities())
+            using (DonBestEntities1 context = new DonBestEntities1())
             {
 
 
@@ -113,7 +114,7 @@ namespace MLBBusiness
 
         public void deleteTeam()
         {
-            using (DonBestEntities context = new DonBestEntities())
+            using (DonBestEntities1 context = new DonBestEntities1())
             {
                 mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.game_id == 1);
                 context.mlb_game.Remove(theMlbGame);
