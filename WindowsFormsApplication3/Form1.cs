@@ -34,31 +34,31 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void comboChange(ComboBox comboBox1)
         {
 
-         
+
             switch (comboBox1.SelectedIndex)
 
-            { 
+            {
 
                 case 0:
 
-                    dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/standings/_/group/overall",1,0, "standings has - team - logos");
+                    dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/standings/_/group/overall", 1, 0, "standings has - team - logos");
                     break;
 
                 case 1:
                     DataTable data1 = new DataTable();
                     DataTable data2 = new DataTable();
 
-                 
 
 
-                    data1= clsConvert.convertHtml("http://www.espn.com/mlb/standings",1,1, "standings has - team - logos");
-                    data2= clsConvert.convertHtml("http://www.espn.com/mlb/standings",2,1, "standings has - team - logos");
 
-                   
-                        data1.Merge(data2);
+                    data1 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 1, 1, "standings has - team - logos");
+                    data2 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 2, 1, "standings has - team - logos");
+
+
+                    data1.Merge(data2);
 
 
                     dataGridView1.DataSource = data1;
@@ -73,7 +73,12 @@ namespace WindowsFormsApplication1
 
             }
 
-           
+
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
 
 
@@ -290,26 +295,31 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
 
-        //Extract Pitcher stats:
-
-        //http://m.mlb.com/player/607074/carlos-rodon
-        //http://m.mlb.com/player/622072/alex-wood
-        //http://m.mlb.com/player/489119/wade-miley
-        //http://m.mlb.com/player/605182/mike-clevinger
+       
 
 
-        ////http://www.espn.com/mlb/team/schedule FROM schedule: http://www.espn.com/mlb/schedule/_/date/20170821
+        }
 
-        ////http://m.mlb.com/player/607074/carlos-rodon from  http://mlb.mlb.com/mlb/schedule/index.jsp#date=08/21/2017 
+        public void extractPitcherStats()
+        {
+            //Extract Pitcher stats:
 
-        //http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/mlb/players/player116570.html from http://www.covers.com/sports/mlb/matchups
+            //http://m.mlb.com/player/607074/carlos-rodon
+            //http://m.mlb.com/player/622072/alex-wood
+            //http://m.mlb.com/player/489119/wade-miley
+            //http://m.mlb.com/player/605182/mike-clevinger
 
-            
+
+            ////http://www.espn.com/mlb/team/schedule FROM schedule: http://www.espn.com/mlb/schedule/_/date/20170821
+
+            ////http://m.mlb.com/player/607074/carlos-rodon from  http://mlb.mlb.com/mlb/schedule/index.jsp#date=08/21/2017 
+
+            //http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/mlb/players/player116570.html from http://www.covers.com/sports/mlb/matchups
+
+
             dataGridView1.DataSource = clsConvert.convertHtml("http://m.mlb.com/player/607074/carlos-rodon", 1, 0, "tablehead");
 
-        //http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/mlb/players/player114276.html
-
-
+            //http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/mlb/players/player114276.html
         }
 
         private DataTable extractPitchersStats()
@@ -353,11 +363,16 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = extractPitchersStats();
+           
 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
