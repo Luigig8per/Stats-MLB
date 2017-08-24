@@ -25,21 +25,8 @@ warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key 
           <Property Name="game_pitcher_away_ERA" Type="float" />
         </EntityType>
         <EntityContainer Name="ModelsMLBStoreContainer">
-          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [mlb_game].[game_date] AS [game_date], 
-    [mlb_game].[game_id] AS [game_id], 
-    [mlb_game].[game_serie_id] AS [game_serie_id], 
-    [mlb_game].[game_number] AS [game_number], 
-    [mlb_game].[game_id_team_home] AS [game_id_team_home], 
-    [mlb_game].[game_id_team_away] AS [game_id_team_away], 
-    [mlb_game].[game_name_team_home] AS [game_name_team_home], 
-    [mlb_game].[game_name_team_away] AS [game_name_team_away], 
-    [mlb_game].[game_name_pitcher_home] AS [game_name_pitcher_home], 
-    [mlb_game].[game_name_pitcher_away] AS [game_name_pitcher_away], 
-    [mlb_game].[game_pitcher_home_ERA] AS [game_pitcher_home_ERA], 
-    [mlb_game].[game_pitcher_away_ERA] AS [game_pitcher_away_ERA]
-    FROM [dbo].[mlb_game] AS [mlb_game]</DefiningQuery>
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" store:Type="Tables" Schema="dbo">
+          
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
