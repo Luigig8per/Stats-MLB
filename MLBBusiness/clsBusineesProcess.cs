@@ -19,23 +19,29 @@ namespace MLBBusiness
 
             using (DonBestEntities context = new DonBestEntities())
 
+
+
             {
-                Console.WriteLine("Home team = " + theGame.game_name_team_home);
-                Console.WriteLine("Away team = " + theGame.game_name_team_away);
-                Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
-                Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
+
+                //var query = context.mlb_game;
+                //Console.WriteLine(query.ToString());
+
+                //Console.WriteLine("Home team = " + theGame.game_name_team_home);
+                //Console.WriteLine("Away team = " + theGame.game_name_team_away);
+                //Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
+                //Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
 
                 try
                 {
 
                     context.mlb_game.Add(theGame);
-                    res =     context.SaveChanges();
+                    res = context.SaveChanges();
                 }
                 catch (Exception ex)
 
                 {
                     Console.WriteLine("Error" + ex.Message);
-                   
+
 
                 }
 

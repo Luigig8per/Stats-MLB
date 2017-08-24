@@ -4,11 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="04d43c572ef54fb0ab1bc67dac37f652" Name="Diagram1">
-        <EntityTypeShape EntityType="ModelsMLB.mlb_game" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelsMLB.mlb_pitcher" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelsMLB.mlb_serie" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelsMLB.mlb_team" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="04d43c572ef54fb0ab1bc67dac37f652" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="ModelsMLB.mlb_game" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

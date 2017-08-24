@@ -152,7 +152,7 @@ namespace WindowsFormsApplication1
 
 
         }
-        mlb_game addGameFromESPNProbables(DataRow row, mlb_game theGame)
+        mlb_game addGameFromESPNProbables(DataRow row, mlb_game theGame, DateTime theDate)
         {
             //string pitchers = "", lineText = "";
             int indexNum;
@@ -164,7 +164,9 @@ namespace WindowsFormsApplication1
             
 
             if (rowText.Contains(" at "))
-            { 
+            {
+                theGame.game_date = theDate;
+
             theGame.game_name_team_home = rowText.Substring(0,indexNum);
             theGame.game_name_team_away = rowText.Substring(indexNum+4, rowText.Length-indexNum-4);
                 //theGame.game_date = row["Win"].ToString();
@@ -232,6 +234,19 @@ namespace WindowsFormsApplication1
             //http://www.espn.com/mlb/probables/_/date/20170824
         }
 
+        DateTime dateUrl(string day)
+        {
+            DateTime datePage = new DateTime();
+
+            
+
+                datePage= DateTime.ParseExact(day, "yyyyMMdd",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+
+            return datePage;
+
+        }
+
         
 
         public List<String> addGame(string urlSource, string tableClass)
@@ -240,7 +255,7 @@ namespace WindowsFormsApplication1
             clsModel.mlb_game theGame = new mlb_game();
             List<String> theList = new List<String>();
 
-
+            clsBusineesProcess theBusiness = new clsBusineesProcess();
             gamesTable = clsConvert.convertHtml("http://www.espn.com/mlb/probables/_/date/" + urlSource , 1, 0, tableClass);
             dataGridView1.DataSource = gamesTable;
 
@@ -250,11 +265,11 @@ namespace WindowsFormsApplication1
               
                
                 //theGame.game_date = 
-                theGame = addGameFromESPNProbables(row, theGame);
+                theGame = addGameFromESPNProbables(row, theGame,dateUrl(urlSource) );
               
                 if (!Equals(theGame.game_name_pitcher_away, null))
                 {
-                    clsBusineesProcess theBusiness = new clsBusineesProcess();
+                   
                     theBusiness.insertGame(theGame);
                     theList.Add("[" + urlSource + "] :" + theGame.game_name_team_home + " vs " +  theGame.game_name_team_away + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA +" vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA );
 
