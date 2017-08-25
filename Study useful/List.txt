@@ -1,0 +1,1 @@
+http://www.entityframeworktutorial.net/EntityFramework5/CRUD-using-stored-procedures.aspx

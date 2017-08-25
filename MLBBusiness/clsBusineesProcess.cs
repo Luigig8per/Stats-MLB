@@ -44,6 +44,8 @@ namespace MLBBusiness
             }
         }
 
+
+
         public void updatetGame(mlb_game theGame)
         {
             int res = 0;
@@ -97,15 +99,26 @@ namespace MLBBusiness
                 try
                 {
 
-                    var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_pitcher_away == theGame.game_name_pitcher_away);
-                    var gameFound = L2EQuery.FirstOrDefault<mlb_game>(); 
-                    
+                    var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_pitcher_away == theGame.game_name_pitcher_away && g.game_name_pitcher_home == theGame.game_name_pitcher_home && g.game_pitcher_away_ERA == theGame.game_pitcher_away_ERA && g.game_pitcher_home_ERA == theGame.game_pitcher_home_ERA );
+                    var gameFound = L2EQuery.FirstOrDefault<mlb_game>();
+
                     if (gameFound == null)
                     {
+
+                         
                         insertGame(theGame);
+
+                    
+
+
 
                     }
                     else
+
+                    {
+                        updatetGame(gameFound);
+
+                    }
 
                     //if (gameFound i)  
 
