@@ -67,6 +67,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>clsGame.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFExtensions.cs" />
     <Compile Include="mlb_game.cs">
       <DependentUpon>clsGame.tt</DependentUpon>
     </Compile>

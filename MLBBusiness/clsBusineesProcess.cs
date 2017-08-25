@@ -23,13 +23,12 @@ namespace MLBBusiness
 
             {
 
-                //var query = context.mlb_game;
-                //Console.WriteLine(query.ToString());
 
-                //Console.WriteLine("Home team = " + theGame.game_name_team_home);
-                //Console.WriteLine("Away team = " + theGame.game_name_team_away);
-                //Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
-                //Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
+
+                Console.WriteLine("Home team = " + theGame.game_name_team_home);
+                Console.WriteLine("Away team = " + theGame.game_name_team_away);
+                Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
+                Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
 
                 try
                 {
