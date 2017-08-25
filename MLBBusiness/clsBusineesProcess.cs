@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MLBData;
 using clsModel;
-
+using System.Data.Entity;
 
 namespace MLBBusiness
 {
@@ -16,16 +16,11 @@ namespace MLBBusiness
         {
             int res=0;
 
-
             using (DonBestEntities context = new DonBestEntities())
-
-
 
             {
 
-
-
-                Console.WriteLine("Home team = " + theGame.game_name_team_home);
+              Console.WriteLine("Home team = " + theGame.game_name_team_home);
                 Console.WriteLine("Away team = " + theGame.game_name_team_away);
                 Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
                 Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
@@ -46,11 +41,91 @@ namespace MLBBusiness
 
                 Console.WriteLine(res);
 
+            }
+        }
+
+        public void updatetGame(mlb_game theGame)
+        {
+            int res = 0;
+
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+                Console.WriteLine("Home team = " + theGame.game_name_team_home);
+                Console.WriteLine("Away team = " + theGame.game_name_team_away);
+                Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
+                Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
+
+                try
+                {
+
+                    //context.mlb_game.
+                    //res = context.SaveChanges();
+                }
+                catch (Exception ex)
+
+                {
+                    Console.WriteLine("Error" + ex.Message);
 
 
+                }
+
+                Console.WriteLine(res);
 
             }
         }
+
+        public void queryExists()
+        {
+
+        }
+
+        public void upsertGame(mlb_game theGame)
+        {
+            int res = 0;
+
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+                Console.WriteLine("Home team = " + theGame.game_name_team_home);
+                Console.WriteLine("Away team = " + theGame.game_name_team_away);
+                Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
+                Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
+
+                try
+                {
+
+                    var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_pitcher_away == theGame.game_name_pitcher_away);
+                    var gameFound = L2EQuery.FirstOrDefault<mlb_game>(); 
+                    
+                    if (gameFound == null)
+                    {
+                        insertGame(theGame);
+
+                    }
+                    else
+
+                    //if (gameFound i)  
+
+                    //context.mlb_game.
+                    res = context.SaveChanges();
+                }
+                catch (Exception ex)
+
+                {
+                    Console.WriteLine("Error" + ex.Message);
+
+
+                }
+
+                Console.WriteLine(res);
+
+            }
+        }
+
+
 
         public void selectTeam()
         {
