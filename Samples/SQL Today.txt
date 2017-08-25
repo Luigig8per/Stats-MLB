@@ -1,0 +1,228 @@
+game_id	game_date	game_serie_id	game_number	game_id_team_home	game_id_team_away	game_name_team_home	game_name_team_away	game_name_pitcher_home	game_name_pitcher_away	game_pitcher_home_ERA	game_pitcher_away_ERA
+1	2017-08-25 19:05:00.000	1	20	20	20	Seattle Mariners	New York Yankees	A. Miranda (L)	C. Sabathia (L)	6.19000005722046	5.67999982833862
+2	2017-08-25 19:05:00.000	1	20	20	20	New York Mets	Washington Nationals	J. deGrom (R)	A. Cole (R)	4.07000017166138	5.73000001907349
+3	2017-08-25 19:05:00.000	1	20	20	20	Chicago Cubs	Philadelphia Phillies	J. Quintana (L)	J. Eickhoff (R)	2.36999988555908	3.82999992370605
+4	2017-08-25 19:07:00.000	1	20	20	20	Minnesota Twins	Toronto Blue Jays	B. Colon (R)	J. Happ (L)	2.95000004768372	3.58999991416931
+5	2017-08-25 19:10:00.000	1	20	20	20	Baltimore Orioles	Boston Red Sox	J. Hellickson (R)	R. Porcello (R)	7.3600001335144	4.8899998664856
+6	2017-08-25 19:10:00.000	1	20	20	20	Kansas City Royals	Cleveland Indians	J. Vargas (L)	R. Merritt (L)	3.61999988555908	0
+7	2017-08-25 19:10:00.000	1	20	20	20	Pittsburgh Pirates	Cincinnati Reds	I. Nova (R)	R. Stephenson (R)	4.51999998092651	5.78999996185303
+8	2017-08-25 19:10:00.000	1	20	20	20	San Diego Padres	Miami Marlins	T. Wood (L)	A. Conley (L)	8.10000038146973	7.51999998092651
+9	2017-08-25 19:35:00.000	1	20	20	20	Colorado Rockies	Atlanta Braves	C. Bettis (R)	J. Teheran (R)	0	6.98000001907349
+10	2017-08-25 20:10:00.000	1	20	20	20	Detroit Tigers	Chicago White Sox	J. Verlander (R)	M. Gonzalez (R)	5.23999977111816	3.30999994277954
+11	2017-08-25 20:15:00.000	1	20	20	20	Tampa Bay Rays	St. Louis Cardinals	J. Odorizzi (R)	M. Wacha (R)	4.03999996185303	2.99000000953674
+12	2017-08-25 21:40:00.000	1	20	20	20	San Francisco Giants	Arizona Diamondbacks	T. Blach (L)	Z. Greinke (R)	5.5	2.33999991416931
+13	2017-08-25 22:05:00.000	1	20	20	20	Texas Rangers	Oakland Athletics	N. Martinez (R)	K. Graveman (R)	5.86999988555908	2.97000002861023
+14	2017-08-25 22:07:00.000	1	20	20	20	Houston Astros	Los Angeles Angels	C. McHugh (R)	P. Bridwell (R)	5.82000017166138	3.73000001907349
+15	2017-08-25 22:10:00.000	1	20	20	20	Milwaukee Brewers	Los Angeles Dodgers	C. Anderson (R)	K. Maeda (R)	3.59999990463257	3.1800000667572
+16	2017-08-26 13:05:00.000	1	20	20	20	Seattle Mariners	New York Yankees	Y. Gallardo (R)	S. Gray (R)	5.03999996185303	3.0699999332428
+17	2017-08-26 13:07:00.000	1	20	20	20	Minnesota Twins	Toronto Blue Jays	D. Gee (R)	M. Estrada (R)	4.5	4.76000022888184
+18	2017-08-26 16:05:00.000	1	20	20	20	Baltimore Orioles	Boston Red Sox	K. Gausman (R)	E. Rodriguez (L)	5.51000022888184	3.78999996185303
+19	2017-08-26 16:05:00.000	1	20	20	20	Texas Rangers	Oakland Athletics	C. Hamels (L)	S. Manaea (L)	3.80999994277954	4.67999982833862
+20	2017-08-26 16:05:00.000	1	20	20	20	New York Mets	Washington Nationals	R. Gsellman (R)	G. Gonzalez (L)	7.84999990463257	1.78999996185303
+21	2017-08-26 18:40:00.000	1	20	20	20	Pittsburgh Pirates	Cincinnati Reds	G. Cole (R)	L. Castillo (R)	4.09999990463257	4.5
+22	2017-08-26 19:05:00.000	1	20	20	20	Chicago Cubs	Philadelphia Phillies	K. Hendricks (R)	B. Lively (R)	3.46000003814697	3.1800000667572
+23	2017-08-26 19:10:00.000	1	20	20	20	Detroit Tigers	Chicago White Sox	B. Farmer (R)	C. Rodon (L)	0	3.02999997138977
+24	2017-08-26 19:10:00.000	1	20	20	20	Colorado Rockies	Atlanta Braves	K. Freeland (L)	S. Newcomb (L)	4.21999979019165	4.42999982833862
+25	2017-08-26 19:10:00.000	1	20	20	20	San Diego Padres	Miami Marlins	D. Lamet (R)	O. Despaigne (R)	5.71999979019165	0
+26	2017-08-26 19:15:00.000	1	20	20	20	Kansas City Royals	Cleveland Indians	J. Hammel (R)	M. Clevinger (R)	4.86999988555908	5.44999980926514
+27	2017-08-26 19:15:00.000	1	20	20	20	Tampa Bay Rays	St. Louis Cardinals	B. Snell (L)	M. Leake (R)	5.07000017166138	3.44000005722046
+28	2017-08-26 20:10:00.000	1	20	20	20	San Francisco Giants	Arizona Diamondbacks	M. Bumgarner (L)	T. Walker (R)	2.84999990463257	4.42000007629395
+29	2017-08-26 21:07:00.000	1	20	20	20	Houston Astros	Los Angeles Angels	B. Peacock (R)	T. Skaggs (L)	3.09999990463257	5.90999984741211
+30	2017-08-26 21:10:00.000	1	20	20	20	Milwaukee Brewers	Los Angeles Dodgers	Z. Davies (R)	R. Stripling (R)	2.32999992370605	2.75999999046326
+31	2017-08-27 13:05:00.000	1	20	20	20	Seattle Mariners	New York Yankees	A. Albers (L)	M. Tanaka (R)	5.40000009536743	4.03000020980835
+32	2017-08-27 13:07:00.000	1	20	20	20	Minnesota Twins	Toronto Blue Jays	K. Gibson (R)	N. Tepesch (R)	4.82999992370605	5.25
+33	2017-08-27 13:10:00.000	1	20	20	20	Kansas City Royals	Cleveland Indians	D. Duffy (L)	C. Carrasco (R)	4.30000019073486	5.13000011444092
+34	2017-08-27 13:10:00.000	1	20	20	20	Pittsburgh Pirates	Cincinnati Reds	J. Taillon (R)	H. Bailey (R)	4.09000015258789	12.1000003814697
+35	2017-08-27 13:10:00.000	1	20	20	20	San Diego Padres	Miami Marlins	C. Richard (L)	D. Straily (R)	4.82000017166138	3.00999999046326
+36	2017-08-27 13:35:00.000	1	20	20	20	Baltimore Orioles	Boston Red Sox	C. Tillman (R)	D. Fister (R)	11.8599996566772	5.17000007629395
+37	2017-08-27 13:35:00.000	1	20	20	20	Colorado Rockies	Atlanta Braves	J. Gray (R)	M. Foltynewicz (R)	5.71999979019165	4.07999992370605
+38	2017-08-27 13:35:00.000	1	20	20	20	Chicago Cubs	Philadelphia Phillies	J. Lackey (R)	A. Nola (R)	5.25	3.38000011444092
+39	2017-08-27 13:35:00.000	1	20	20	20	New York Mets	Washington Nationals	T. Milone (L)	T. Roark (R)	5.17000007629395	5.1100001335144
+40	2017-08-27 14:10:00.000	1	20	20	20	Detroit Tigers	Chicago White Sox	M. Boyd (L)	L. Giolito (R)	6.07999992370605	6
+41	2017-08-27 14:15:00.000	1	20	20	20	Tampa Bay Rays	St. Louis Cardinals	C. Archer (R)	L. Lynn (R)	4.26000022888184	2.90000009536743
+42	2017-08-27 15:37:00.000	1	20	20	20	Houston Astros	Los Angeles Angels	C. Morton (R)	R. Nolasco (R)	4.19000005722046	4.90000009536743
+43	2017-08-27 16:05:00.000	1	20	20	20	Texas Rangers	Oakland Athletics	A. Griffin (R)	J. Cotton (R)	4.75	7.71000003814697
+44	2017-08-27 16:10:00.000	1	20	20	20	Milwaukee Brewers	Los Angeles Dodgers	J. Nelson (R)	Y. Darvish (R)	4.30000019073486	4.5
+45	2017-08-27 16:10:00.000	1	20	20	20	San Francisco Giants	Arizona Diamondbacks	C. Stratton (R)	P. Corbin (L)	2.75999999046326	2.86999988555908
+46	2017-08-27 20:00:00.000	1	20	20	20	New York Mets	Washington Nationals	S. Lugo (R)	E. Fedde (R)	5.65000009536743	15.75
+47	2017-08-28 19:00:00.000	1	20	20	20	Cleveland Indians	New York Yankees	C. Kluber (R)	L. Severino (R)	3.50999999046326	4.1399998664856
+48	2017-08-28 19:05:00.000	1	20	20	20	Seattle Mariners	Baltimore Orioles	M. Gonzales (L)	W. Miley (L)	7.26999998092651	4.75
+49	2017-08-28 19:05:00.000	1	20	20	20	Miami Marlins	Washington Nationals	J. Urena (R)	E. Jackson (R)	4.05000019073486	2.5
+50	2017-08-28 19:05:00.000	1	20	20	20	Atlanta Braves	Philadelphia Phillies	L. Sims (R)	N. Pivetta (R)	5.23000001907349	5.65000009536743
+51	2017-08-28 19:07:00.000	1	20	20	20	Boston Red Sox	Toronto Blue Jays	D. Pomeranz (L)	M. Stroman (R)	3.08999991416931	2.63000011444092
+52	2017-08-28 20:05:00.000	1	20	20	20	Pittsburgh Pirates	Chicago Cubs	T. Williams (R)	M. Montgomery (L)	4.84999990463257	3.6800000667572
+53	2017-08-28 20:15:00.000	1	20	20	20	Tampa Bay Rays	Kansas City Royals	A. Pruitt (R)	I. Kennedy (R)	5.65000009536743	5.96999979019165
+54	2017-08-28 20:40:00.000	1	20	20	20	Detroit Tigers	Colorado Rockies	J. Zimmermann (R)	A. Senzatela (R)	5.75	4.67000007629395
+55	2017-08-28 22:07:00.000	1	20	20	20	Oakland Athletics	Los Angeles Angels	C. Smith (R)	A. Heaney (L)	6.19999980926514	7.19999980926514
+56	2017-08-28 22:10:00.000	1	20	20	20	San Francisco Giants	San Diego Padres	J. Samardzija (R)	J. Chacin (R)	5.05000019073486	1.86000001430511
+57	2017-08-29 19:05:00.000	1	20	20	20	Seattle Mariners	Baltimore Orioles	E. Ramirez (R)	U. Jimenez (R)	5.8899998664856	6.82999992370605
+58	2017-08-29 19:05:00.000	1	20	20	20	Cleveland Indians	New York Yankees	T. Bauer (R)	J. Garcia (L)	5.5	4.76000022888184
+59	2017-08-29 19:05:00.000	1	20	20	20	Miami Marlins	Washington Nationals	J. Nicolino (L)	S. Strasburg (R)	9.52999973297119	4.13000011444092
+60	2017-08-29 19:05:00.000	1	20	20	20	Atlanta Braves	Philadelphia Phillies	R. Dickey (R)	M. Leiter Jr. (R)	4.59000015258789	1.33000004291534
+61	2017-08-29 19:07:00.000	1	20	20	20	Boston Red Sox	Toronto Blue Jays	C. Sale (L)	T. Koehler (R)	2.29999995231628	0
+62	2017-08-29 19:10:00.000	1	20	20	20	New York Mets	Cincinnati Reds	C. Flexen (R)	A. Wojciechowski (R)	8.18000030517578	4.84000015258789
+63	2017-08-29 19:40:00.000	1	20	20	20	St. Louis Cardinals	Milwaukee Brewers	A. Wainwright (R)	M. Garza (R)	7.42000007629395	3.6800000667572
+64	2017-08-29 20:05:00.000	1	20	20	20	Pittsburgh Pirates	Chicago Cubs	C. Kuhl (R)	J. Arrieta (R)	4.15999984741211	3.23000001907349
+65	2017-08-29 20:10:00.000	1	20	20	20	Chicago White Sox	Minnesota Twins	J. Shields (R)	E. Santana (R)	5.30000019073486	4.03999996185303
+66	2017-08-29 20:10:00.000	1	20	20	20	Texas Rangers	Houston Astros	A. Cashner (R)	M. Fiers (R)	4.5	3.45000004768372
+67	2017-08-29 20:15:00.000	1	20	20	20	Tampa Bay Rays	Kansas City Royals	A. Cobb (R)	J. Junis (R)	4.94000005722046	4.6399998664856
+68	2017-08-29 20:40:00.000	1	20	20	20	Detroit Tigers	Colorado Rockies	M. Fulmer (R)	G. Marquez (R)	3.88000011444092	4.5
+69	2017-08-29 21:40:00.000	1	20	20	20	Los Angeles Dodgers	Arizona Diamondbacks	R. Hill (L)	Z. Godley (R)	3.49000000953674	3.22000002861023
+70	2017-08-29 22:07:00.000	1	20	20	20	Oakland Athletics	Los Angeles Angels	P. Blackburn (R)	T. Scribner (R)	1.47000002861023	2.70000004768372
+71	2017-08-29 22:10:00.000	1	20	20	20	San Francisco Giants	San Diego Padres	M. Moore (L)	L. Perdomo (R)	6.71000003814697	5.09000015258789
+72	2017-08-30 13:05:00.000	1	20	20	20	Cleveland Indians	New York Yankees	R. Merritt (L)	C. Sabathia (L)	3.51999998092651	5.67999982833862
+73	2017-08-30 13:05:00.000	1	20	20	20	Atlanta Braves	Philadelphia Phillies	J. Teheran (R)	J. Eickhoff (R)	3.24000000953674	3.82999992370605
+74	2017-08-30 14:10:00.000	1	20	20	20	St. Louis Cardinals	Milwaukee Brewers	C. Martinez (R)	C. Anderson (R)	3.77999997138977	2.15000009536743
+75	2017-08-30 15:05:00.000	1	20	20	20	Seattle Mariners	Baltimore Orioles	A. Miranda (L)	D. Bundy (R)	6.19000005722046	3.86999988555908
+76	2017-08-30 15:10:00.000	1	20	20	20	Detroit Tigers	Colorado Rockies	J. Verlander (R)	C. Bettis (R)	5.23999977111816	1.92999994754791
+77	2017-08-30 16:05:00.000	1	20	20	20	Miami Marlins	Washington Nationals	V. Worley (R)	M. Scherzer (R)	4.03000020980835	2.76999998092651
+78	2017-08-30 19:07:00.000	1	20	20	20	Boston Red Sox	Toronto Blue Jays	R. Porcello (R)	J. Happ (L)	3.96000003814697	3.58999991416931
+79	2017-08-30 19:10:00.000	1	20	20	20	New York Mets	Cincinnati Reds	R. Montero (R)	S. Romano (R)	4.80000019073486	6.63000011444092
+80	2017-08-30 20:00:00.000	1	20	20	20	Texas Rangers	Houston Astros	M. Perez (L)	D. Keuchel (L)	4.88000011444092	1.35000002384186
+81	2017-08-30 20:05:00.000	1	20	20	20	Pittsburgh Pirates	Chicago Cubs	I. Nova (R)	J. Quintana (L)	4.51999998092651	4.90999984741211
+82	2017-08-30 20:10:00.000	1	20	20	20	Chicago White Sox	Minnesota Twins	D. Holland (L)	J. Berrios (R)	7.01999998092651	2.86999988555908
+83	2017-08-30 20:15:00.000	1	20	20	20	Tampa Bay Rays	Kansas City Royals	J. Odorizzi (R)	J. Vargas (L)	4.03999996185303	3.5699999332428
+84	2017-08-30 21:10:00.000	1	20	20	20	San Francisco Giants	San Diego Padres	T. Blach (L)	T. Wood (L)	5.5	2
+85	2017-08-30 21:40:00.000	1	20	20	20	Los Angeles Dodgers	Arizona Diamondbacks	H. Ryu (L)	R. Ray (L)	3.19000005722046	4.86999988555908
+86	2017-08-30 22:07:00.000	1	20	20	20	Oakland Athletics	Los Angeles Angels	D. Gossett (R)	P. Bridwell (R)	5.40000009536743	3.73000001907349
+87	2017-08-31 12:35:00.000	1	20	20	20	New York Mets	Cincinnati Reds	J. deGrom (R)	R. Stephenson (R)	4.07000017166138	5.78999996185303
+88	2017-08-31 13:10:00.000	1	20	20	20	Chicago White Sox	Minnesota Twins	M. Gonzalez (R)	B. Colon (R)	5.28999996185303	5.63000011444092
+89	2017-08-31 15:40:00.000	1	20	20	20	Los Angeles Dodgers	Arizona Diamondbacks	K. Maeda (R)	Z. Greinke (R)	4.6100001335144	2.33999991416931
+90	2017-08-31 19:05:00.000	1	20	20	20	Toronto Blue Jays	Baltimore Orioles	M. Estrada (R)	J. Hellickson (R)	5.28000020980835	5.40000009536743
+91	2017-08-31 19:05:00.000	1	20	20	20	Boston Red Sox	New York Yankees	E. Rodriguez (L)	S. Gray (R)	4.15000009536743	3.0699999332428
+92	2017-08-31 19:10:00.000	1	20	20	20	Philadelphia Phillies	Miami Marlins	B. Lively (R)	A. Conley (L)	3.98000001907349	7.51999998092651
+93	2017-08-31 20:05:00.000	1	20	20	20	Atlanta Braves	Chicago Cubs	S. Newcomb (L)	K. Hendricks (R)	3.67000007629395	3.55999994277954
+94	2017-08-31 20:10:00.000	1	20	20	20	Washington Nationals	Milwaukee Brewers	G. Gonzalez (L)	Z. Davies (R)	2.91000008583069	5.96999979019165
+95	2017-08-31 20:10:00.000	1	20	20	20	Texas Rangers	Houston Astros	N. Martinez (R)	C. McHugh (R)	5.86999988555908	0.75
+96	2017-08-31 22:15:00.000	1	20	20	20	St. Louis Cardinals	San Francisco Giants	M. Wacha (R)	M. Bumgarner (L)	5.57000017166138	2.89000010490417
+97	2017-09-01 13:10:00.000	1	20	20	20	Cleveland Indians	Detroit Tigers	M. Clevinger (R)	D. Norris (L)	2.85999989509583	6.26000022888184
+98	2017-09-01 14:20:00.000	1	20	20	20	Atlanta Braves	Chicago Cubs	M. Foltynewicz (R)	J. Lackey (R)	5.61999988555908	4.48000001907349
+99	2017-09-01 19:00:00.000	1	20	20	20	Boston Red Sox	New York Yankees	D. Fister (R)	M. Tanaka (R)	4.21999979019165	4.03000020980835
+100	2017-09-01 19:05:00.000	1	20	20	20	Toronto Blue Jays	Baltimore Orioles	N. Tepesch (R)	K. Gausman (R)	4.90999984741211	5.03000020980835
+101	2017-09-01 19:05:00.000	1	20	20	20	Cincinnati Reds	Pittsburgh Pirates	L. Castillo (R)	G. Cole (R)	2.6800000667572	4.23999977111816
+102	2017-09-01 19:10:00.000	1	20	20	20	Philadelphia Phillies	Miami Marlins	A. Nola (R)	D. Straily (R)	3.79999995231628	3.00999999046326
+103	2017-09-01 19:10:00.000	1	20	20	20	Cleveland Indians	Detroit Tigers	C. Carrasco (R)	M. Boyd (L)	3.00999999046326	6.40000009536743
+104	2017-09-01 20:05:00.000	1	20	20	20	Los Angeles Angels	Texas Rangers	T. Skaggs (L)	C. Hamels (L)	2.50999999046326	3.03999996185303
+105	2017-09-01 20:10:00.000	1	20	20	20	Tampa Bay Rays	Chicago White Sox	B. Snell (L)	C. Rodon (L)	5.07000017166138	3.02999997138977
+106	2017-09-01 20:10:00.000	1	20	20	20	Washington Nationals	Milwaukee Brewers	T. Roark (R)	J. Nelson (R)	4.09999990463257	3.39000010490417
+107	2017-09-01 20:10:00.000	1	20	20	20	Kansas City Royals	Minnesota Twins	J. Hammel (R)	D. Gee (R)	4.86999988555908	1.83000004291534
+108	2017-09-01 20:10:00.000	1	20	20	20	New York Mets	Houston Astros	R. Gsellman (R)	B. Peacock (R)	7.84999990463257	3.34999990463257
+109	2017-09-01 20:40:00.000	1	20	20	20	Arizona Diamondbacks	Colorado Rockies	T. Walker (R)	K. Freeland (L)	3.02999997138977	3.29999995231628
+110	2017-09-01 22:10:00.000	1	20	20	20	Oakland Athletics	Seattle Mariners	K. Graveman (R)	Y. Gallardo (R)	6.3899998664856	6.3899998664856
+111	2017-09-01 22:10:00.000	1	20	20	20	Los Angeles Dodgers	San Diego Padres	A. Wood (L)	D. Lamet (R)	2.00999999046326	3.98000001907349
+112	2017-09-01 22:15:00.000	1	20	20	20	St. Louis Cardinals	San Francisco Giants	M. Leake (R)	C. Stratton (R)	5.05000019073486	5.28000020980835
+113	2017-09-02 13:05:00.000	1	20	20	20	Boston Red Sox	New York Yankees	D. Pomeranz (L)	L. Severino (R)	3.08999991416931	4.1399998664856
+114	2017-09-02 14:20:00.000	1	20	20	20	Atlanta Braves	Chicago Cubs	L. Sims (R)	J. Lester (L)	5.23000001907349	4.44999980926514
+115	2017-09-02 15:40:00.000	1	20	20	20	Los Angeles Dodgers	San Diego Padres	Y. Darvish (R)	C. Richard (L)	1.5	4.96000003814697
+116	2017-09-02 16:05:00.000	1	20	20	20	St. Louis Cardinals	San Francisco Giants	L. Lynn (R)	J. Samardzija (R)	3.40000009536743	4.26000022888184
+117	2017-09-02 18:10:00.000	1	20	20	20	Cleveland Indians	Detroit Tigers	C. Kluber (R)	J. Zimmermann (R)	3.50999999046326	6.48999977111816
+118	2017-09-02 19:05:00.000	1	20	20	20	Toronto Blue Jays	Baltimore Orioles	M. Stroman (R)	C. Tillman (R)	3.75999999046326	6.01999998092651
+119	2017-09-02 19:05:00.000	1	20	20	20	Cincinnati Reds	Pittsburgh Pirates	H. Bailey (R)	J. Taillon (R)	5.84000015258789	5.42999982833862
+120	2017-09-02 19:10:00.000	1	20	20	20	Tampa Bay Rays	Chicago White Sox	C. Archer (R)	L. Giolito (R)	4.26000022888184	6
+121	2017-09-02 19:10:00.000	1	20	20	20	Washington Nationals	Milwaukee Brewers	E. Jackson (R)	B. Woodruff (R)	3.24000000953674	3.1800000667572
+122	2017-09-02 19:10:00.000	1	20	20	20	Kansas City Royals	Minnesota Twins	D. Duffy (L)	K. Gibson (R)	4.30000019073486	6.57000017166138
+123	2017-09-02 19:10:00.000	1	20	20	20	New York Mets	Houston Astros	S. Lugo (R)	C. Morton (R)	5.65000009536743	3.65000009536743
+124	2017-09-02 19:10:00.000	1	20	20	20	Philadelphia Phillies	Miami Marlins	N. Pivetta (R)	J. Urena (R)	7.61999988555908	3.35999989509583
+125	2017-09-02 19:15:00.000	1	20	20	20	Los Angeles Angels	Texas Rangers	R. Nolasco (R)	A. Griffin (R)	5.19999980926514	5.8899998664856
+126	2017-09-02 20:10:00.000	1	20	20	20	Arizona Diamondbacks	Colorado Rockies	P. Corbin (L)	J. Gray (R)	5.38000011444092	3
+127	2017-09-02 21:10:00.000	1	20	20	20	Oakland Athletics	Seattle Mariners	S. Manaea (L)	A. Albers (L)	4.5	1.79999995231628
+128	2017-09-02 22:10:00.000	1	20	20	20	Los Angeles Dodgers	San Diego Padres	R. Hill (L)	J. Chacin (R)	3.49000000953674	1.86000001430511
+129	2017-09-03 13:10:00.000	1	20	20	20	Cleveland Indians	Detroit Tigers	T. Bauer (R)	M. Fulmer (R)	5.5	3.38000011444092
+130	2017-09-03 13:10:00.000	1	20	20	20	Philadelphia Phillies	Miami Marlins	M. Leiter Jr. (R)	J. Nicolino (L)	6.03000020980835	3.3199999332428
+131	2017-09-03 13:35:00.000	1	20	20	20	Toronto Blue Jays	Baltimore Orioles	T. Koehler (R)	W. Miley (L)	0	4.75
+132	2017-09-03 13:35:00.000	1	20	20	20	Cincinnati Reds	Pittsburgh Pirates	A. Wojciechowski (R)	T. Williams (R)	8.68000030517578	4.07999992370605
+133	2017-09-03 14:10:00.000	1	20	20	20	Tampa Bay Rays	Chicago White Sox	A. Pruitt (R)	J. Shields (R)	5.65000009536743	5.90999984741211
+134	2017-09-03 14:10:00.000	1	20	20	20	Washington Nationals	Milwaukee Brewers	S. Strasburg (R)	M. Garza (R)	2.4300000667572	3.6800000667572
+135	2017-09-03 14:10:00.000	1	20	20	20	Kansas City Royals	Minnesota Twins	I. Kennedy (R)	E. Santana (R)	4.30000019073486	4.03999996185303
+136	2017-09-03 14:10:00.000	1	20	20	20	New York Mets	Houston Astros	C. Flexen (R)	M. Fiers (R)	8.18000030517578	3.45000004768372
+137	2017-09-03 14:20:00.000	1	20	20	20	Atlanta Braves	Chicago Cubs	R. Dickey (R)	J. Arrieta (R)	4.59000015258789	3.23000001907349
+138	2017-09-03 15:05:00.000	1	20	20	20	Los Angeles Angels	Texas Rangers	A. Heaney (L)	A. Cashner (R)	9	2.33999991416931
+139	2017-09-03 15:10:00.000	1	20	20	20	Arizona Diamondbacks	Colorado Rockies	Z. Godley (R)	A. Senzatela (R)	3.10999989509583	4.67000007629395
+140	2017-09-03 16:05:00.000	1	20	20	20	St. Louis Cardinals	San Francisco Giants	A. Wainwright (R)	M. Moore (L)	7.42000007629395	4.40000009536743
+141	2017-09-03 16:10:00.000	1	20	20	20	Oakland Athletics	Seattle Mariners	J. Cotton (R)	M. Gonzales (L)	3.40000009536743	5.19000005722046
+142	2017-09-03 16:40:00.000	1	20	20	20	Los Angeles Dodgers	San Diego Padres	H. Ryu (L)	L. Perdomo (R)	3.19000005722046	5.09000015258789
+143	2017-09-03 19:30:00.000	1	20	20	20	Boston Red Sox	New York Yankees	C. Sale (L)	J. Garcia (L)	2.29999995231628	4.76000022888184
+144	2017-09-04 13:00:00.000	1	20	20	20	Milwaukee Brewers	Cincinnati Reds	C. Anderson (R)	S. Romano (R)	3.59999990463257	6.63000011444092
+145	2017-09-04 13:10:00.000	1	20	20	20	Kansas City Royals	Detroit Tigers	J. Junis (R)	J. Verlander (R)	5.23000001907349	2.75999999046326
+146	2017-09-04 13:10:00.000	1	20	20	20	Philadelphia Phillies	New York Mets	J. Eickhoff (R)	R. Montero (R)	4.92999982833862	5.8899998664856
+147	2017-09-04 14:05:00.000	1	20	20	20	New York Yankees	Baltimore Orioles	C. Sabathia (L)	U. Jimenez (R)	2.80999994277954	6.82999992370605
+148	2017-09-04 14:10:00.000	1	20	20	20	Cleveland Indians	Chicago White Sox	R. Merritt (L)	D. Holland (L)	3.51999998092651	5.59999990463257
+149	2017-09-04 15:10:00.000	1	20	20	20	San Francisco Giants	Colorado Rockies	T. Blach (L)	G. Marquez (R)	5.5	4.5
+150	2017-09-04 16:00:00.000	1	20	20	20	Chicago Cubs	Pittsburgh Pirates	J. Quintana (L)	C. Kuhl (R)	2.36999988555908	4.88000011444092
+151	2017-09-04 16:05:00.000	1	20	20	20	Los Angeles Angels	Oakland Athletics	T. Scribner (R)	C. Smith (R)	6	5.01000022888184
+152	2017-09-04 16:40:00.000	1	20	20	20	St. Louis Cardinals	San Diego Padres	C. Martinez (R)	T. Wood (L)	3.77999997138977	2
+153	2017-09-04 18:40:00.000	1	20	20	20	Houston Astros	Seattle Mariners	D. Keuchel (L)	E. Ramirez (R)	3.61999988555908	2.66000008583069
+154	2017-09-04 19:10:00.000	1	20	20	20	Toronto Blue Jays	Boston Red Sox	J. Happ (L)	R. Porcello (R)	4.17000007629395	4.8899998664856
+155	2017-09-04 19:10:00.000	1	20	20	20	Washington Nationals	Miami Marlins	M. Scherzer (R)	V. Worley (R)	1.78999996185303	5.34999990463257
+156	2017-09-04 19:10:00.000	1	20	20	20	Minnesota Twins	Tampa Bay Rays	J. Berrios (R)	A. Cobb (R)	5.13000011444092	2.49000000953674
+157	2017-09-04 19:35:00.000	1	20	20	20	Texas Rangers	Atlanta Braves	M. Perez (L)	J. Teheran (R)	4.88000011444092	6.98000001907349
+158	2017-09-04 20:10:00.000	1	20	20	20	Arizona Diamondbacks	Los Angeles Dodgers	R. Ray (L)	K. Maeda (R)	1.47000002861023	3.1800000667572
+159	2017-09-05 19:05:00.000	1	20	20	20	New York Yankees	Baltimore Orioles	S. Gray (R)	D. Bundy (R)	3.75999999046326	3.86999988555908
+160	2017-09-05 19:05:00.000	1	20	20	20	Chicago Cubs	Pittsburgh Pirates	K. Hendricks (R)	I. Nova (R)	3.46000003814697	2.86999988555908
+161	2017-09-05 19:10:00.000	1	20	20	20	Toronto Blue Jays	Boston Red Sox	M. Estrada (R)	E. Rodriguez (L)	5.28000020980835	3.78999996185303
+162	2017-09-05 19:10:00.000	1	20	20	20	Kansas City Royals	Detroit Tigers	J. Vargas (L)	A. Sanchez (R)	3.61999988555908	6.51999998092651
+163	2017-09-05 19:10:00.000	1	20	20	20	Milwaukee Brewers	Cincinnati Reds	Z. Davies (R)	R. Stephenson (R)	2.32999992370605	5.78999996185303
+164	2017-09-05 19:10:00.000	1	20	20	20	Philadelphia Phillies	New York Mets	B. Lively (R)	J. deGrom (R)	3.98000001907349	2.85999989509583
+165	2017-09-05 19:10:00.000	1	20	20	20	Washington Nationals	Miami Marlins	G. Gonzalez (L)	A. Conley (L)	2.91000008583069	7.51999998092651
+166	2017-09-05 19:10:00.000	1	20	20	20	Minnesota Twins	Tampa Bay Rays	B. Colon (R)	J. Odorizzi (R)	2.95000004768372	5.17999982833862
+167	2017-09-05 19:35:00.000	1	20	20	20	Texas Rangers	Atlanta Braves	N. Martinez (R)	S. Newcomb (L)	5.86999988555908	4.42999982833862
+168	2017-09-05 20:10:00.000	1	20	20	20	Cleveland Indians	Chicago White Sox	M. Clevinger (R)	M. Gonzalez (R)	2.85999989509583	3.30999994277954
+169	2017-09-05 20:40:00.000	1	20	20	20	San Francisco Giants	Colorado Rockies	M. Bumgarner (L)	C. Bettis (R)	2.84999990463257	1.92999994754791
+170	2017-09-05 22:05:00.000	1	20	20	20	Los Angeles Angels	Oakland Athletics	P. Bridwell (R)	P. Blackburn (R)	2	5.1399998664856
+171	2017-09-05 22:10:00.000	1	20	20	20	Houston Astros	Seattle Mariners	C. McHugh (R)	A. Miranda (L)	5.82000017166138	3.60999989509583
+172	2017-09-05 22:10:00.000	1	20	20	20	Arizona Diamondbacks	Los Angeles Dodgers	Z. Greinke (R)	A. Wood (L)	4.28000020980835	2.76999998092651
+173	2017-09-05 22:10:00.000	1	20	20	20	St. Louis Cardinals	San Diego Padres	M. Wacha (R)	D. Lamet (R)	5.57000017166138	3.98000001907349
+174	2017-09-06 12:35:00.000	1	20	20	20	Milwaukee Brewers	Cincinnati Reds	J. Nelson (R)	L. Castillo (R)	4.30000019073486	4.5
+175	2017-09-06 13:10:00.000	1	20	20	20	Minnesota Twins	Tampa Bay Rays	D. Gee (R)	B. Snell (L)	4.5	3.64000010490417
+176	2017-09-06 15:35:00.000	1	20	20	20	Los Angeles Angels	Oakland Athletics	T. Skaggs (L)	D. Gossett (R)	2.50999999046326	5.6399998664856
+177	2017-09-06 19:05:00.000	1	20	20	20	New York Yankees	Baltimore Orioles	M. Tanaka (R)	J. Hellickson (R)	5.61999988555908	5.40000009536743
+178	2017-09-06 19:05:00.000	1	20	20	20	Chicago Cubs	Pittsburgh Pirates	J. Lackey (R)	G. Cole (R)	5.25	4.23999977111816
+179	2017-09-06 19:10:00.000	1	20	20	20	Toronto Blue Jays	Boston Red Sox	N. Tepesch (R)	D. Fister (R)	4.90999984741211	5.17000007629395
+180	2017-09-06 19:10:00.000	1	20	20	20	Kansas City Royals	Detroit Tigers	J. Hammel (R)	M. Boyd (L)	4.86999988555908	6.40000009536743
+181	2017-09-06 19:10:00.000	1	20	20	20	Philadelphia Phillies	New York Mets	A. Nola (R)	R. Gsellman (R)	3.79999995231628	4.57999992370605
+182	2017-09-06 19:10:00.000	1	20	20	20	Washington Nationals	Miami Marlins	T. Roark (R)	O. Despaigne (R)	4.09999990463257	0
+183	2017-09-06 19:35:00.000	1	20	20	20	Texas Rangers	Atlanta Braves	C. Hamels (L)	M. Foltynewicz (R)	3.80999994277954	4.07999992370605
+184	2017-09-06 20:10:00.000	1	20	20	20	Cleveland Indians	Chicago White Sox	C. Carrasco (R)	C. Rodon (L)	3.00999999046326	3.02999997138977
+185	2017-09-06 20:40:00.000	1	20	20	20	San Francisco Giants	Colorado Rockies	C. Stratton (R)	K. Freeland (L)	2.75999999046326	3.29999995231628
+186	2017-09-06 22:10:00.000	1	20	20	20	Houston Astros	Seattle Mariners	B. Peacock (R)	Y. Gallardo (R)	3.09999990463257	6.3899998664856
+187	2017-09-06 22:10:00.000	1	20	20	20	Arizona Diamondbacks	Los Angeles Dodgers	T. Walker (R)	Y. Darvish (R)	3.02999997138977	4.5
+188	2017-09-06 22:10:00.000	1	20	20	20	St. Louis Cardinals	San Diego Padres	M. Leake (R)	C. Richard (L)	5.05000019073486	4.96000003814697
+189	2017-09-07 19:05:00.000	1	20	20	20	Philadelphia Phillies	Washington Nationals	N. Pivetta (R)	E. Jackson (R)	7.61999988555908	2.5
+190	2017-09-07 19:05:00.000	1	20	20	20	Chicago Cubs	Pittsburgh Pirates	J. Lester (L)	J. Taillon (R)	4.26999998092651	5.42999982833862
+191	2017-09-07 19:10:00.000	1	20	20	20	Cincinnati Reds	New York Mets	H. Bailey (R)	S. Lugo (R)	5.84000015258789	3.50999999046326
+192	2017-09-07 19:35:00.000	1	20	20	20	Miami Marlins	Atlanta Braves	D. Straily (R)	L. Sims (R)	4.61999988555908	3.5
+193	2017-09-07 20:10:00.000	1	20	20	20	Cleveland Indians	Chicago White Sox	C. Kluber (R)	L. Giolito (R)	3.50999999046326	6
+194	2017-09-07 20:15:00.000	1	20	20	20	Minnesota Twins	Kansas City Royals	K. Gibson (R)	D. Duffy (L)	4.82999992370605	3.11999988555908
+195	2017-09-07 21:10:00.000	1	20	20	20	St. Louis Cardinals	San Diego Padres	L. Lynn (R)	J. Chacin (R)	3.40000009536743	1.86000001430511
+196	2017-09-07 22:10:00.000	1	20	20	20	Colorado Rockies	Los Angeles Dodgers	J. Gray (R)	R. Hill (L)	5.71999979019165	3.17000007629395
+197	2017-09-08 14:20:00.000	1	20	20	20	Milwaukee Brewers	Chicago Cubs	M. Garza (R)	J. Arrieta (R)	5.8899998664856	3.23000001907349
+198	2017-09-08 19:05:00.000	1	20	20	20	Philadelphia Phillies	Washington Nationals	M. Leiter Jr. (R)	S. Strasburg (R)	6.03000020980835	4.13000011444092
+199	2017-09-08 19:07:00.000	1	20	20	20	Detroit Tigers	Toronto Blue Jays	J. Zimmermann (R)	M. Stroman (R)	5.75	2.63000011444092
+200	2017-09-08 19:10:00.000	1	20	20	20	Tampa Bay Rays	Boston Red Sox	C. Archer (R)	D. Pomeranz (L)	4.26000022888184	3.25999999046326
+201	2017-09-08 19:10:00.000	1	20	20	20	Baltimore Orioles	Cleveland Indians	K. Gausman (R)	T. Bauer (R)	5.51000022888184	3.8199999332428
+202	2017-09-08 19:10:00.000	1	20	20	20	Cincinnati Reds	New York Mets	A. Wojciechowski (R)	C. Flexen (R)	8.68000030517578	4.23999977111816
+203	2017-09-08 19:35:00.000	1	20	20	20	Miami Marlins	Atlanta Braves	J. Urena (R)	R. Dickey (R)	4.05000019073486	3.67000007629395
+204	2017-09-08 20:05:00.000	1	20	20	20	New York Yankees	Texas Rangers	L. Severino (R)	A. Griffin (R)	2.3199999332428	5.8899998664856
+205	2017-09-08 20:10:00.000	1	20	20	20	San Francisco Giants	Chicago White Sox	J. Samardzija (R)	J. Shields (R)	5.05000019073486	5.90999984741211
+206	2017-09-08 20:15:00.000	1	20	20	20	Minnesota Twins	Kansas City Royals	E. Santana (R)	I. Kennedy (R)	2.48000001907349	5.96999979019165
+207	2017-09-08 20:15:00.000	1	20	20	20	Pittsburgh Pirates	St. Louis Cardinals	T. Williams (R)	A. Wainwright (R)	4.84999990463257	3.07999992370605
+208	2017-09-08 21:40:00.000	1	20	20	20	San Diego Padres	Arizona Diamondbacks	L. Perdomo (R)	P. Corbin (L)	4.73000001907349	2.86999988555908
+209	2017-09-08 22:05:00.000	1	20	20	20	Houston Astros	Oakland Athletics	C. Morton (R)	K. Graveman (R)	4.19000005722046	2.97000002861023
+210	2017-09-08 22:10:00.000	1	20	20	20	Los Angeles Angels	Seattle Mariners	R. Nolasco (R)	A. Albers (L)	5.19999980926514	1.79999995231628
+211	2017-09-08 22:10:00.000	1	20	20	20	Colorado Rockies	Los Angeles Dodgers	A. Senzatela (R)	H. Ryu (L)	4.32999992370605	3.69000005722046
+212	2017-09-09 13:05:00.000	1	20	20	20	Baltimore Orioles	Cleveland Indians	C. Tillman (R)	R. Merritt (L)	11.8599996566772	0
+213	2017-09-09 13:05:00.000	1	20	20	20	New York Yankees	Texas Rangers	J. Garcia (L)	A. Cashner (R)	5.94000005722046	2.33999991416931
+214	2017-09-09 16:05:00.000	1	20	20	20	Milwaukee Brewers	Chicago Cubs	C. Anderson (R)	J. Quintana (L)	3.59999990463257	4.90999984741211
+215	2017-09-09 16:05:00.000	1	20	20	20	Houston Astros	Oakland Athletics	M. Fiers (R)	S. Manaea (L)	5.07999992370605	4.67999982833862
+216	2017-09-09 16:07:00.000	1	20	20	20	Detroit Tigers	Toronto Blue Jays	M. Fulmer (R)	T. Koehler (R)	3.88000011444092	0
+217	2017-09-09 19:05:00.000	1	20	20	20	Philadelphia Phillies	Washington Nationals	J. Eickhoff (R)	M. Scherzer (R)	4.92999982833862	2.76999998092651
+218	2017-09-09 19:10:00.000	1	20	20	20	Tampa Bay Rays	Boston Red Sox	A. Pruitt (R)	C. Sale (L)	5.65000009536743	3.02999997138977
+219	2017-09-09 19:10:00.000	1	20	20	20	San Francisco Giants	Chicago White Sox	M. Moore (L)	D. Holland (L)	6.71000003814697	5.59999990463257
+220	2017-09-09 19:10:00.000	1	20	20	20	Miami Marlins	Atlanta Braves	J. Nicolino (L)	J. Teheran (R)	9.52999973297119	6.98000001907349
+221	2017-09-09 19:10:00.000	1	20	20	20	Cincinnati Reds	New York Mets	S. Romano (R)	R. Montero (R)	4.3899998664856	5.8899998664856
+222	2017-09-09 19:15:00.000	1	20	20	20	Minnesota Twins	Kansas City Royals	J. Berrios (R)	J. Junis (R)	5.13000011444092	4.6399998664856
+223	2017-09-09 19:15:00.000	1	20	20	20	Pittsburgh Pirates	St. Louis Cardinals	C. Kuhl (R)	C. Martinez (R)	4.15999984741211	3.35999989509583
+224	2017-09-09 19:30:00.000	1	20	20	20	Houston Astros	Oakland Athletics	D. Keuchel (L)	J. Cotton (R)	3.61999988555908	7.71000003814697
+225	2017-09-09 20:10:00.000	1	20	20	20	San Diego Padres	Arizona Diamondbacks	T. Wood (L)	Z. Godley (R)	8.10000038146973	3.22000002861023
+226	2017-09-09 21:10:00.000	1	20	20	20	Los Angeles Angels	Seattle Mariners	A. Heaney (L)	M. Gonzales (L)	9	5.19000005722046
+227	2017-09-09 21:10:00.000	1	20	20	20	Colorado Rockies	Los Angeles Dodgers	G. Marquez (R)	K. Maeda (R)	3.95000004768372	3.1800000667572

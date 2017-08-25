@@ -322,7 +322,7 @@ namespace WindowsFormsApplication1
                     theBusiness.upsertGame(theGame);
 
                     
-                    //theList.Add("[" + theGame.game_date + "] :" + theGame.game_name_team_home + " vs " + theGame.game_name_team_away + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA + " vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA);
+                    theList.Add("[" + theGame.game_date + "] :" + theGame.game_name_team_home + " vs " + theGame.game_name_team_away + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA + " vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA);
 
 
 
