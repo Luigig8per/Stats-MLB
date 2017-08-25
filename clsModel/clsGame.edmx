@@ -5,14 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ModelsMLB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="mlb_game">
           <Key>
             <PropertyRef Name="game_id" />
           </Key>
-          <Property Name="game_date" Type="datetime" />
           <Property Name="game_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="game_date" Type="datetime" />
           <Property Name="game_serie_id" Type="int" Nullable="false" />
           <Property Name="game_number" Type="int" />
           <Property Name="game_id_team_home" Type="int" Nullable="false" />
@@ -24,10 +22,13 @@ warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key 
           <Property Name="game_pitcher_home_ERA" Type="float" />
           <Property Name="game_pitcher_away_ERA" Type="float" />
         </EntityType>
+        <Function Name="sp_UpdateMLBGame" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="game_id" Type="int" Mode="In" />
+          <Parameter Name="game_name_team_home" Type="varchar" Mode="In" />
+          <Parameter Name="game_name_team_away" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ModelsMLBStoreContainer">
-          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" store:Type="Tables" Schema="dbo">
-          
-          </EntitySet>
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -75,6 +76,15 @@ warning 6002: The table/view 'DonBest.dbo.mlb_game' does not have a primary key 
                 <ScalarProperty Name="game_id" ColumnName="game_id" />
                 <ScalarProperty Name="game_date" ColumnName="game_date" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_game">
+              <ModificationFunctionMapping>
+                <UpdateFunction FunctionName="ModelsMLB.Store.sp_UpdateMLBGame">
+                  <ScalarProperty Name="game_name_team_away" ParameterName="game_name_team_away" Version="Current" />
+                  <ScalarProperty Name="game_name_team_home" ParameterName="game_name_team_home" Version="Current" />
+                  <ScalarProperty Name="game_id" ParameterName="game_id" Version="Original" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>
