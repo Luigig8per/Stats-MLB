@@ -101,7 +101,7 @@ namespace WindowsFormsApplication1
 
             theList = addGame(dateUrl(DateTime.Today), "tablehead");
 
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= qDays; i++)
             {
                 theList.AddRange(addGame(dateUrl(DateTime.Today.AddDays(i)), "tablehead"));
             }
@@ -117,10 +117,10 @@ namespace WindowsFormsApplication1
             theGame.game_name_team_home = row["Team"].ToString();
             theGame.game_name_team_away = row["Win"].ToString();
             theGame.game_date = DateTime.Today;
-            theGame.game_serie_id = 1;
-            theGame.game_number = 20;
-            theGame.game_id_team_away = 20;
-            theGame.game_id_team_home = 20;
+            //theGame.game_serie_id = 1;
+            //theGame.game_number = 20;
+            //theGame.game_id_team_away = 20;
+            //theGame.game_id_team_home = 20;
 
 
             pitchers = row["GB"].ToString();
@@ -172,6 +172,9 @@ namespace WindowsFormsApplication1
 
                 //dateUrl(thedATE);
                 theGame.game_name_team_home = rowText.Substring(0, indexNum);
+               
+
+
                 theGame.game_name_team_away = rowText.Substring(indexNum + 4, rowText.Length - indexNum - 4);
                 //theGame
                 ////theGame.game_date = row["Win"].ToString();
@@ -308,6 +311,10 @@ namespace WindowsFormsApplication1
                 contRowsGame++;
                 //theGame.game_date = 
                 theGame = addGameFromESPNProbables(row, theGame, urlSource, contRowsGame);
+
+
+                theBusiness.insertTeam(theGame.game_name_team_away);
+                theBusiness.insertTeam(theGame.game_name_team_home);
 
 
                 if (!Equals(theGame.game_name_pitcher_away, null))

@@ -1,1 +1,2 @@
 http://www.entityframeworktutorial.net/EntityFramework5/CRUD-using-stored-procedures.aspx
+http://www.seguetech.com/performing-bulk-updatesentity-framework-6-1/

@@ -71,6 +71,12 @@
     <Compile Include="mlb_game.cs">
       <DependentUpon>clsGame.tt</DependentUpon>
     </Compile>
+    <Compile Include="mlb_pitcher.cs">
+      <DependentUpon>clsGame.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mlb_team.cs">
+      <DependentUpon>clsGame.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

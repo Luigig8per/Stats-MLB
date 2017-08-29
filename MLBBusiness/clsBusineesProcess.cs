@@ -45,25 +45,105 @@ namespace MLBBusiness
             }
         }
 
+        public void insertTeam(string teamName)
+        {
+            mlb_team theTeam = new mlb_team();
+
+            theTeam.insert_date = DateTime.Now;
+            theTeam.team_name = teamName;
+            
+            int res = 0;
+
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+                var L2EQuery = context.mlb_team.Where(t => t.team_name == theTeam.team_name);
+
+
+                var teamFound = L2EQuery.FirstOrDefault<mlb_team>();
+
+                if (teamFound == null)
+                {
+                    try
+                    {
+
+                        context.mlb_team.Add(theTeam);
+                        res = context.SaveChanges();
+                    }
+                    catch (Exception ex)
+
+                    {
+                        Console.WriteLine("Error" + ex.Message);
+
+
+                    }
+
+                    Console.WriteLine(res);
+
+                }
+
+            }
+        }
+
 
 
         public void updatetGame( mlb_game gameFound, mlb_game theGame,  DonBestEntities context)
         {
-            int res = 0;
+            int res = 0; int countChanges = 0;
 
             try
             {
-                gameFound.game_name_pitcher_away = theGame.game_name_pitcher_away;
-                gameFound.game_name_pitcher_home = theGame.game_name_pitcher_home;
+                if (gameFound.game_name_pitcher_away != theGame.game_name_pitcher_away)
+                { 
+                    gameFound.game_name_pitcher_away =theGame.game_name_pitcher_away;
+                countChanges++;
+                }
+
+                if (gameFound.game_name_pitcher_home != theGame.game_name_pitcher_home)
+                { 
+                    gameFound.game_name_pitcher_home = theGame.game_name_pitcher_home;
+                    countChanges++;
+                }
+
+                if (gameFound.game_name_pitcher_home != theGame.game_name_pitcher_home)
+                {
+                    gameFound.game_name_pitcher_home = theGame.game_name_pitcher_home;
+                    countChanges++;
+                }
+
+                if (gameFound.game_name_team_away != theGame.game_name_team_away)
+                { 
                 gameFound.game_name_team_away = theGame.game_name_team_away;
+                    countChanges++;
+                }
+
+                if (gameFound.game_name_team_home != theGame.game_name_team_home)
+                { 
                 gameFound.game_name_team_home = theGame.game_name_team_home;
-                gameFound.game_pitcher_away_ERA = theGame.game_pitcher_away_ERA;
-                gameFound.game_pitcher_home_ERA = theGame.game_pitcher_home_ERA;
+                    countChanges++;
+                }
+
+                if (gameFound.game_pitcher_away_ERA != theGame.game_pitcher_away_ERA)
+                {
+                    gameFound.game_pitcher_away_ERA = theGame.game_pitcher_away_ERA;
+                    countChanges++;
+                }
+
+                if (gameFound.game_pitcher_home_ERA != theGame.game_pitcher_home_ERA)
+                {
+                    gameFound.game_pitcher_away_ERA = theGame.game_pitcher_away_ERA;
+                    countChanges++;
+                }
+
+               if (countChanges>0)
+                { 
                 gameFound.last_update_date = DateTime.Now;
 
                 gameFound.updated = true;
+                }
                 //context.mlb_game.
-                
+
             }
             catch (Exception ex)
 

@@ -26,5 +26,7 @@ namespace clsModel
         }
     
         public virtual DbSet<mlb_game> mlb_game { get; set; }
+        public virtual DbSet<mlb_pitcher> mlb_pitcher { get; set; }
+        public virtual DbSet<mlb_team> mlb_team { get; set; }
     }
 }
