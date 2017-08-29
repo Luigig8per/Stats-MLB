@@ -14,11 +14,11 @@ namespace clsModel
     
     public partial class mlb_pitcher
     {
-        public int pitcher_id { get; set; }
+        public int id_pitcher { get; set; }
         public string pitcher_name { get; set; }
         public Nullable<double> pitcher_era { get; set; }
         public Nullable<double> pitcher_last3_era { get; set; }
-        public System.DateTime insert_date { get; set; }
+        public Nullable<System.DateTime> insert_date { get; set; }
         public Nullable<System.DateTime> update_date { get; set; }
     }
 }

@@ -45,7 +45,7 @@ namespace MLBBusiness
             }
         }
 
-        public void insertTeam(string teamName)
+        public int insertTeam(string teamName)
         {
             mlb_team theTeam = new mlb_team();
 
@@ -53,6 +53,7 @@ namespace MLBBusiness
             theTeam.team_name = teamName;
             
             int res = 0;
+            int id_team=0;
 
             using (DonBestEntities context = new DonBestEntities())
 
@@ -82,13 +83,112 @@ namespace MLBBusiness
                     Console.WriteLine(res);
 
                 }
+                else
+                {
+                    id_team= teamFound.id_team;
+                }
 
             }
+
+            return id_team;
         }
 
 
+        public int insertPitcher(string teamName, float ERA)
+        {
+            mlb_pitcher thePitcher = new mlb_pitcher();
 
-        public void updatetGame( mlb_game gameFound, mlb_game theGame,  DonBestEntities context)
+            thePitcher.insert_date = DateTime.Now;
+            thePitcher.pitcher_name = teamName;
+            thePitcher.pitcher_era = ERA;
+           
+
+            int res = 0;
+            int id_pitcher = 0;
+
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+                var L2EQuery = context.mlb_pitcher.Where(t => t.pitcher_name == thePitcher.pitcher_name);
+
+
+                var entityFound = L2EQuery.FirstOrDefault<mlb_pitcher>();
+
+                if (entityFound == null)
+                {
+                    try
+                    {
+
+                        context.mlb_pitcher.Add(thePitcher);
+                       
+                        res = context.SaveChanges();
+                    }
+                    catch (Exception ex)
+
+                    {
+                        Console.WriteLine("Error" + ex.Message);
+
+
+                    }
+
+                    Console.WriteLine(res);
+
+                }
+                else
+                {
+                    id_pitcher = entityFound.id_pitcher;
+                }
+
+            }
+
+            return id_pitcher;
+        }
+
+        public int updatePitcher(mlb_pitcher pitcherFound, mlb_pitcher thePitcher, DonBestEntities context)
+        {
+            int res = 0; int countChanges = 0;
+
+            try
+            {
+                if (pitcherFound.pitcher_era != thePitcher.pitcher_era)
+                {
+                    pitcherFound.pitcher_era = thePitcher.pitcher_era;
+                    pitcherFound.update_date = DateTime.Now;
+                   
+                }
+
+               
+
+             
+                //context.mlb_game.
+
+            }
+            catch (Exception ex)
+
+            {
+                Console.WriteLine("Error" + ex.Message);
+
+
+            }
+
+
+            using (context = new DonBestEntities())
+
+            {
+               
+
+                context.Entry(pitcherFound).State = System.Data.Entity.EntityState.Modified;
+                res = context.SaveChanges();
+
+                Console.WriteLine(res);
+
+            }
+
+            return pitcherFound.id_pitcher;
+        }
+
+        public int updatetGame( mlb_game gameFound, mlb_game theGame,  DonBestEntities context)
         {
             int res = 0; int countChanges = 0;
 
@@ -170,6 +270,8 @@ namespace MLBBusiness
                 Console.WriteLine(res);
 
             }
+
+            return gameFound.id_game;
         }
 
         public void queryExists()
@@ -177,6 +279,67 @@ namespace MLBBusiness
 
         }
 
+
+
+        public void upsertPitcher(mlb_pitcher theEntity)
+        {
+            int res = 0;
+
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+              
+
+                try
+                {
+
+                    //If game and date is same, and pitchers change, need to do update.
+                    //if GAME AND DATE IS SAME, 
+                    //if game date same, 
+                    //var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_pitcher_away == theGame.game_name_pitcher_away && g.game_name_pitcher_home == theGame.game_name_pitcher_home && g.game_pitcher_away_ERA == theGame.game_pitcher_away_ERA && g.game_pitcher_home_ERA == theGame.game_pitcher_home_ERA );
+
+                    var L2EQuery = context.mlb_pitcher.Where(p => p.pitcher_name == theEntity.pitcher_name);
+
+
+                    var entityFound = L2EQuery.FirstOrDefault<mlb_pitcher>();
+
+                    if (entityFound == null)
+                    {
+
+
+                        this.insertPitcher(theEntity.pitcher_name, float.Parse(theEntity.pitcher_era.ToString()));
+
+
+
+
+                    }
+                    else
+
+                    {
+                        updatePitcher(entityFound, theEntity, context);
+
+                    }
+
+                    //if (gameFound i)  
+
+                    //context.mlb_game.
+                    res = context.SaveChanges();
+                }
+                catch (Exception ex)
+
+                {
+                    Console.WriteLine("Error" + ex.Message);
+
+
+                }
+
+                Console.WriteLine(res);
+
+            }
+        }
+
+       
         public void upsertGame(mlb_game theGame)
         {
             int res = 0;
@@ -244,7 +407,7 @@ namespace MLBBusiness
             using (DonBestEntities context = new DonBestEntities())
             {
 
-                mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.game_id == 1);
+                mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.id_game == 1);
 
                 Console.WriteLine(theMlbGame.game_date);
                 Console.Read();
@@ -258,9 +421,9 @@ namespace MLBBusiness
             using (DonBestEntities context = new DonBestEntities())
 
             {
-                mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.game_id == 1);
+                mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.id_game == 1);
 
-                theMlbGame.game_date = DateTime.Today.AddDays(1);
+                //theMlbGame.game_date = DateTime.Today.AddDays(1);
 
                 context.SaveChanges();
 
@@ -301,7 +464,7 @@ namespace MLBBusiness
         {
             using (DonBestEntities context = new DonBestEntities())
             {
-                mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.game_id == 1);
+                mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.id_game == 1);
                 context.mlb_game.Remove(theMlbGame);
 
 

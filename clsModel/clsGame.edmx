@@ -7,9 +7,9 @@
     <Schema Namespace="ModelsMLB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="mlb_game">
           <Key>
-            <PropertyRef Name="game_id" />
+            <PropertyRef Name="id_game" />
           </Key>
-          <Property Name="game_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_game" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="game_date" Type="datetime" />
           <Property Name="game_serie_id" Type="int" Nullable="false" />
           <Property Name="game_number" Type="int" />
@@ -27,20 +27,28 @@
         </EntityType>
         <EntityType Name="mlb_pitcher">
           <Key>
-            <PropertyRef Name="pitcher_id" />
+            <PropertyRef Name="id_pitcher" />
           </Key>
-          <Property Name="pitcher_id" Type="int" Nullable="false" />
+          <Property Name="id_pitcher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="pitcher_name" Type="varchar(max)" />
           <Property Name="pitcher_era" Type="float" />
           <Property Name="pitcher_last3_era" Type="float" />
-          <Property Name="insert_date" Type="datetime" Nullable="false" />
+          <Property Name="insert_date" Type="datetime" />
           <Property Name="update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="mlb_serie">
+          <Key>
+            <PropertyRef Name="id_serie" />
+          </Key>
+          <Property Name="id_serie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mlb_game_id" Type="int" Nullable="false" />
+          <Property Name="mlb_quantity_games" Type="int" />
         </EntityType>
         <EntityType Name="mlb_team">
           <Key>
-            <PropertyRef Name="team_id" />
+            <PropertyRef Name="id_team" />
           </Key>
-          <Property Name="team_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="team_name" Type="varchar(max)" Nullable="false" />
           <Property Name="insert_date" Type="datetime" />
         </EntityType>
@@ -52,6 +60,7 @@
         <EntityContainer Name="ModelsMLBStoreContainer">
           <EntitySet Name="mlb_game" EntityType="Self.mlb_game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mlb_pitcher" EntityType="Self.mlb_pitcher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_serie" EntityType="Self.mlb_serie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mlb_team" EntityType="Self.mlb_team" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -61,14 +70,15 @@
         <EntityContainer Name="DonBestEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="mlb_game" EntityType="ModelsMLB.mlb_game" />
           <EntitySet Name="mlb_pitcher" EntityType="ModelsMLB.mlb_pitcher" />
+          <EntitySet Name="mlb_serie" EntityType="ModelsMLB.mlb_serie" />
           <EntitySet Name="mlb_team" EntityType="ModelsMLB.mlb_team" />
         </EntityContainer>
         <EntityType Name="mlb_game">
           <Key>
-            <PropertyRef Name="game_id" />
+            <PropertyRef Name="id_game" />
           </Key>
+          <Property Name="id_game" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="game_date" Type="DateTime" Precision="3" />
-          <Property Name="game_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="game_serie_id" Type="Int32" Nullable="false" />
           <Property Name="game_number" Type="Int32" />
           <Property Name="game_id_team_home" Type="Int32" Nullable="false" />
@@ -85,20 +95,28 @@
         </EntityType>
         <EntityType Name="mlb_pitcher">
           <Key>
-            <PropertyRef Name="pitcher_id" />
+            <PropertyRef Name="id_pitcher" />
           </Key>
-          <Property Name="pitcher_id" Type="Int32" Nullable="false" />
+          <Property Name="id_pitcher" Type="Int32" Nullable="false" />
           <Property Name="pitcher_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="pitcher_era" Type="Double" />
           <Property Name="pitcher_last3_era" Type="Double" />
-          <Property Name="insert_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
           <Property Name="update_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="mlb_serie">
+          <Key>
+            <PropertyRef Name="id_serie" />
+          </Key>
+          <Property Name="id_serie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mlb_game_id" Type="Int32" Nullable="false" />
+          <Property Name="mlb_quantity_games" Type="Int32" />
         </EntityType>
         <EntityType Name="mlb_team">
           <Key>
-            <PropertyRef Name="team_id" />
+            <PropertyRef Name="id_team" />
           </Key>
-          <Property Name="team_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_team" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="team_name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="insert_date" Type="DateTime" Precision="3" />
         </EntityType>
@@ -124,8 +142,8 @@
                 <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
                 <ScalarProperty Name="game_number" ColumnName="game_number" />
                 <ScalarProperty Name="game_serie_id" ColumnName="game_serie_id" />
-                <ScalarProperty Name="game_id" ColumnName="game_id" />
                 <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="id_game" ColumnName="id_game" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -137,7 +155,16 @@
                 <ScalarProperty Name="pitcher_last3_era" ColumnName="pitcher_last3_era" />
                 <ScalarProperty Name="pitcher_era" ColumnName="pitcher_era" />
                 <ScalarProperty Name="pitcher_name" ColumnName="pitcher_name" />
-                <ScalarProperty Name="pitcher_id" ColumnName="pitcher_id" />
+                <ScalarProperty Name="id_pitcher" ColumnName="id_pitcher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_serie">
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_serie">
+              <MappingFragment StoreEntitySet="mlb_serie">
+                <ScalarProperty Name="mlb_quantity_games" ColumnName="mlb_quantity_games" />
+                <ScalarProperty Name="mlb_game_id" ColumnName="mlb_game_id" />
+                <ScalarProperty Name="id_serie" ColumnName="id_serie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -146,7 +173,7 @@
               <MappingFragment StoreEntitySet="mlb_team">
                 <ScalarProperty Name="insert_date" ColumnName="insert_date" />
                 <ScalarProperty Name="team_name" ColumnName="team_name" />
-                <ScalarProperty Name="team_id" ColumnName="team_id" />
+                <ScalarProperty Name="id_team" ColumnName="id_team" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -12,10 +12,10 @@ namespace clsModel
     using System;
     using System.Collections.Generic;
     
-    public partial class mlb_team
+    public partial class mlb_serie
     {
-        public int id_team { get; set; }
-        public string team_name { get; set; }
-        public Nullable<System.DateTime> insert_date { get; set; }
+        public int id_serie { get; set; }
+        public int mlb_game_id { get; set; }
+        public Nullable<int> mlb_quantity_games { get; set; }
     }
 }

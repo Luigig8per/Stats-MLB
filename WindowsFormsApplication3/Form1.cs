@@ -298,6 +298,7 @@ namespace WindowsFormsApplication1
             clsModel.mlb_game theGame = new mlb_game();
             List<String> theList = new List<String>();
             int contRowsGame = 0;
+            int idTeamHome, idTeamAway;
 
 
             clsBusineesProcess theBusiness = new clsBusineesProcess();
@@ -312,14 +313,37 @@ namespace WindowsFormsApplication1
                 //theGame.game_date = 
                 theGame = addGameFromESPNProbables(row, theGame, urlSource, contRowsGame);
 
+              
 
-                theBusiness.insertTeam(theGame.game_name_team_away);
-                theBusiness.insertTeam(theGame.game_name_team_home);
+                //if (idPitcherHome != 0)
+                //{
+                 
+                //}
+
+                //if (idPitcherAway!=0)
+                //{
+
+                //}
+
 
 
                 if (!Equals(theGame.game_name_pitcher_away, null))
                 {
 
+                    idTeamHome = theBusiness.insertTeam(theGame.game_name_team_away);
+                    idTeamAway = theBusiness.insertTeam(theGame.game_name_team_home);
+                    theBusiness.insertPitcher(theGame.game_name_pitcher_home, float.Parse(theGame.game_pitcher_home_ERA.ToString()));
+                    theBusiness.insertPitcher(theGame.game_name_pitcher_away, float.Parse(theGame.game_pitcher_away_ERA.ToString()));
+
+                    if (idTeamHome != 0)
+                    {
+                        theGame.game_id_team_home = idTeamHome;
+                    }
+
+                    if (idTeamAway != 0)
+                    {
+                        theGame.game_id_team_away = idTeamAway;
+                    }
 
                     //theBusiness.insertGame(theGame);
                     theBusiness.upsertGame(theGame);
