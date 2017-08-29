@@ -1,0 +1,562 @@
+Home team = Seattle Mariners
+Away team = Baltimore Orioles
+Home pitcher = E. Ramirez (R)
+Away pitcher = D. Bundy (R)
+TO UPDATE:
+Home team = Seattle Mariners
+Away team = Baltimore Orioles
+Home pitcher = E. Ramirez (R)
+Away pitcher = D. Bundy (R)
+1
+0
+Home team = Cleveland Indians
+Away team = New York Yankees
+Home pitcher = T. Bauer (R)
+Away pitcher = J. Garcia (L)
+TO UPDATE:
+Home team = Cleveland Indians
+Away team = New York Yankees
+Home pitcher = T. Bauer (R)
+Away pitcher = J. Garcia (L)
+1
+0
+Home team = Miami Marlins
+Away team = Washington Nationals
+Home pitcher = V. Worley (R)
+Away pitcher = E. Jackson (R)
+TO UPDATE:
+Home team = Miami Marlins
+Away team = Washington Nationals
+Home pitcher = J. Nicolino (L)
+Away pitcher = E. Jackson (R)
+1
+1
+Home team = Atlanta Braves
+Away team = Philadelphia Phillies
+Home pitcher = R. Dickey (R)
+Away pitcher = M. Leiter Jr. (R)
+TO UPDATE:
+Home team = Atlanta Braves
+Away team = Philadelphia Phillies
+Home pitcher = R. Dickey (R)
+Away pitcher = M. Leiter Jr. (R)
+1
+0
+Home team = Boston Red Sox
+Away team = Toronto Blue Jays
+Home pitcher = C. Sale (L)
+Away pitcher = B. Anderson (L)
+TO UPDATE:
+Home team = Boston Red Sox
+Away team = Toronto Blue Jays
+Home pitcher = C. Sale (L)
+Away pitcher = T. Koehler (R)
+1
+1
+Home team = New York Mets
+Away team = Cincinnati Reds
+Home pitcher = C. Flexen (R)
+Away pitcher = S. Romano (R)
+TO UPDATE:
+Home team = New York Mets
+Away team = Cincinnati Reds
+Home pitcher = C. Flexen (R)
+Away pitcher = S. Romano (R)
+1
+0
+Home team = Texas Rangers
+Away team = Houston Astros
+Home pitcher = M. Perez (L)
+Away pitcher = M. Fiers (R)
+TO UPDATE:
+Home team = Texas Rangers
+Away team = Houston Astros
+Home pitcher = M. Perez (L)
+Away pitcher = M. Fiers (R)
+1
+0
+Home team = St. Louis Cardinals
+Away team = Milwaukee Brewers
+Home pitcher = L. Weaver (R)
+Away pitcher = M. Garza (R)
+TO UPDATE:
+Home team = St. Louis Cardinals
+Away team = Milwaukee Brewers
+Home pitcher = L. Weaver (R)
+Away pitcher = M. Garza (R)
+1
+0
+Home team = Pittsburgh Pirates
+Away team = Chicago Cubs
+Home pitcher = C. Kuhl (R)
+Away pitcher = J. Arrieta (R)
+TO UPDATE:
+Home team = Pittsburgh Pirates
+Away team = Chicago Cubs
+Home pitcher = C. Kuhl (R)
+Away pitcher = J. Arrieta (R)
+1
+0
+Home team = Chicago White Sox
+Away team = Minnesota Twins
+Home pitcher = J. Shields (R)
+Away pitcher = E. Santana (R)
+TO UPDATE:
+Home team = Chicago White Sox
+Away team = Minnesota Twins
+Home pitcher = J. Shields (R)
+Away pitcher = E. Santana (R)
+1
+0
+Home team = Tampa Bay Rays
+Away team = Kansas City Royals
+Home pitcher = A. Cobb (R)
+Away pitcher = J. Junis (R)
+TO UPDATE:
+Home team = Tampa Bay Rays
+Away team = Kansas City Royals
+Home pitcher = A. Cobb (R)
+Away pitcher = J. Junis (R)
+1
+0
+Home team = Detroit Tigers
+Away team = Colorado Rockies
+Home pitcher = M. Fulmer (R)
+Away pitcher = G. Marquez (R)
+TO UPDATE:
+Home team = Detroit Tigers
+Away team = Colorado Rockies
+Home pitcher = M. Fulmer (R)
+Away pitcher = G. Marquez (R)
+1
+0
+Home team = Los Angeles Dodgers
+Away team = Arizona Diamondbacks
+Home pitcher = R. Hill (L)
+Away pitcher = Z. Godley (R)
+TO UPDATE:
+Home team = Los Angeles Dodgers
+Away team = Arizona Diamondbacks
+Home pitcher = R. Hill (L)
+
+Away pitcher = Z. Godley (R)
+1
+0
+Home team = Oakland Athletics
+Away team = Los Angeles Angels
+Home pitcher = C. Smith (R)
+Away pitcher = T. Scribner (R)
+TO UPDATE:
+Home team = Oakland Athletics
+Away team = Los Angeles Angels
+Home pitcher = C. Smith (R)
+Away pitcher = T. Scribner (R)
+1
+0
+Home team = San Francisco Giants
+Away team = San Diego Padres
+Home pitcher = M. Moore (L)
+Away pitcher = L. Perdomo (R)
+TO UPDATE:
+Home team = San Francisco Giants
+Away team = San Diego Padres
+Home pitcher = M. Moore (L)
+Away pitcher = L. Perdomo (R)
+1
+0
+Home team = Cleveland Indians
+Away team = New York Yankees
+Home pitcher = J. Tomlin (R)
+Away pitcher = C. Sabathia (L)
+TO UPDATE:
+Home team = Cleveland Indians
+Away team = New York Yankees
+Home pitcher = J. Tomlin (R)
+Away pitcher = C. Sabathia (L)
+1
+0
+Home team = Atlanta Braves
+Away team = Philadelphia Phillies
+Home pitcher = J. Teheran (R)
+Away pitcher = J. Eickhoff (R)
+TO UPDATE:
+Home team = Atlanta Braves
+Away team = Philadelphia Phillies
+Home pitcher = J. Teheran (R)
+Away pitcher = J. Eickhoff (R)
+1
+0
+Home team = St. Louis Cardinals
+Away team = Milwaukee Brewers
+Home pitcher = C. Martinez (R)
+Away pitcher = C. Anderson (R)
+TO UPDATE:
+Home team = St. Louis Cardinals
+Away team = Milwaukee Brewers
+Home pitcher = C. Martinez (R)
+Away pitcher = C. Anderson (R)
+1
+0
+Home team = Seattle Mariners
+Away team = Baltimore Orioles
+Home pitcher = A. Miranda (L)
+Away pitcher = U. Jimenez (R)
+TO UPDATE:
+Home team = Seattle Mariners
+Away team = Baltimore Orioles
+Home pitcher = A. Miranda (L)
+Away pitcher = U. Jimenez (R)
+1
+0
+Home team = Detroit Tigers
+Away team = Colorado Rockies
+Home pitcher = J. Verlander (R)
+Away pitcher = C. Bettis (R)
+TO UPDATE:
+Home team = Detroit Tigers
+Away team = Colorado Rockies
+Home pitcher = J. Verlander (R)
+Away pitcher = C. Bettis (R)
+1
+0
+Home team = Miami Marlins
+Away team = Washington Nationals
+Home pitcher = A. Conley (L)
+Away pitcher = S. Strasburg (R)
+TO UPDATE:
+Home team = Miami Marlins
+Away team = Washington Nationals
+Home pitcher = V. Worley (R)
+Away pitcher = S. Strasburg (R)
+1
+1
+Home team = Texas Rangers
+Away team = Houston Astros
+Home pitcher = A. Cashner (R)
+Away pitcher = D. Keuchel (L)
+TO UPDATE:
+Home team = Texas Rangers
+Away team = Houston Astros
+Home pitcher = A. Cashner (R)
+Away pitcher = D. Keuchel (L)
+1
+0
+Home team = Boston Red Sox
+Away team = Toronto Blue Jays
+Home pitcher = R. Porcello (R)
+Away pitcher = J. Happ (L)
+TO UPDATE:
+Home team = Boston Red Sox
+Away team = Toronto Blue Jays
+Home pitcher = R. Porcello (R)
+Away pitcher = J. Happ (L)
+1
+0
+Home team = New York Mets
+Away team = Cincinnati Reds
+Home pitcher = R. Montero (R)
+Away pitcher = H. Bailey (R)
+TO UPDATE:
+Home team = New York Mets
+Away team = Cincinnati Reds
+Home pitcher = R. Montero (R)
+Away pitcher = H. Bailey (R)
+1
+0
+Home team = Pittsburgh Pirates
+Away team = Chicago Cubs
+Home pitcher = I. Nova (R)
+Away pitcher = J. Quintana (L)
+TO UPDATE:
+Home team = Pittsburgh Pirates
+Away team = Chicago Cubs
+Home pitcher = I. Nova (R)
+Away pitcher = J. Quintana (L)
+1
+0
+Home team = Chicago White Sox
+Away team = Minnesota Twins
+Home pitcher = D. Holland (L)
+Away pitcher = J. Berrios (R)
+TO UPDATE:
+Home team = Chicago White Sox
+Away team = Minnesota Twins
+Home pitcher = D. Holland (L)
+Away pitcher = J. Berrios (R)
+1
+0
+Home team = Tampa Bay Rays
+Away team = Kansas City Royals
+Home pitcher = J. Odorizzi (R)
+Away pitcher = J. Vargas (L)
+TO UPDATE:
+Home team = Tampa Bay Rays
+Away team = Kansas City Royals
+Home pitcher = J. Odorizzi (R)
+Away pitcher = J. Vargas (L)
+1
+0
+Home team = San Francisco Giants
+Away team = San Diego Padres
+Home pitcher = T. Blach (L)
+Away pitcher = T. Wood (L)
+TO UPDATE:
+Home team = San Francisco Giants
+Away team = San Diego Padres
+Home pitcher = T. Blach (L)
+Away pitcher = T. Wood (L)
+1
+0
+Home team = Los Angeles Dodgers
+Away team = Arizona Diamondbacks
+Home pitcher = H. Ryu (L)
+Away pitcher = R. Ray (L)
+TO UPDATE:
+Home team = Los Angeles Dodgers
+Away team = Arizona Diamondbacks
+Home pitcher = H. Ryu (L)
+Away pitcher = R. Ray (L)
+1
+0
+Home team = Oakland Athletics
+Away team = Los Angeles Angels
+Home pitcher = K. Graveman (R)
+Away pitcher = P. Bridwell (R)
+TO UPDATE:
+Home team = Oakland Athletics
+Away team = Los Angeles Angels
+Home pitcher = K. Graveman (R)
+Away pitcher = P. Bridwell (R)
+1
+0
+Home team = New York Mets
+Away team = Cincinnati Reds
+Home pitcher = J. deGrom (R)
+Away pitcher = R. Stephenson (R)
+TO UPDATE:
+Home team = New York Mets
+Away team = Cincinnati Reds
+Home pitcher = J. deGrom (R)
+Away pitcher = R. Stephenson (R)
+1
+0
+Home team = Chicago White Sox
+Away team = Minnesota Twins
+Home pitcher = M. Gonzalez (R)
+Away pitcher = B. Colon (R)
+TO UPDATE:
+Home team = Chicago White Sox
+Away team = Minnesota Twins
+Home pitcher = M. Gonzalez (R)
+Away pitcher = B. Colon (R)
+1
+0
+Home team = Texas Rangers
+Away team = Houston Astros
+Home pitcher = C. Hamels (L)
+Away pitcher = C. McHugh (R)
+TO UPDATE:
+Home team = Texas Rangers
+Away team = Houston Astros
+Home pitcher = C. Hamels (L)
+Away pitcher = C. McHugh (R)
+1
+0
+Home team = Los Angeles Dodgers
+Away team = Arizona Diamondbacks
+Home pitcher = K. Maeda (R)
+Away pitcher = Z. Greinke (R)
+TO UPDATE:
+Home team = Los Angeles Dodgers
+Away team = Arizona Diamondbacks
+Home pitcher = K. Maeda (R)
+Away pitcher = Z. Greinke (R)
+1
+0
+Home team = Toronto Blue Jays
+Away team = Baltimore Orioles
+Home pitcher = M. Estrada (R)
+Away pitcher = J. Hellickson (R)
+TO UPDATE:
+Home team = Toronto Blue Jays
+Away team = Baltimore Orioles
+Home pitcher = M. Estrada (R)
+Away pitcher = J. Hellickson (R)
+1
+0
+Home team = Boston Red Sox
+Away team = New York Yankees
+Home pitcher = E. Rodriguez (L)
+Away pitcher = S. Gray (R)
+TO UPDATE:
+Home team = Boston Red Sox
+Away team = New York Yankees
+Home pitcher = E. Rodriguez (L)
+Away pitcher = S. Gray (R)
+1
+0
+Home team = Philadelphia Phillies
+Away team = Miami Marlins
+Home pitcher = B. Lively (R)
+Away pitcher = J. Nicolino (L)
+TO UPDATE:
+Home team = Philadelphia Phillies
+Away team = Miami Marlins
+Home pitcher = B. Lively (R)
+Away pitcher = A. Conley (L)
+1
+1
+Home team = Atlanta Braves
+Away team = Chicago Cubs
+Home pitcher = S. Newcomb (L)
+Away pitcher = K. Hendricks (R)
+TO UPDATE:
+Home team = Atlanta Braves
+Away team = Chicago Cubs
+Home pitcher = S. Newcomb (L)
+Away pitcher = K. Hendricks (R)
+1
+0
+Home team = Washington Nationals
+Away team = Milwaukee Brewers
+Home pitcher = G. Gonzalez (L)
+Away pitcher = Z. Davies (R)
+TO UPDATE:
+Home team = Washington Nationals
+Away team = Milwaukee Brewers
+Home pitcher = G. Gonzalez (L)
+Away pitcher = Z. Davies (R)
+1
+0
+Home team = St. Louis Cardinals
+Away team = San Francisco Giants
+Home pitcher = M. Wacha (R)
+Away pitcher = M. Bumgarner (L)
+TO UPDATE:
+Home team = St. Louis Cardinals
+Away team = San Francisco Giants
+Home pitcher = M. Wacha (R)
+Away pitcher = M. Bumgarner (L)
+1
+0
+Home team = Cleveland Indians
+Away team = Detroit Tigers
+Home pitcher = M. Clevinger (R)
+Away pitcher = B. Farmer (R)
+TO UPDATE:
+Home team = Cleveland Indians
+Away team = Detroit Tigers
+Home pitcher = M. Clevinger (R)
+Away pitcher = D. Norris (L)
+1
+1
+Home team = Atlanta Braves
+Away team = Chicago Cubs
+Home pitcher = M. Foltynewicz (R)
+Away pitcher = J. Lackey (R)
+TO UPDATE:
+Home team = Atlanta Braves
+Away team = Chicago Cubs
+Home pitcher = M. Foltynewicz (R)
+Away pitcher = J. Lackey (R)
+1
+0
+Home team = Boston Red Sox
+Away team = New York Yankees
+Home pitcher = D. Fister (R)
+Away pitcher = M. Tanaka (R)
+TO UPDATE:
+Home team = Boston Red Sox
+Away team = New York Yankees
+Home pitcher = D. Fister (R)
+Away pitcher = M. Tanaka (R)
+1
+0
+Home team = Toronto Blue Jays
+Away team = Baltimore Orioles
+Home pitcher = J. Biagini (R)
+Away pitcher = K. Gausman (R)
+TO UPDATE:
+Home team = Toronto Blue Jays
+Away team = Baltimore Orioles
+Home pitcher = N. Tepesch (R)
+Away pitcher = K. Gausman (R)
+1
+1
+Home team = Cincinnati Reds
+Away team = Pittsburgh Pirates
+Home pitcher = L. Castillo (R)
+Away pitcher = G. Cole (R)
+TO UPDATE:
+Home team = Cincinnati Reds
+Away team = Pittsburgh Pirates
+Home pitcher = L. Castillo (R)
+Away pitcher = G. Cole (R)
+1
+0
+Home team = Philadelphia Phillies
+Away team = Miami Marlins
+Home pitcher = N. Pivetta (R)
+Away pitcher = D. Straily (R)
+TO UPDATE:
+Home team = Philadelphia Phillies
+Away team = Miami Marlins
+Home pitcher = A. Nola (R)
+Away pitcher = D. Straily (R)
+1
+1
+Home team = Cleveland Indians
+Away team = Detroit Tigers
+Home pitcher = C. Carrasco (R)
+Away pitcher = M. Boyd (L)
+TO UPDATE:
+Home team = Cleveland Indians
+Away team = Detroit Tigers
+Home pitcher = C. Carrasco (R)
+Away pitcher = M. Boyd (L)
+1
+0
+Home team = Los Angeles Angels
+Away team = Texas Rangers
+Home pitcher = T. Skaggs (L)
+Away pitcher = N. Martinez (R)
+TO UPDATE:
+Home team = Los Angeles Angels
+Away team = Texas Rangers
+Home pitcher = T. Skaggs (L)
+Away pitcher = C. Hamels (L)
+1
+1
+Home team = Tampa Bay Rays
+Away team = Chicago White Sox
+Home pitcher = B. Snell (L)
+Away pitcher = C. Rodon (L)
+TO UPDATE:
+Home team = Tampa Bay Rays
+Away team = Chicago White Sox
+Home pitcher = B. Snell (L)
+Away pitcher = C. Rodon (L)
+1
+0
+Home team = Washington Nationals
+Away team = Milwaukee Brewers
+Home pitcher = T. Roark (R)
+Away pitcher = J. Nelson (R)
+TO UPDATE:
+Home team = Washington Nationals
+Away team = Milwaukee Brewers
+Home pitcher = T. Roark (R)
+Away pitcher = J. Nelson (R)
+1
+0
+Home team = Kansas City Royals
+Away team = Minnesota Twins
+Home pitcher = J. Hammel (R)
+Away pitcher = K. Gibson (R)
+TO UPDATE:
+Home team = Kansas City Royals
+Away team = Minnesota Twins
+Home pitcher = J. Hammel (R)
+Away pitcher = D. Gee (R)
+1
+1

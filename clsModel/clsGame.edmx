@@ -21,6 +21,9 @@
           <Property Name="game_name_pitcher_away" Type="varchar(max)" />
           <Property Name="game_pitcher_home_ERA" Type="float" />
           <Property Name="game_pitcher_away_ERA" Type="float" />
+          <Property Name="updated" Type="bit" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
         </EntityType>
         <Function Name="sp_UpdateMLBGame" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="game_id" Type="int" Mode="In" />
@@ -53,6 +56,9 @@
           <Property Name="game_name_pitcher_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="game_pitcher_home_ERA" Type="Double" />
           <Property Name="game_pitcher_away_ERA" Type="Double" />
+          <Property Name="updated" Type="Boolean" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -63,6 +69,9 @@
           <EntitySetMapping Name="mlb_game">
             <EntityTypeMapping TypeName="ModelsMLB.mlb_game">
               <MappingFragment StoreEntitySet="mlb_game">
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
                 <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
                 <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
                 <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
@@ -76,15 +85,6 @@
                 <ScalarProperty Name="game_id" ColumnName="game_id" />
                 <ScalarProperty Name="game_date" ColumnName="game_date" />
               </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="ModelsMLB.mlb_game">
-              <ModificationFunctionMapping>
-                <UpdateFunction FunctionName="ModelsMLB.Store.sp_UpdateMLBGame">
-                  <ScalarProperty Name="game_name_team_away" ParameterName="game_name_team_away" Version="Current" />
-                  <ScalarProperty Name="game_name_team_home" ParameterName="game_name_team_home" Version="Current" />
-                  <ScalarProperty Name="game_id" ParameterName="game_id" Version="Original" />
-                </UpdateFunction>
-              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>

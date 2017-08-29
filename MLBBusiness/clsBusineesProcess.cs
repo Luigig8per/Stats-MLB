@@ -20,7 +20,8 @@ namespace MLBBusiness
 
             {
 
-              Console.WriteLine("Home team = " + theGame.game_name_team_home);
+                Console.WriteLine("TO INSERT" );
+                Console.WriteLine("Home team = " + theGame.game_name_team_home);
                 Console.WriteLine("Away team = " + theGame.game_name_team_away);
                 Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
                 Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
@@ -46,32 +47,45 @@ namespace MLBBusiness
 
 
 
-        public void updatetGame(mlb_game theGame)
+        public void updatetGame( mlb_game gameFound, mlb_game theGame,  DonBestEntities context)
         {
             int res = 0;
 
-            using (DonBestEntities context = new DonBestEntities())
+            try
+            {
+                gameFound.game_name_pitcher_away = theGame.game_name_pitcher_away;
+                gameFound.game_name_pitcher_home = theGame.game_name_pitcher_home;
+                gameFound.game_name_team_away = theGame.game_name_team_away;
+                gameFound.game_name_team_home = theGame.game_name_team_home;
+                gameFound.game_pitcher_away_ERA = theGame.game_pitcher_away_ERA;
+                gameFound.game_pitcher_home_ERA = theGame.game_pitcher_home_ERA;
+                gameFound.last_update_date = DateTime.Now;
+
+                gameFound.updated = true;
+                //context.mlb_game.
+                
+            }
+            catch (Exception ex)
 
             {
+                Console.WriteLine("Error" + ex.Message);
 
+
+            }
+
+
+            using (context = new DonBestEntities())
+
+            {
+                Console.WriteLine("TO UPDATE:");
                 Console.WriteLine("Home team = " + theGame.game_name_team_home);
                 Console.WriteLine("Away team = " + theGame.game_name_team_away);
                 Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
                 Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
 
-                try
-                {
 
-                    //context.mlb_game.
-                    //res = context.SaveChanges();
-                }
-                catch (Exception ex)
-
-                {
-                    Console.WriteLine("Error" + ex.Message);
-
-
-                }
+                context.Entry(gameFound).State = System.Data.Entity.EntityState.Modified;
+                res = context.SaveChanges();
 
                 Console.WriteLine(res);
 
@@ -99,7 +113,14 @@ namespace MLBBusiness
                 try
                 {
 
-                    var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_pitcher_away == theGame.game_name_pitcher_away && g.game_name_pitcher_home == theGame.game_name_pitcher_home && g.game_pitcher_away_ERA == theGame.game_pitcher_away_ERA && g.game_pitcher_home_ERA == theGame.game_pitcher_home_ERA );
+                    //If game and date is same, and pitchers change, need to do update.
+                    //if GAME AND DATE IS SAME, 
+                    //if game date same, 
+                    //var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_pitcher_away == theGame.game_name_pitcher_away && g.game_name_pitcher_home == theGame.game_name_pitcher_home && g.game_pitcher_away_ERA == theGame.game_pitcher_away_ERA && g.game_pitcher_home_ERA == theGame.game_pitcher_home_ERA );
+
+                    var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_team_home == theGame.game_name_team_home && g.game_name_team_away == theGame.game_name_team_away);
+
+
                     var gameFound = L2EQuery.FirstOrDefault<mlb_game>();
 
                     if (gameFound == null)
@@ -110,13 +131,11 @@ namespace MLBBusiness
 
                     
 
-
-
                     }
                     else
 
                     {
-                        updatetGame(gameFound);
+                        updatetGame(gameFound, theGame, context );
 
                     }
 

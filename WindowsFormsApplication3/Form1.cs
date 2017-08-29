@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            extractNextGames();
+            extractNextGames(int.Parse(numericUpDown1.Value.ToString()));
 
 
 
@@ -86,26 +86,22 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            extractNextGames();
+            extractNextGames(int.Parse(numericUpDown1.Value.ToString()));
 
 
 
         }
 
-        void extractNextGames()
+        void extractNextGames(int qDays)
         {
             List<String> theList = new List<String>();
 
             //addGame("http://www.espn.com/mlb/schedule/_/date/20170823");
 
 
-
-
-
-
             theList = addGame(dateUrl(DateTime.Today), "tablehead");
 
-            for (int i = 1; i <= 70; i++)
+            for (int i = 1; i <= 3; i++)
             {
                 theList.AddRange(addGame(dateUrl(DateTime.Today.AddDays(i)), "tablehead"));
             }
@@ -177,17 +173,17 @@ namespace WindowsFormsApplication1
                 //dateUrl(thedATE);
                 theGame.game_name_team_home = rowText.Substring(0, indexNum);
                 theGame.game_name_team_away = rowText.Substring(indexNum + 4, rowText.Length - indexNum - 4);
-                //theGame.game_date = row["Win"].ToString();
+                //theGame
+                ////theGame.game_date = row["Win"].ToString();
 
                 //theGame.game_date= row["Team"].ToString();
 
                 //theGame.game_date = row["Win"].ToString();
 
                 //theGame.game_date = convert(row["Win"].ToString());
-                theGame.game_serie_id = 0;
-                theGame.game_number = 0;
-                theGame.game_id_team_away = 20;
-                theGame.game_id_team_home = 20;
+              
+                theGame.insert_date = DateTime.Now;
+                theGame.updated = false;
             }
 
 
@@ -477,6 +473,11 @@ namespace WindowsFormsApplication1
         }
 
         private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }
