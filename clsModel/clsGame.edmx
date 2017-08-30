@@ -51,6 +51,11 @@
           <Property Name="id_team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="team_name" Type="varchar(max)" Nullable="false" />
           <Property Name="insert_date" Type="datetime" />
+          <Property Name="L10" Type="varchar" MaxLength="50" />
+          <Property Name="actualPosition" Type="int" />
+          <Property Name="league" Type="varchar" MaxLength="50" />
+          <Property Name="division" Type="varchar" MaxLength="50" />
+          <Property Name="last_update_date" Type="datetime" />
         </EntityType>
         <Function Name="sp_UpdateMLBGame" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="game_id" Type="int" Mode="In" />
@@ -119,6 +124,11 @@
           <Property Name="id_team" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="team_name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="L10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="actualPosition" Type="Int32" />
+          <Property Name="league" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -171,6 +181,11 @@
           <EntitySetMapping Name="mlb_team">
             <EntityTypeMapping TypeName="ModelsMLB.mlb_team">
               <MappingFragment StoreEntitySet="mlb_team">
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="league" ColumnName="league" />
+                <ScalarProperty Name="actualPosition" ColumnName="actualPosition" />
+                <ScalarProperty Name="L10" ColumnName="L10" />
                 <ScalarProperty Name="insert_date" ColumnName="insert_date" />
                 <ScalarProperty Name="team_name" ColumnName="team_name" />
                 <ScalarProperty Name="id_team" ColumnName="id_team" />

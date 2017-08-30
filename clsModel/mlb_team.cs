@@ -17,5 +17,10 @@ namespace clsModel
         public int id_team { get; set; }
         public string team_name { get; set; }
         public Nullable<System.DateTime> insert_date { get; set; }
+        public string L10 { get; set; }
+        public Nullable<int> actualPosition { get; set; }
+        public string league { get; set; }
+        public string division { get; set; }
+        public Nullable<System.DateTime> last_update_date { get; set; }
     }
 }

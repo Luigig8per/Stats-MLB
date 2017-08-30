@@ -85,7 +85,9 @@ namespace WindowsFormsApplication1
                 case 1:
                     
                     res = table.ToDataTableWithPosition(League);
-                   
+
+                  
+
                     break;
 
             }

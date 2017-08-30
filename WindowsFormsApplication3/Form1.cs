@@ -26,13 +26,17 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+          
+
+
+           
+
             extractNextGames(int.Parse(numericUpDown1.Value.ToString()));
 
-
-
-
-
+            loadESPNStandings();
         }
+
+
 
         public void comboChange(ComboBox comboBox1)
         {
@@ -70,18 +74,10 @@ namespace WindowsFormsApplication1
                     break;
 
                 case 3:
-                    DataTable data3 = new DataTable();
-                    DataTable data4 = new DataTable();
+
+                    loadESPNStandings();
 
 
-                    data3 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 1, 1);
-                    data4 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 2, 1);
-
-
-                    data3.Merge(data4);
-
-
-                    dataGridView1.DataSource = data3;
                     break;
 
                 case 4:
@@ -100,6 +96,36 @@ namespace WindowsFormsApplication1
 
 
 
+        }
+
+        private void loadESPNStandings()
+        {
+            DataTable data3 = new DataTable();
+            DataTable data4 = new DataTable();
+
+
+            data3 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 1, 1);
+            data4 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 2, 1);
+
+
+            data3.Merge(data4);
+
+
+            //foreach (DataRow row in data3.Rows)
+            //{
+
+            //    //this.clsBusiness.updateTeam();
+
+            //    for (int i = 0; i < data3.Columns.Count; i++)
+            //    {
+            //        string oldVal = row[i].ToString();
+            //        string newVal = "{" + oldVal;
+            //        row[i] = newVal;
+            //    }
+
+            //}
+
+            dataGridView1.DataSource = data3;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -169,6 +195,100 @@ namespace WindowsFormsApplication1
 
 
         }
+
+
+        mlb_game addTeamFromESPNStandins(DataRow row, mlb_game theGame, string theDate, int countRowsGame)
+        {
+            //string pitchers = "", lineText = "";
+            int indexNum;
+            string rowText = "";
+
+
+            rowText = row["Team"].ToString();
+
+            indexNum = rowText.IndexOf(" at ");
+
+
+            if (rowText.Contains(" at "))
+            {
+                theDate += " " + (row["Win"].ToString().Substring(0, 8));
+                theGame.game_date = dateUrl(theDate);
+
+                //timeFromText();
+
+                //dateUrl(thedATE);
+                theGame.game_name_team_home = rowText.Substring(0, indexNum);
+
+
+
+                theGame.game_name_team_away = rowText.Substring(indexNum + 4, rowText.Length - indexNum - 4);
+                //theGame
+                ////theGame.game_date = row["Win"].ToString();
+
+                //theGame.game_date= row["Team"].ToString();
+
+                //theGame.game_date = row["Win"].ToString();
+
+                //theGame.game_date = convert(row["Win"].ToString());
+
+                theGame.insert_date = DateTime.Now;
+                theGame.updated = false;
+            }
+
+
+            else
+            {
+
+                if (countRowsGame == 4 || countRowsGame == 5)
+                {
+                    if (rowText.Contains("(R)") || rowText.Contains("(L)"))
+                    {
+                        if (Equals(theGame.game_name_pitcher_home, null))
+                        {
+                            theGame.game_name_pitcher_home = rowText;
+                            theGame.game_pitcher_home_ERA = float.Parse(row["ROAD"].ToString());
+                        }
+                        else
+                        {
+                            theGame.game_name_pitcher_away = rowText;
+                            theGame.game_pitcher_away_ERA = float.Parse(row["ROAD"].ToString());
+                        }
+
+
+
+
+
+                    }
+
+
+
+                    else
+
+                    {
+                        theGame.game_name_pitcher_home = "UNDEFINED";
+                        theGame.game_name_pitcher_away = "UNDEFINED";
+                    }
+
+
+
+                }
+
+                else
+                {
+
+                }
+            }
+
+
+            //indexNum = pitchers.IndexOf("vs");
+
+            //theGame.game_name_pitcher_home = pitchers.Substring(0, indexNum);
+            //theGame.game_name_pitcher_away = pitchers.Substring(indexNum + 3, pitchers.Length - indexNum - 3);
+
+            return theGame;
+        }
+
+
         mlb_game addGameFromESPNProbables(DataRow row, mlb_game theGame, string theDate, int countRowsGame)
         {
             //string pitchers = "", lineText = "";
@@ -521,6 +641,11 @@ namespace WindowsFormsApplication1
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             comboChange(comboBox1);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            loadESPNStandings();
         }
     }
 }
