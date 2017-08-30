@@ -22,5 +22,7 @@ namespace clsModel
         public string league { get; set; }
         public string division { get; set; }
         public Nullable<System.DateTime> last_update_date { get; set; }
+        public Nullable<int> win { get; set; }
+        public Nullable<int> lost { get; set; }
     }
 }

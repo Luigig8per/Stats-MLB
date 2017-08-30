@@ -215,14 +215,15 @@ namespace WindowsFormsApplication1
 
         mlb_team addTeamFromESPNStandins(DataRow row, mlb_team theTeam)
         {
-           
-            int indexNum;
-            string rowText = "";
+
+         
+            
 
 
-            rowText = row["Team"].ToString();
-
-            indexNum = rowText.IndexOf(" at ");
+           theTeam.L10 = row["L10"].ToString();
+            theTeam.win = int.Parse(row[1].ToString());
+            theTeam.lost = int.Parse(row[2].ToString());
+          
 
 
          

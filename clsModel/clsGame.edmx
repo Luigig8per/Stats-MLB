@@ -57,6 +57,8 @@
           <Property Name="league" Type="varchar" MaxLength="50" />
           <Property Name="division" Type="varchar" MaxLength="50" />
           <Property Name="last_update_date" Type="datetime" />
+          <Property Name="win" Type="int" />
+          <Property Name="lost" Type="int" />
         </EntityType>
         <Function Name="sp_UpdateMLBGame" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="game_id" Type="int" Mode="In" />
@@ -131,6 +133,8 @@
           <Property Name="league" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="win" Type="Int32" />
+          <Property Name="lost" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -184,6 +188,8 @@
           <EntitySetMapping Name="mlb_team">
             <EntityTypeMapping TypeName="ModelsMLB.mlb_team">
               <MappingFragment StoreEntitySet="mlb_team">
+                <ScalarProperty Name="lost" ColumnName="lost" />
+                <ScalarProperty Name="win" ColumnName="win" />
                 <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
                 <ScalarProperty Name="division" ColumnName="division" />
                 <ScalarProperty Name="league" ColumnName="league" />
