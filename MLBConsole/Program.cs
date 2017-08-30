@@ -10,6 +10,8 @@ namespace MLBConsole
     {
         static void Main(string[] args)
         {
+
+
         }
     }
 }

@@ -9,7 +9,7 @@ namespace WindowsFormsApplication1
 {
     static class ListExtensions
     {
-        public static DataTable ToDataTableWithPosition(this List<List<string>> list)
+        public static DataTable ToDataTableWithPosition(this List<List<string>> list, int numLeague)
         {
             DataTable tmp = new DataTable();
 
@@ -28,15 +28,13 @@ namespace WindowsFormsApplication1
             tmp.Columns.Add("League");
             tmp.Columns.Add("Subgroup");
             tmp.Columns.Add("Position");
-            tmp.Columns.Add("");
-            tmp.Columns.Add("");
-            tmp.Columns.Add("");
-            tmp.Columns.Add("");
 
+            int h = 1;
             int i = 0;
             int j = 1;
            
             string area = "";
+            string league = "";
 
             foreach (List<string> row in list)
             {
@@ -45,6 +43,12 @@ namespace WindowsFormsApplication1
                 { 
                     i = 0;
                 j += 1;
+                }
+
+                if (j>3)
+                {
+                    j = 1;
+                    h += 1;
                 }
 
                 i += 1;
@@ -66,14 +70,30 @@ namespace WindowsFormsApplication1
 
                 }
 
-               
+                switch (numLeague)
+                {
+
+                    case 1:
+                        league = "AMERICAN";
+                        break;
+
+                    case 2:
+                        league = "NATIONAL";
+                        break;
+                   
+
+                }
 
 
 
-                row.Add(i.ToString());
+
+
+
+                row.Add(league);
+                Console.WriteLine(i.ToString());
                 row.Add(area);
                 row.Add(i.ToString());
-
+                Console.WriteLine(area);
                 tmp.Rows.Add(row.ToArray());
                 
             }

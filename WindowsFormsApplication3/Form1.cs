@@ -69,6 +69,24 @@ namespace WindowsFormsApplication1
                     dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/team/schedule/_/name/cle", 1, 0, "standings has-team-logos");
                     break;
 
+                case 3:
+                    DataTable data3 = new DataTable();
+                    DataTable data4 = new DataTable();
+
+
+                    data3 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 1, 1);
+                    data4 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 2, 1);
+
+
+                    data3.Merge(data4);
+
+
+                    dataGridView1.DataSource = data3;
+                    break;
+
+                case 4:
+                    dataGridView1.DataSource = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 1, 1);
+                    break;
 
 
             }
@@ -310,22 +328,8 @@ namespace WindowsFormsApplication1
 
 
                 contRowsGame++;
-                //theGame.game_date = 
-                theGame = addGameFromESPNProbables(row, theGame, urlSource, contRowsGame);
-
-              
-
-                //if (idPitcherHome != 0)
-                //{
-                 
-                //}
-
-                //if (idPitcherAway!=0)
-                //{
-
-                //}
-
-
+               
+                theGame = addGameFromESPNProbables(row, theGame, urlSource, contRowsGame);      
 
                 if (!Equals(theGame.game_name_pitcher_away, null))
                 {
@@ -512,6 +516,11 @@ namespace WindowsFormsApplication1
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            comboChange(comboBox1);
         }
     }
 }
