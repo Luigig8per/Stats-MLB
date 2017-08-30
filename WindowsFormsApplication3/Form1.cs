@@ -130,6 +130,9 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Visible = true;
+            dataGridView1.Visible = false;
+
             extractNextGames(int.Parse(numericUpDown1.Value.ToString()));
 
 
@@ -140,7 +143,7 @@ namespace WindowsFormsApplication1
         {
             List<String> theList = new List<String>();
 
-            //addGame("http://www.espn.com/mlb/schedule/_/date/20170823");
+      
 
 
             theList = addGame(dateUrl(DateTime.Today), "tablehead");
@@ -645,6 +648,9 @@ namespace WindowsFormsApplication1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            listBox1.Visible = false;
+            dataGridView1.Visible = true;
+
             loadESPNStandings();
         }
     }
