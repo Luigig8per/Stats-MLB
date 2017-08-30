@@ -255,7 +255,7 @@ namespace MLBBusiness
                 if (gameFound.game_name_pitcher_away != theGame.game_name_pitcher_away)
                 { 
                     gameFound.game_name_pitcher_away =theGame.game_name_pitcher_away;
-                countChanges++;
+                   countChanges++;
                 }
 
                 if (gameFound.game_name_pitcher_home != theGame.game_name_pitcher_home)
@@ -337,7 +337,12 @@ namespace MLBBusiness
 
         }
 
+        public object ExeStoredProcedure(string storedProcedureName)
+        {
+            Dbconnection theConnection = new Dbconnection();
 
+            return theConnection.ExeStoredProcedure(storedProcedureName);
+        }
 
         public void upsertPitcher(mlb_pitcher theEntity)
         {
@@ -510,6 +515,7 @@ namespace MLBBusiness
                     else
 
                     {
+                        gameFound.last_version = true;
                         updatetGame(gameFound, theGame, context );
 
                     }
@@ -532,7 +538,10 @@ namespace MLBBusiness
             }
         }
 
-
+        //public object ExeStoredProcedure(string storedProcedureName)
+        //{
+        //   theData = MLBData.
+        //}
 
         public void selectTeam()
         {

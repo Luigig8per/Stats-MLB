@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer
+namespace MLBData
 {
     public class Dbconnection
     {
@@ -82,17 +82,38 @@ namespace DataLayer
             }
 
         }
-       
-  //      EXEC[dbo].[Report_Game_Statistic]
-  //      @LogIdUser = 74,
-  //@prmStartDate = N'2017-07-17',
-  //@prmEndDate = N'2017-07-17',
-  //@prmBook = '',
-  //@prmOffice = '',
-  //@prmPlayer = '',
-  //@prmLeague = '',
-  //@prmGroupby = 0,
-  //@prmOrderby = 1
+
+        public object ExeStoredProcedure(string storedProcedureName)
+        {
+
+            using (con)
+            {
+                using (SqlCommand cmd = new SqlCommand(storedProcedureName, con))
+                {
+                    int rowsaffected = -1;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                  
+
+                    con.Open();
+                    rowsaffected = cmd.ExecuteNonQuery();
+
+                    return rowsaffected;
+                }
+            }
+
+        }
+
+        //      EXEC[dbo].[Report_Game_Statistic]
+        //      @LogIdUser = 74,
+        //@prmStartDate = N'2017-07-17',
+        //@prmEndDate = N'2017-07-17',
+        //@prmBook = '',
+        //@prmOffice = '',
+        //@prmPlayer = '',
+        //@prmLeague = '',
+        //@prmGroupby = 0,
+        //@prmOrderby = 1
 
         public DataTable ExeSPWithResults(string storedProcedureName, List<string> sqlParameters)
 
