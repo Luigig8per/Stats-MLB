@@ -332,6 +332,7 @@ namespace WindowsFormsApplication1
 
                     idTeamHome = theBusiness.insertTeam(theGame.game_name_team_away);
                     idTeamAway = theBusiness.insertTeam(theGame.game_name_team_home);
+                    
                     theBusiness.insertPitcher(theGame.game_name_pitcher_home, float.Parse(theGame.game_pitcher_home_ERA.ToString()));
                     theBusiness.insertPitcher(theGame.game_name_pitcher_away, float.Parse(theGame.game_pitcher_away_ERA.ToString()));
 
