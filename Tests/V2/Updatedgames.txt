@@ -1,0 +1,10 @@
+id_game	game_date	game_serie_id	game_number	game_id_team_home	game_id_team_away	game_name_team_home	game_name_team_away	game_name_pitcher_home	game_name_pitcher_away	game_pitcher_home_ERA	game_pitcher_away_ERA	updated	insert_date	last_update_date	last_version
+359	2017-08-30 12:05:00.000	0	NULL	7	8	Atlanta Braves	Philadelphia Phillies	R. Dickey (R)	J. Eickhoff (R)	3.24000000953674	3.65000009536743	1	2017-08-29 14:56:35.630	2017-08-30 13:48:07.183	1
+72	2017-08-30 13:05:00.000	1	300	20	20	Cleveland Indians	New York Yankees	T. Bauer (R)	J. Garcia (L)	5.01999998092651	4.76000022888184	1	NULL	2017-08-30 13:48:22.853	1
+358	2017-08-30 16:35:00.000	0	NULL	3	4	Cleveland Indians	New York Yankees	R. Merritt (L)	J. Montgomery (L)	5.01999998092651	3.75	1	2017-08-29 14:22:51.000	2017-08-30 13:48:48.847	1
+97	2017-09-01 13:10:00.000	1	300	20	20	Cleveland Indians	Detroit Tigers	C. Carrasco (R)	B. Farmer (R)	2.85999989509583	10.3199996948242	1	NULL	2017-08-30 13:49:12.500	1
+103	2017-09-01 19:10:00.000	1	300	20	20	Cleveland Indians	Detroit Tigers	M. Clevinger (R)	M. Boyd (L)	3.00999999046326	6.40000009536743	1	NULL	2017-08-30 13:49:20.540	1
+108	2017-09-01 20:10:00.000	1	20	20	20	New York Mets	Houston Astros	M. Harvey (R)	B. Peacock (R)	7.84999990463257	3.34999990463257	1	NULL	2017-08-30 13:49:23.003	1
+110	2017-09-01 22:10:00.000	1	20	20	20	Oakland Athletics	Seattle Mariners	S. Manaea (L)	Y. Gallardo (R)	6.3899998664856	6.3899998664856	1	NULL	2017-08-30 13:49:23.977	1
+111	2017-09-01 22:10:00.000	1	20	20	20	Los Angeles Dodgers	San Diego Padres	C. Kershaw (L)	D. Lamet (R)	2.00999999046326	3.98000001907349	1	NULL	2017-08-30 13:49:24.523	1
+113	2017-09-02 13:05:00.000	1	20	20	20	Boston Red Sox	New York Yankees	D. Pomeranz (L)	M. Tanaka (R)	3.08999991416931	3.76999998092651	1	NULL	2017-08-30 13:49:29.907	1

@@ -298,10 +298,11 @@ namespace MLBBusiness
                 { 
                 gameFound.last_update_date = DateTime.Now;
 
-                gameFound.updated = true;
+              
                 }
                 //context.mlb_game.
-
+                gameFound.updated = true;
+                gameFound.last_version = true;
             }
             catch (Exception ex)
 
@@ -315,14 +316,15 @@ namespace MLBBusiness
             using (context = new DonBestEntities())
 
             {
-                Console.WriteLine("TO UPDATE:");
-                Console.WriteLine("Home team = " + theGame.game_name_team_home);
-                Console.WriteLine("Away team = " + theGame.game_name_team_away);
-                Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
-                Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
+                //Console.WriteLine("TO UPDATE:");
+                //Console.WriteLine("Home team = " + theGame.game_name_team_home);
+                //Console.WriteLine("Away team = " + theGame.game_name_team_away);
+                //Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
+                //Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
 
 
                 context.Entry(gameFound).State = System.Data.Entity.EntityState.Modified;
+                gameFound.last_version = true;
                 res = context.SaveChanges();
 
                 Console.WriteLine(res);

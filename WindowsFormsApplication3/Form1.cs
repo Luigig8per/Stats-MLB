@@ -26,14 +26,14 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
 
-
-           
-
-            extractNextGames(int.Parse(numericUpDown1.Value.ToString()));
 
             loadESPNStandings();
+
+
+            extractNextGames();
+
+          
         }
 
 
@@ -102,6 +102,7 @@ namespace WindowsFormsApplication1
         {
             DataTable data3 = new DataTable();
             DataTable data4 = new DataTable();
+            mlb_team theTeam= new mlb_team();
 
 
             data3 = clsConvert.convertHtml("http://www.espn.com/mlb/standings", 1, 1);
@@ -111,38 +112,47 @@ namespace WindowsFormsApplication1
             data3.Merge(data4);
 
 
-            //foreach (DataRow row in data3.Rows)
-            //{
+            foreach (DataRow row in data3.Rows)
+            {
 
-            //    //this.clsBusiness.updateTeam();
+                //this.clsBusiness.updateTeam();
 
-            //    for (int i = 0; i < data3.Columns.Count; i++)
-            //    {
-            //        string oldVal = row[i].ToString();
-            //        string newVal = "{" + oldVal;
-            //        row[i] = newVal;
-            //    }
+                for (int i = 0; i < data3.Columns.Count; i++)
+                {
+                    theTeam = addTeamFromESPNStandins(row, theTeam);
+                    //string oldVal = row[i].ToString();
+                    //string newVal = "{" + oldVal;
+                    //row[i] = newVal;
+                }
 
-            //}
+            }
 
             dataGridView1.DataSource = data3;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            extractNextGames();
+
+        }
+
+        private void extractNextGames()
+        {
             listBox1.Visible = true;
             dataGridView1.Visible = false;
 
+
             extractNextGames(int.Parse(numericUpDown1.Value.ToString()));
-
-
 
         }
 
         void extractNextGames(int qDays)
         {
 
-          
+            //First all games will be set as outdated, so just the loaded from page on next step will be set as updated.
+
+            clsBusiness.ExeStoredProcedure("[dbo].[setAllGamesNotUpdated]");
 
             List<String> theList = new List<String>();
 
@@ -203,9 +213,9 @@ namespace WindowsFormsApplication1
         }
 
 
-        mlb_game addTeamFromESPNStandins(DataRow row, mlb_game theGame, string theDate, int countRowsGame)
+        mlb_team addTeamFromESPNStandins(DataRow row, mlb_team theTeam)
         {
-            //string pitchers = "", lineText = "";
+           
             int indexNum;
             string rowText = "";
 
@@ -215,83 +225,13 @@ namespace WindowsFormsApplication1
             indexNum = rowText.IndexOf(" at ");
 
 
-            if (rowText.Contains(" at "))
+         
             {
-                theDate += " " + (row["Win"].ToString().Substring(0, 8));
-                theGame.game_date = dateUrl(theDate);
-
-                //timeFromText();
-
-                //dateUrl(thedATE);
-                theGame.game_name_team_home = rowText.Substring(0, indexNum);
-
-
-
-                theGame.game_name_team_away = rowText.Substring(indexNum + 4, rowText.Length - indexNum - 4);
-                //theGame
-                ////theGame.game_date = row["Win"].ToString();
-
-                //theGame.game_date= row["Team"].ToString();
-
-                //theGame.game_date = row["Win"].ToString();
-
-                //theGame.game_date = convert(row["Win"].ToString());
-
-                theGame.insert_date = DateTime.Now;
-                theGame.updated = false;
+               
             }
 
 
-            else
-            {
-
-                if (countRowsGame == 4 || countRowsGame == 5)
-                {
-                    if (rowText.Contains("(R)") || rowText.Contains("(L)"))
-                    {
-                        if (Equals(theGame.game_name_pitcher_home, null))
-                        {
-                            theGame.game_name_pitcher_home = rowText;
-                            theGame.game_pitcher_home_ERA = float.Parse(row["ROAD"].ToString());
-                        }
-                        else
-                        {
-                            theGame.game_name_pitcher_away = rowText;
-                            theGame.game_pitcher_away_ERA = float.Parse(row["ROAD"].ToString());
-                        }
-
-
-
-
-
-                    }
-
-
-
-                    else
-
-                    {
-                        theGame.game_name_pitcher_home = "UNDEFINED";
-                        theGame.game_name_pitcher_away = "UNDEFINED";
-                    }
-
-
-
-                }
-
-                else
-                {
-
-                }
-            }
-
-
-            //indexNum = pitchers.IndexOf("vs");
-
-            //theGame.game_name_pitcher_home = pitchers.Substring(0, indexNum);
-            //theGame.game_name_pitcher_away = pitchers.Substring(indexNum + 3, pitchers.Length - indexNum - 3);
-
-            return theGame;
+            return theTeam;
         }
 
 
