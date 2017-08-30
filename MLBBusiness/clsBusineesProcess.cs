@@ -457,9 +457,26 @@ namespace MLBBusiness
             }
         }
 
+        public void outDateGames()
+        {
 
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+                context.mlb_game.Where(g => g.updated == true).ToList().ForEach(g =>
+                {
+                    g.updated = false;
+                });
+                context.SaveChanges();
+            }
+               
+             
+        }
         public void upsertGame(mlb_game theGame)
         {
+            
+            theGame.last_version = true;
             int res = 0;
 
             using (DonBestEntities context = new DonBestEntities())

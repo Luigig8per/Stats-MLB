@@ -24,6 +24,7 @@
           <Property Name="updated" Type="bit" />
           <Property Name="insert_date" Type="datetime" />
           <Property Name="last_update_date" Type="datetime" />
+          <Property Name="last_version" Type="bit" />
         </EntityType>
         <EntityType Name="mlb_pitcher">
           <Key>
@@ -97,6 +98,7 @@
           <Property Name="updated" Type="Boolean" />
           <Property Name="insert_date" Type="DateTime" Precision="3" />
           <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="last_version" Type="Boolean" />
         </EntityType>
         <EntityType Name="mlb_pitcher">
           <Key>
@@ -139,6 +141,7 @@
           <EntitySetMapping Name="mlb_game">
             <EntityTypeMapping TypeName="ModelsMLB.mlb_game">
               <MappingFragment StoreEntitySet="mlb_game">
+                <ScalarProperty Name="last_version" ColumnName="last_version" />
                 <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
                 <ScalarProperty Name="insert_date" ColumnName="insert_date" />
                 <ScalarProperty Name="updated" ColumnName="updated" />

@@ -141,6 +141,9 @@ namespace WindowsFormsApplication1
 
         void extractNextGames(int qDays)
         {
+
+          
+
             List<String> theList = new List<String>();
 
       
@@ -327,6 +330,7 @@ namespace WindowsFormsApplication1
                 //theGame.game_date = convert(row["Win"].ToString());
               
                 theGame.insert_date = DateTime.Now;
+                
                 theGame.updated = false;
             }
 

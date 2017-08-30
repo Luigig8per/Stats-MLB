@@ -29,5 +29,6 @@ namespace clsModel
         public Nullable<bool> updated { get; set; }
         public Nullable<System.DateTime> insert_date { get; set; }
         public Nullable<System.DateTime> last_update_date { get; set; }
+        public Nullable<bool> last_version { get; set; }
     }
 }
