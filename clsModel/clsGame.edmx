@@ -11,8 +11,6 @@
           </Key>
           <Property Name="id_game" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="game_date" Type="datetime" />
-          <Property Name="game_serie_id" Type="int" Nullable="false" />
-          <Property Name="game_number" Type="int" />
           <Property Name="game_id_team_home" Type="int" Nullable="false" />
           <Property Name="game_id_team_away" Type="int" Nullable="false" />
           <Property Name="game_name_team_home" Type="varchar(max)" />
@@ -109,8 +107,6 @@
           </Key>
           <Property Name="id_game" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="game_date" Type="DateTime" Precision="3" />
-          <Property Name="game_serie_id" Type="Int32" Nullable="false" />
-          <Property Name="game_number" Type="Int32" />
           <Property Name="game_id_team_home" Type="Int32" Nullable="false" />
           <Property Name="game_id_team_away" Type="Int32" Nullable="false" />
           <Property Name="game_name_team_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -207,8 +203,6 @@
                 <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
                 <ScalarProperty Name="game_id_team_away" ColumnName="game_id_team_away" />
                 <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
-                <ScalarProperty Name="game_number" ColumnName="game_number" />
-                <ScalarProperty Name="game_serie_id" ColumnName="game_serie_id" />
                 <ScalarProperty Name="game_date" ColumnName="game_date" />
                 <ScalarProperty Name="id_game" ColumnName="id_game" />
               </MappingFragment>

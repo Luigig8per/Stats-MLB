@@ -16,8 +16,6 @@ namespace clsModel
     {
         public int id_game { get; set; }
         public Nullable<System.DateTime> game_date { get; set; }
-        public int game_serie_id { get; set; }
-        public Nullable<int> game_number { get; set; }
         public int game_id_team_home { get; set; }
         public int game_id_team_away { get; set; }
         public string game_name_team_home { get; set; }

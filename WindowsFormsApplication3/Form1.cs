@@ -155,9 +155,6 @@ namespace WindowsFormsApplication1
 
             List<String> theList = new List<String>();
 
-      
-
-
             theList = addGame(dateUrl(DateTime.Today), "tablehead");
 
             for (int i = 1; i <= qDays; i++)
@@ -385,7 +382,71 @@ namespace WindowsFormsApplication1
 
         }
 
+        public string generateStandingsHomeText(int position, string division )
+        {
+           
+            string txt1; string position_="";
 
+            switch (position)
+            {
+                case 1: position_ = "1st";
+                    break;
+                    case 2:
+                    position_ = "2nd";
+                    break;
+                case 3:
+                    position_ = "3rd";
+                    break;
+                case 4:
+                    position_ = "4th";
+                    break;
+                case 5:
+                    position_ = "5th";
+                    break;
+
+
+
+            }
+
+            txt1 = "(" + position_ + " in " + division + ")";
+
+
+            return txt1;
+
+        }
+
+        public string generateStandingsAwayText(int position, string division)
+        {
+            string txt1;string position_ = "";
+
+            switch (position)
+            {
+                case 1:
+                    position_ = "1st";
+                    break;
+                case 2:
+                    position_ = "2nd";
+                    break;
+                case 3:
+                    position_ = "3rd";
+                    break;
+                case 4:
+                    position_ = "4th";
+                    break;
+                case 5:
+                    position_ = "5th";
+                    break;
+
+
+
+            }
+
+            txt1 = "(" + position_ + " in " + division + ")";
+
+
+            return txt1;
+
+        }
 
         public List<String> addGame(string urlSource, string tableClass)
         {
@@ -394,7 +455,7 @@ namespace WindowsFormsApplication1
             List<String> theList = new List<String>();
             int contRowsGame = 0;
             mlb_team teamHome, teamAway;
-
+            string teamHomeText; string teamAwayText;
 
             clsBusineesProcess theBusiness = new clsBusineesProcess();
             gamesTable = clsConvert.convertHtml("http://www.espn.com/mlb/probables/_/date/" + urlSource, 1, 0, tableClass);
@@ -403,16 +464,15 @@ namespace WindowsFormsApplication1
             foreach (DataRow row in gamesTable.Rows)
             {
 
-                contRowsGame++;
-               
+                contRowsGame++;               
                 theGame = addGameFromESPNProbables(row, theGame, urlSource, contRowsGame);      
 
                 //This next row means that is the correct row to have stored all fields and insert
                 if (!Equals(theGame.game_name_pitcher_away, null))
                 {
 
-                    teamHome = theBusiness.insertTeam(theGame.game_name_team_away);
-                    teamAway = theBusiness.insertTeam(theGame.game_name_team_home);
+                    teamAway = theBusiness.insertTeam(theGame.game_name_team_away);
+                    teamHome = theBusiness.insertTeam(theGame.game_name_team_home);
                     
                     theBusiness.insertPitcher(theGame.game_name_pitcher_home, float.Parse(theGame.game_pitcher_home_ERA.ToString()));
                     theBusiness.insertPitcher(theGame.game_name_pitcher_away, float.Parse(theGame.game_pitcher_away_ERA.ToString()));
@@ -431,19 +491,21 @@ namespace WindowsFormsApplication1
                     theGame.game_team_away_lost = teamAway.lost;
                     theGame.game_team_away_win = teamAway.win;
                     theGame.game_team_away_position = teamAway.actualPosition;
-
                   
                     theGame.game_team_home_lost = teamHome.lost;
                     theGame.game_team_home_win = teamHome.win;
                     theGame.game_team_home_L10 = teamHome.L10;
                     theGame.game_team_home_position = teamHome.actualPosition;
+
+                    teamHomeText = generateStandingsHomeText(int.Parse(teamHome.actualPosition.ToString()), teamHome.division);
+                    teamAwayText = generateStandingsAwayText(int.Parse(teamAway.actualPosition.ToString()), teamAway.division);
+
                     //theBusiness.insertGame(theGame);
                     theBusiness.upsertGame(theGame);
 
+                   
                     
-                    theList.Add("[" + theGame.game_date + "] :" + theGame.game_name_team_home + " vs " + theGame.game_name_team_away + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA + " vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA);
-
-
+                    theList.Add("[" + theGame.game_date + "] :" + theGame.game_name_team_home + " " + teamHomeText +  " vs " + theGame.game_name_team_away + " " + teamAwayText + ". Pitchers: " + theGame.game_name_pitcher_home + ", ERA " + theGame.game_pitcher_home_ERA + " vs " + theGame.game_name_pitcher_away + ", ERA " + theGame.game_pitcher_away_ERA);
 
                     theGame = new mlb_game();
                     contRowsGame = 0;
