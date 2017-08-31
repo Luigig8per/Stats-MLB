@@ -393,7 +393,7 @@ namespace WindowsFormsApplication1
             clsModel.mlb_game theGame = new mlb_game();
             List<String> theList = new List<String>();
             int contRowsGame = 0;
-            int idTeamHome, idTeamAway;
+            mlb_team teamHome, teamAway;
 
 
             clsBusineesProcess theBusiness = new clsBusineesProcess();
@@ -403,30 +403,40 @@ namespace WindowsFormsApplication1
             foreach (DataRow row in gamesTable.Rows)
             {
 
-
                 contRowsGame++;
                
                 theGame = addGameFromESPNProbables(row, theGame, urlSource, contRowsGame);      
 
+                //This next row means that is the correct row to have stored all fields and insert
                 if (!Equals(theGame.game_name_pitcher_away, null))
                 {
 
-                    idTeamHome = theBusiness.insertTeam(theGame.game_name_team_away);
-                    idTeamAway = theBusiness.insertTeam(theGame.game_name_team_home);
+                    teamHome = theBusiness.insertTeam(theGame.game_name_team_away);
+                    teamAway = theBusiness.insertTeam(theGame.game_name_team_home);
                     
                     theBusiness.insertPitcher(theGame.game_name_pitcher_home, float.Parse(theGame.game_pitcher_home_ERA.ToString()));
                     theBusiness.insertPitcher(theGame.game_name_pitcher_away, float.Parse(theGame.game_pitcher_away_ERA.ToString()));
 
-                    if (idTeamHome != 0)
+                    if (teamAway.id_team != 0)
                     {
-                        theGame.game_id_team_home = idTeamHome;
+                        theGame.game_id_team_home = teamHome.id_team;
                     }
 
-                    if (idTeamAway != 0)
+                    if (teamAway.id_team != 0)
                     {
-                        theGame.game_id_team_away = idTeamAway;
+                        theGame.game_id_team_away = teamAway.id_team;
                     }
 
+                    theGame.game_team_away_L10 = teamAway.L10;
+                    theGame.game_team_away_lost = teamAway.lost;
+                    theGame.game_team_away_win = teamAway.win;
+                    theGame.game_team_away_position = teamAway.actualPosition;
+
+                  
+                    theGame.game_team_home_lost = teamHome.lost;
+                    theGame.game_team_home_win = teamHome.win;
+                    theGame.game_team_home_L10 = teamHome.L10;
+                    theGame.game_team_home_position = teamHome.actualPosition;
                     //theBusiness.insertGame(theGame);
                     theBusiness.upsertGame(theGame);
 

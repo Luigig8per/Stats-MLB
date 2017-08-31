@@ -42,15 +42,15 @@ namespace MLBBusiness
             }
         }
 
-        public int insertTeam(string teamName)
+        public mlb_team insertTeam(string teamName)
         {
             mlb_team theTeam = new mlb_team();
 
             theTeam.insert_date = DateTime.Now;
             theTeam.team_name = teamName;
-            
-            int res = 0;
-            int id_team=0;
+
+            mlb_team teamFound;
+           
 
             using (DonBestEntities context = new DonBestEntities())
 
@@ -59,15 +59,15 @@ namespace MLBBusiness
                 var L2EQuery = context.mlb_team.Where(t => t.team_name == theTeam.team_name);
 
 
-                var teamFound = L2EQuery.FirstOrDefault<mlb_team>();
-
+               teamFound = L2EQuery.FirstOrDefault<mlb_team>();
+             
                 if (teamFound == null)
                 {
                     try
                     {
 
                         context.mlb_team.Add(theTeam);
-                        res = context.SaveChanges();
+                        context.SaveChanges();
                     }
                     catch (Exception ex)
 
@@ -77,17 +77,14 @@ namespace MLBBusiness
 
                     }
 
-                    Console.WriteLine(res);
+                    
 
                 }
-                else
-                {
-                    id_team= teamFound.id_team;
-                }
+               
 
             }
 
-            return id_team;
+            return teamFound;
         }
 
         public int insertTeamHistory(mlb_team entity)
@@ -111,7 +108,6 @@ namespace MLBBusiness
             {
 
                 var L2EQuery = context.mlb_team_history.Where(t => t.id_team_history == entity.id_team && t.insert_date >= DateTime.Today && t.insert_date <= System.Data.Entity.DbFunctions.AddDays(DateTime.Today, 1));
-
 
                 var teamFound = L2EQuery.FirstOrDefault<mlb_team_history>();
 
@@ -477,12 +473,10 @@ namespace MLBBusiness
         public void upserTeam(mlb_team theEntity)
         {
             int res = 0;
-
+            
             using (DonBestEntities context = new DonBestEntities())
 
             {
-
-
 
                 try
                 {
@@ -499,7 +493,6 @@ namespace MLBBusiness
 
                      this.insertTeam(theEntity.team_name);
                        
-
                     }
                     else
 

@@ -25,6 +25,14 @@
           <Property Name="insert_date" Type="datetime" />
           <Property Name="last_update_date" Type="datetime" />
           <Property Name="last_version" Type="bit" />
+          <Property Name="game_team_home_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_home_win" Type="int" />
+          <Property Name="game_team_home_lost" Type="int" />
+          <Property Name="game_team_home_position" Type="int" />
+          <Property Name="game_team_away_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_away_win" Type="int" />
+          <Property Name="game_team_away_lost" Type="int" />
+          <Property Name="game_team_away_position" Type="int" />
         </EntityType>
         <EntityType Name="mlb_pitcher">
           <Key>
@@ -115,6 +123,14 @@
           <Property Name="insert_date" Type="DateTime" Precision="3" />
           <Property Name="last_update_date" Type="DateTime" Precision="3" />
           <Property Name="last_version" Type="Boolean" />
+          <Property Name="game_team_home_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_home_win" Type="Int32" />
+          <Property Name="game_team_home_lost" Type="Int32" />
+          <Property Name="game_team_home_position" Type="Int32" />
+          <Property Name="game_team_away_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_away_win" Type="Int32" />
+          <Property Name="game_team_away_lost" Type="Int32" />
+          <Property Name="game_team_away_position" Type="Int32" />
         </EntityType>
         <EntityType Name="mlb_pitcher">
           <Key>
@@ -171,6 +187,14 @@
           <EntitySetMapping Name="mlb_game">
             <EntityTypeMapping TypeName="ModelsMLB.mlb_game">
               <MappingFragment StoreEntitySet="mlb_game">
+                <ScalarProperty Name="game_team_away_position" ColumnName="game_team_away_position" />
+                <ScalarProperty Name="game_team_away_lost" ColumnName="game_team_away_lost" />
+                <ScalarProperty Name="game_team_away_win" ColumnName="game_team_away_win" />
+                <ScalarProperty Name="game_team_away_L10" ColumnName="game_team_away_L10" />
+                <ScalarProperty Name="game_team_home_position" ColumnName="game_team_home_position" />
+                <ScalarProperty Name="game_team_home_lost" ColumnName="game_team_home_lost" />
+                <ScalarProperty Name="game_team_home_win" ColumnName="game_team_home_win" />
+                <ScalarProperty Name="game_team_home_L10" ColumnName="game_team_home_L10" />
                 <ScalarProperty Name="last_version" ColumnName="last_version" />
                 <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
                 <ScalarProperty Name="insert_date" ColumnName="insert_date" />
