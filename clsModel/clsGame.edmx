@@ -60,6 +60,18 @@
           <Property Name="win" Type="int" />
           <Property Name="lost" Type="int" />
         </EntityType>
+        <EntityType Name="mlb_team_history">
+          <Key>
+            <PropertyRef Name="id_team_history" />
+          </Key>
+          <Property Name="id_team_history" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_team" Type="int" Nullable="false" />
+          <Property Name="insert_date" Type="datetime" Nullable="false" />
+          <Property Name="L10" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="win" Type="int" />
+          <Property Name="lost" Type="int" />
+        </EntityType>
         <Function Name="sp_UpdateMLBGame" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="game_id" Type="int" Mode="In" />
           <Parameter Name="game_name_team_home" Type="varchar" Mode="In" />
@@ -70,6 +82,7 @@
           <EntitySet Name="mlb_pitcher" EntityType="Self.mlb_pitcher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mlb_serie" EntityType="Self.mlb_serie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mlb_team" EntityType="Self.mlb_team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_team_history" EntityType="Self.mlb_team_history" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -80,6 +93,7 @@
           <EntitySet Name="mlb_pitcher" EntityType="ModelsMLB.mlb_pitcher" />
           <EntitySet Name="mlb_serie" EntityType="ModelsMLB.mlb_serie" />
           <EntitySet Name="mlb_team" EntityType="ModelsMLB.mlb_team" />
+          <EntitySet Name="mlb_team_history" EntityType="ModelsMLB.mlb_team_history" />
         </EntityContainer>
         <EntityType Name="mlb_game">
           <Key>
@@ -106,7 +120,7 @@
           <Key>
             <PropertyRef Name="id_pitcher" />
           </Key>
-          <Property Name="id_pitcher" Type="Int32" Nullable="false" />
+          <Property Name="id_pitcher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="pitcher_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="pitcher_era" Type="Double" />
           <Property Name="pitcher_last3_era" Type="Double" />
@@ -136,7 +150,19 @@
           <Property Name="win" Type="Int32" />
           <Property Name="lost" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="mlb_team_history">
+          <Key>
+            <PropertyRef Name="id_team_history" />
+          </Key>
+          <Property Name="id_team_history" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_team" Type="Int32" Nullable="false" />
+          <Property Name="insert_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="L10" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="win" Type="Int32" />
+          <Property Name="lost" Type="Int32" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -198,6 +224,19 @@
                 <ScalarProperty Name="insert_date" ColumnName="insert_date" />
                 <ScalarProperty Name="team_name" ColumnName="team_name" />
                 <ScalarProperty Name="id_team" ColumnName="id_team" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_team_history">
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_team_history">
+              <MappingFragment StoreEntitySet="mlb_team_history">
+                <ScalarProperty Name="lost" ColumnName="lost" />
+                <ScalarProperty Name="win" ColumnName="win" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="L10" ColumnName="L10" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="id_team" ColumnName="id_team" />
+                <ScalarProperty Name="id_team_history" ColumnName="id_team_history" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

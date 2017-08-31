@@ -90,6 +90,60 @@ namespace MLBBusiness
             return id_team;
         }
 
+        public int insertTeamHistory(mlb_team entity)
+        {
+            mlb_team_history theEntityHistory = new mlb_team_history();
+
+            theEntityHistory.insert_date = DateTime.Now;
+            theEntityHistory.id_team = entity.id_team;
+            theEntityHistory.L10 = entity.L10;
+            theEntityHistory.lost = int.Parse(entity.lost.ToString());
+            theEntityHistory.win = int.Parse(entity.win.ToString());
+            theEntityHistory.position = int.Parse(entity.actualPosition.ToString());
+
+
+
+            int res = 0;
+            int id_team_history = 0;
+
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+                var L2EQuery = context.mlb_team_history.Where(t => t.id_team_history == entity.id_team && t.insert_date >= DateTime.Today && t.insert_date <= System.Data.Entity.DbFunctions.AddDays(DateTime.Today, 1));
+
+
+                var teamFound = L2EQuery.FirstOrDefault<mlb_team_history>();
+
+                if (teamFound == null)
+                {
+                    try
+                    {
+
+                        context.mlb_team_history.Add(theEntityHistory);
+                        res = context.SaveChanges();
+                    }
+                    catch (Exception ex)
+
+                    {
+                        Console.WriteLine("Error" + ex.Message);
+
+
+                    }
+
+                    Console.WriteLine(res);
+
+                }
+                else
+                {
+                    id_team_history = teamFound.id_team_history;
+                }
+
+            }
+
+            return id_team_history;
+        }
+
 
         public int insertPitcher(string teamName, float ERA)
         {
@@ -172,6 +226,20 @@ namespace MLBBusiness
                 if (entityFound.division != theEntity.division)
                 {
                     entityFound.division = theEntity.division;
+                    entityFound.last_update_date = DateTime.Now;
+
+                }
+
+                if (entityFound.win != theEntity.win)
+                {
+                    entityFound.win = theEntity.win;
+                    entityFound.last_update_date = DateTime.Now;
+
+                }
+
+                if (entityFound.lost != theEntity.lost)
+                {
+                    entityFound.lost = theEntity.lost;
                     entityFound.last_update_date = DateTime.Now;
 
                 }
@@ -301,7 +369,7 @@ namespace MLBBusiness
               
                 }
                 //context.mlb_game.
-                gameFound.updated = true;
+                  gameFound.updated = true;
                 gameFound.last_version = true;
             }
             catch (Exception ex)
@@ -419,24 +487,18 @@ namespace MLBBusiness
                 try
                 {
 
-                    //If game and date is same, and pitchers change, need to do update.
-                    //if GAME AND DATE IS SAME, 
-                    //if game date same, 
-                    //var L2EQuery = context.mlb_game.Where(g => g.game_date == theGame.game_date && g.game_name_pitcher_away == theGame.game_name_pitcher_away && g.game_name_pitcher_home == theGame.game_name_pitcher_home && g.game_pitcher_away_ERA == theGame.game_pitcher_away_ERA && g.game_pitcher_home_ERA == theGame.game_pitcher_home_ERA );
+                
+                    int longTeamName = theEntity.team_name.Length;
 
-                    var L2EQuery = context.mlb_team.Where(e => e.team_name == theEntity.team_name);
-
+                    var L2EQuery = context.mlb_team.Where(e => e.team_name.Substring(0,longTeamName-3) == theEntity.team_name.Substring(0,longTeamName-3));
 
                     var entityFound = L2EQuery.FirstOrDefault<mlb_team>();
 
                     if (entityFound == null)
                     {
 
-
+                     this.insertTeam(theEntity.team_name);
                        
-                        this.insertTeam(theEntity.team_name);
-
-
 
                     }
                     else
@@ -444,6 +506,10 @@ namespace MLBBusiness
                     {
                        
                         updateTeam(entityFound, theEntity, context);
+
+                        insertTeamHistory(entityFound);
+
+
                     }
 
                     //if (gameFound i)  

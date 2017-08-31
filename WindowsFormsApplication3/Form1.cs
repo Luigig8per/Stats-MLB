@@ -117,13 +117,12 @@ namespace WindowsFormsApplication1
 
                 //this.clsBusiness.updateTeam();
 
-                for (int i = 0; i < data3.Columns.Count; i++)
-                {
-                    theTeam = addTeamFromESPNStandins(row, theTeam);
-                    //string oldVal = row[i].ToString();
-                    //string newVal = "{" + oldVal;
-                    //row[i] = newVal;
-                }
+               
+               theTeam = addTeamFromESPNStandins(row, theTeam);
+
+
+                clsBusiness.upserTeam(theTeam);
+                
 
             }
 
@@ -217,22 +216,32 @@ namespace WindowsFormsApplication1
         {
 
          
-            
-
-
-           theTeam.L10 = row["L10"].ToString();
+            theTeam.team_name= row[0].ToString();
+            theTeam.L10 = row["L10"].ToString();
             theTeam.win = int.Parse(row[1].ToString());
             theTeam.lost = int.Parse(row[2].ToString());
-          
-
-
-         
-            {
-               
-            }
-
+          theTeam.actualPosition = int.Parse(row[14].ToString());
+            theTeam.division = row[13].ToString();
+            theTeam.league = row[12].ToString();
+            theTeam.last_update_date = DateTime.Now;
 
             return theTeam;
+        }
+
+        mlb_team_history addTeamHistoryFromTEAM(DataRow row, mlb_team theTeam)
+        {
+
+            mlb_team_history theTeamHistory= new mlb_team_history();
+
+            theTeamHistory.id_team = theTeam.id_team;
+            theTeamHistory.insert_date = DateTime.Today;
+            theTeamHistory.L10 = theTeam.L10;
+            theTeamHistory.lost = theTeamHistory.lost;
+            theTeamHistory.position = theTeamHistory.position;
+            theTeamHistory.win = theTeamHistory.win;
+           
+
+            return theTeamHistory;
         }
 
 
