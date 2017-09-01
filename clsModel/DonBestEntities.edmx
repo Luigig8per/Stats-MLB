@@ -1,0 +1,962 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="STATSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="covers_details">
+          <Key>
+            <PropertyRef Name="eventid" />
+          </Key>
+          <Property Name="eventid" Type="int" Nullable="false" />
+          <Property Name="away_win" Type="int" Nullable="false" />
+          <Property Name="away_lose" Type="int" Nullable="false" />
+          <Property Name="home_win" Type="int" Nullable="false" />
+          <Property Name="home_lose" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STATS.dbo.covers_last' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="covers_last">
+          <Key>
+            <PropertyRef Name="eventid" />
+            <PropertyRef Name="team" />
+            <PropertyRef Name="datetime" />
+            <PropertyRef Name="vrs" />
+            <PropertyRef Name="result" />
+            <PropertyRef Name="score" />
+            <PropertyRef Name="starter_pitcher" />
+            <PropertyRef Name="starter_ip" />
+            <PropertyRef Name="oppenent_pitcher" />
+            <PropertyRef Name="opponent_ip" />
+          </Key>
+          <Property Name="eventid" Type="int" Nullable="false" />
+          <Property Name="team" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="datetime" Type="date" Nullable="false" />
+          <Property Name="vrs" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="result" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="score" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="starter_pitcher" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="starter_ip" Type="real" Nullable="false" />
+          <Property Name="oppenent_pitcher" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="opponent_ip" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="covers_matchup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eventid" Type="int" Nullable="false" />
+          <Property Name="conference" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="matchup" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gamedate" Type="datetime" Nullable="false" />
+          <Property Name="away" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="home" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="awaypitcher" Type="varchar" MaxLength="50" />
+          <Property Name="homepitcher" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="varchar(max)" Nullable="false" />
+          <Property Name="createddatetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STATS.dbo.covers_pitcher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="covers_pitcher">
+          <Key>
+            <PropertyRef Name="eventid" />
+            <PropertyRef Name="away_pitcher" />
+            <PropertyRef Name="away_era" />
+            <PropertyRef Name="home_pitcher" />
+            <PropertyRef Name="home_era" />
+          </Key>
+          <Property Name="eventid" Type="int" Nullable="false" />
+          <Property Name="away_pitcher" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="away_era" Type="real" Nullable="false" />
+          <Property Name="home_pitcher" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="home_era" Type="real" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STATS.dbo.covers_recent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="covers_recent">
+          <Key>
+            <PropertyRef Name="eventid" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="away_team" />
+            <PropertyRef Name="home_team" />
+            <PropertyRef Name="away_score" />
+            <PropertyRef Name="home_score" />
+            <PropertyRef Name="away_pitcher" />
+            <PropertyRef Name="away_ip" />
+            <PropertyRef Name="home_pitcher" />
+            <PropertyRef Name="home_ip" />
+          </Key>
+          <Property Name="eventid" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="away_team" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="home_team" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="away_score" Type="int" Nullable="false" />
+          <Property Name="home_score" Type="int" Nullable="false" />
+          <Property Name="away_pitcher" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="away_ip" Type="real" Nullable="false" />
+          <Property Name="home_pitcher" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="home_ip" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mlb_game">
+          <Key>
+            <PropertyRef Name="id_game" />
+          </Key>
+          <Property Name="id_game" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="game_date" Type="datetime" />
+          <Property Name="game_id_team_home" Type="int" Nullable="false" />
+          <Property Name="game_id_team_away" Type="int" Nullable="false" />
+          <Property Name="game_name_team_home" Type="varchar(max)" />
+          <Property Name="game_name_team_away" Type="varchar(max)" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="varchar(max)" />
+          <Property Name="game_name_pitcher_away" Type="varchar(max)" />
+          <Property Name="game_pitcher_home_ERA" Type="float" />
+          <Property Name="game_pitcher_away_ERA" Type="float" />
+          <Property Name="updated" Type="bit" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+          <Property Name="last_version" Type="bit" />
+          <Property Name="game_team_home_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_home_win" Type="int" />
+          <Property Name="game_team_home_lost" Type="int" />
+          <Property Name="game_team_home_position" Type="int" />
+          <Property Name="game_team_away_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_away_win" Type="int" />
+          <Property Name="game_team_away_lost" Type="int" />
+          <Property Name="game_team_away_position" Type="int" />
+        </EntityType>
+        <EntityType Name="mlb_game_history">
+          <Key>
+            <PropertyRef Name="id_game_history" />
+          </Key>
+          <Property Name="id_game_history" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_game" Type="int" Nullable="false" />
+          <Property Name="game_date" Type="datetime" />
+          <Property Name="game_id_team_home" Type="int" Nullable="false" />
+          <Property Name="game_id_team_away" Type="int" Nullable="false" />
+          <Property Name="game_name_team_home" Type="varchar(max)" />
+          <Property Name="game_name_team_away" Type="varchar(max)" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="varchar(max)" />
+          <Property Name="game_name_pitcher_away" Type="varchar(max)" />
+          <Property Name="game_pitcher_home_ERA" Type="float" />
+          <Property Name="game_pitcher_away_ERA" Type="float" />
+          <Property Name="updated" Type="bit" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+          <Property Name="last_version" Type="bit" />
+          <Property Name="game_team_home_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_home_win" Type="int" />
+          <Property Name="game_team_home_lost" Type="int" />
+          <Property Name="game_team_home_position" Type="int" />
+          <Property Name="game_team_away_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_away_win" Type="int" />
+          <Property Name="game_team_away_lost" Type="int" />
+          <Property Name="game_team_away_position" Type="int" />
+        </EntityType>
+        <EntityType Name="mlb_pitcher">
+          <Key>
+            <PropertyRef Name="id_pitcher" />
+          </Key>
+          <Property Name="id_pitcher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pitcher_name" Type="varchar(max)" />
+          <Property Name="pitcher_era" Type="float" />
+          <Property Name="pitcher_last3_era" Type="float" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="mlb_serie">
+          <Key>
+            <PropertyRef Name="id_serie" />
+          </Key>
+          <Property Name="id_serie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mlb_game_id" Type="int" Nullable="false" />
+          <Property Name="mlb_quantity_games" Type="int" />
+        </EntityType>
+        <EntityType Name="mlb_team">
+          <Key>
+            <PropertyRef Name="id_team" />
+          </Key>
+          <Property Name="id_team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="team_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="L10" Type="varchar" MaxLength="50" />
+          <Property Name="actualPosition" Type="int" />
+          <Property Name="league" Type="varchar" MaxLength="50" />
+          <Property Name="division" Type="varchar" MaxLength="50" />
+          <Property Name="last_update_date" Type="datetime" />
+          <Property Name="win" Type="int" />
+          <Property Name="lost" Type="int" />
+        </EntityType>
+        <EntityType Name="mlb_team_history">
+          <Key>
+            <PropertyRef Name="id_team_history" />
+          </Key>
+          <Property Name="id_team_history" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_team" Type="int" Nullable="false" />
+          <Property Name="insert_date" Type="datetime" Nullable="false" />
+          <Property Name="L10" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="win" Type="int" />
+          <Property Name="lost" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STATS.dbo.mlb_teams_history' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mlb_teams_history">
+          <Key>
+            <PropertyRef Name="team_name" />
+            <PropertyRef Name="id_team_history" />
+            <PropertyRef Name="id_team" />
+            <PropertyRef Name="insert_date" />
+            <PropertyRef Name="L10" />
+            <PropertyRef Name="position" />
+          </Key>
+          <Property Name="team_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="id_team_history" Type="int" Nullable="false" />
+          <Property Name="id_team" Type="int" Nullable="false" />
+          <Property Name="insert_date" Type="datetime" Nullable="false" />
+          <Property Name="L10" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="win" Type="int" />
+          <Property Name="lost" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STATS.dbo.mlb_view_games_by_update_date' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mlb_view_games_by_update_date">
+          <Key>
+            <PropertyRef Name="game_name_team_away" />
+          </Key>
+          <Property Name="game_date" Type="datetime" />
+          <Property Name="game_name_team_home" Type="varchar(max)" />
+          <Property Name="game_name_team_away" Type="varchar(max)" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="varchar(max)" />
+          <Property Name="game_name_pitcher_away" Type="varchar(max)" />
+          <Property Name="game_pitcher_home_ERA" Type="float" />
+          <Property Name="game_pitcher_away_ERA" Type="float" />
+          <Property Name="updated" Type="bit" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+          <Property Name="last_version" Type="bit" />
+          <Property Name="game_team_home_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_home_win" Type="int" />
+          <Property Name="game_team_home_lost" Type="int" />
+          <Property Name="game_team_home_position" Type="int" />
+          <Property Name="game_team_away_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_away_win" Type="int" />
+          <Property Name="game_team_away_lost" Type="int" />
+          <Property Name="game_team_away_position" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STATS.dbo.view_schedule_mlb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_schedule_mlb">
+          <Key>
+            <PropertyRef Name="id_game" />
+            <PropertyRef Name="game_name_team_away" />
+            <PropertyRef Name="game_id_team_home" />
+            <PropertyRef Name="game_id_team_away" />
+          </Key>
+          <Property Name="id_game" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="game_date" Type="datetime" />
+          <Property Name="game_name_team_home" Type="varchar(max)" />
+          <Property Name="game_name_team_away" Type="varchar(max)" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="varchar(max)" />
+          <Property Name="game_name_pitcher_away" Type="varchar(max)" />
+          <Property Name="game_pitcher_home_ERA" Type="float" />
+          <Property Name="game_pitcher_away_ERA" Type="float" />
+          <Property Name="updated" Type="bit" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+          <Property Name="game_id_team_home" Type="int" Nullable="false" />
+          <Property Name="game_id_team_away" Type="int" Nullable="false" />
+          <Property Name="game_team_home_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_home_win" Type="int" />
+          <Property Name="game_team_home_lost" Type="int" />
+          <Property Name="game_team_home_position" Type="int" />
+          <Property Name="game_team_away_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_away_win" Type="int" />
+          <Property Name="game_team_away_lost" Type="int" />
+          <Property Name="game_team_away_position" Type="int" />
+        </EntityType>
+        <Function Name="setAllGamesNotUpdated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_setAllGamesNotUpdated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="game_date_start" Type="datetime" Mode="In" />
+          <Parameter Name="game_date_end" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_setGamesNotLastVersion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="game_date_start" Type="datetime" Mode="In" />
+          <Parameter Name="game_date_end" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="STATSModelStoreContainer">
+          <EntitySet Name="covers_details" EntityType="Self.covers_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="covers_matchup" EntityType="Self.covers_matchup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_game_history" EntityType="Self.mlb_game_history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_pitcher" EntityType="Self.mlb_pitcher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_serie" EntityType="Self.mlb_serie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_team" EntityType="Self.mlb_team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_team_history" EntityType="Self.mlb_team_history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="covers_last" EntityType="Self.covers_last" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [covers_last].[eventid] AS [eventid], 
+    [covers_last].[team] AS [team], 
+    [covers_last].[datetime] AS [datetime], 
+    [covers_last].[vrs] AS [vrs], 
+    [covers_last].[result] AS [result], 
+    [covers_last].[score] AS [score], 
+    [covers_last].[starter_pitcher] AS [starter_pitcher], 
+    [covers_last].[starter_ip] AS [starter_ip], 
+    [covers_last].[oppenent_pitcher] AS [oppenent_pitcher], 
+    [covers_last].[opponent_ip] AS [opponent_ip]
+    FROM [dbo].[covers_last] AS [covers_last]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="covers_pitcher" EntityType="Self.covers_pitcher" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [covers_pitcher].[eventid] AS [eventid], 
+    [covers_pitcher].[away_pitcher] AS [away_pitcher], 
+    [covers_pitcher].[away_era] AS [away_era], 
+    [covers_pitcher].[home_pitcher] AS [home_pitcher], 
+    [covers_pitcher].[home_era] AS [home_era]
+    FROM [dbo].[covers_pitcher] AS [covers_pitcher]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="covers_recent" EntityType="Self.covers_recent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [covers_recent].[eventid] AS [eventid], 
+    [covers_recent].[date] AS [date], 
+    [covers_recent].[away_team] AS [away_team], 
+    [covers_recent].[home_team] AS [home_team], 
+    [covers_recent].[away_score] AS [away_score], 
+    [covers_recent].[home_score] AS [home_score], 
+    [covers_recent].[away_pitcher] AS [away_pitcher], 
+    [covers_recent].[away_ip] AS [away_ip], 
+    [covers_recent].[home_pitcher] AS [home_pitcher], 
+    [covers_recent].[home_ip] AS [home_ip]
+    FROM [dbo].[covers_recent] AS [covers_recent]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mlb_teams_history" EntityType="Self.mlb_teams_history" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mlb_teams_history].[team_name] AS [team_name], 
+    [mlb_teams_history].[id_team_history] AS [id_team_history], 
+    [mlb_teams_history].[id_team] AS [id_team], 
+    [mlb_teams_history].[insert_date] AS [insert_date], 
+    [mlb_teams_history].[L10] AS [L10], 
+    [mlb_teams_history].[position] AS [position], 
+    [mlb_teams_history].[win] AS [win], 
+    [mlb_teams_history].[lost] AS [lost]
+    FROM [dbo].[mlb_teams_history] AS [mlb_teams_history]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mlb_view_games_by_update_date" EntityType="Self.mlb_view_games_by_update_date" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mlb_view_games_by_update_date].[game_date] AS [game_date], 
+    [mlb_view_games_by_update_date].[game_name_team_home] AS [game_name_team_home], 
+    [mlb_view_games_by_update_date].[game_name_team_away] AS [game_name_team_away], 
+    [mlb_view_games_by_update_date].[game_name_pitcher_home] AS [game_name_pitcher_home], 
+    [mlb_view_games_by_update_date].[game_name_pitcher_away] AS [game_name_pitcher_away], 
+    [mlb_view_games_by_update_date].[game_pitcher_home_ERA] AS [game_pitcher_home_ERA], 
+    [mlb_view_games_by_update_date].[game_pitcher_away_ERA] AS [game_pitcher_away_ERA], 
+    [mlb_view_games_by_update_date].[updated] AS [updated], 
+    [mlb_view_games_by_update_date].[insert_date] AS [insert_date], 
+    [mlb_view_games_by_update_date].[last_update_date] AS [last_update_date], 
+    [mlb_view_games_by_update_date].[last_version] AS [last_version], 
+    [mlb_view_games_by_update_date].[game_team_home_L10] AS [game_team_home_L10], 
+    [mlb_view_games_by_update_date].[game_team_home_win] AS [game_team_home_win], 
+    [mlb_view_games_by_update_date].[game_team_home_lost] AS [game_team_home_lost], 
+    [mlb_view_games_by_update_date].[game_team_home_position] AS [game_team_home_position], 
+    [mlb_view_games_by_update_date].[game_team_away_L10] AS [game_team_away_L10], 
+    [mlb_view_games_by_update_date].[game_team_away_win] AS [game_team_away_win], 
+    [mlb_view_games_by_update_date].[game_team_away_lost] AS [game_team_away_lost], 
+    [mlb_view_games_by_update_date].[game_team_away_position] AS [game_team_away_position]
+    FROM [dbo].[mlb_view_games_by_update_date] AS [mlb_view_games_by_update_date]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_schedule_mlb" EntityType="Self.view_schedule_mlb" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_schedule_mlb].[id_game] AS [id_game], 
+    [view_schedule_mlb].[game_date] AS [game_date], 
+    [view_schedule_mlb].[game_name_team_home] AS [game_name_team_home], 
+    [view_schedule_mlb].[game_name_team_away] AS [game_name_team_away], 
+    [view_schedule_mlb].[game_name_pitcher_home] AS [game_name_pitcher_home], 
+    [view_schedule_mlb].[game_name_pitcher_away] AS [game_name_pitcher_away], 
+    [view_schedule_mlb].[game_pitcher_home_ERA] AS [game_pitcher_home_ERA], 
+    [view_schedule_mlb].[game_pitcher_away_ERA] AS [game_pitcher_away_ERA], 
+    [view_schedule_mlb].[updated] AS [updated], 
+    [view_schedule_mlb].[insert_date] AS [insert_date], 
+    [view_schedule_mlb].[last_update_date] AS [last_update_date], 
+    [view_schedule_mlb].[game_id_team_home] AS [game_id_team_home], 
+    [view_schedule_mlb].[game_id_team_away] AS [game_id_team_away], 
+    [view_schedule_mlb].[game_team_home_L10] AS [game_team_home_L10], 
+    [view_schedule_mlb].[game_team_home_win] AS [game_team_home_win], 
+    [view_schedule_mlb].[game_team_home_lost] AS [game_team_home_lost], 
+    [view_schedule_mlb].[game_team_home_position] AS [game_team_home_position], 
+    [view_schedule_mlb].[game_team_away_L10] AS [game_team_away_L10], 
+    [view_schedule_mlb].[game_team_away_win] AS [game_team_away_win], 
+    [view_schedule_mlb].[game_team_away_lost] AS [game_team_away_lost], 
+    [view_schedule_mlb].[game_team_away_position] AS [game_team_away_position]
+    FROM [dbo].[view_schedule_mlb] AS [view_schedule_mlb]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STATSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="covers_details">
+          <Key>
+            <PropertyRef Name="eventid" />
+          </Key>
+          <Property Name="eventid" Type="Int32" Nullable="false" />
+          <Property Name="away_win" Type="Int32" Nullable="false" />
+          <Property Name="away_lose" Type="Int32" Nullable="false" />
+          <Property Name="home_win" Type="Int32" Nullable="false" />
+          <Property Name="home_lose" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="covers_matchup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eventid" Type="Int32" Nullable="false" />
+          <Property Name="conference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="matchup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gamedate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="away" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="home" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="awaypitcher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="homepitcher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createddatetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mlb_game">
+          <Key>
+            <PropertyRef Name="id_game" />
+          </Key>
+          <Property Name="id_game" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="game_date" Type="DateTime" Precision="3" />
+          <Property Name="game_id_team_home" Type="Int32" Nullable="false" />
+          <Property Name="game_id_team_away" Type="Int32" Nullable="false" />
+          <Property Name="game_name_team_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_team_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_pitcher_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_pitcher_home_ERA" Type="Double" />
+          <Property Name="game_pitcher_away_ERA" Type="Double" />
+          <Property Name="updated" Type="Boolean" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="last_version" Type="Boolean" />
+          <Property Name="game_team_home_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_home_win" Type="Int32" />
+          <Property Name="game_team_home_lost" Type="Int32" />
+          <Property Name="game_team_home_position" Type="Int32" />
+          <Property Name="game_team_away_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_away_win" Type="Int32" />
+          <Property Name="game_team_away_lost" Type="Int32" />
+          <Property Name="game_team_away_position" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_game_history">
+          <Key>
+            <PropertyRef Name="id_game_history" />
+          </Key>
+          <Property Name="id_game_history" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_game" Type="Int32" Nullable="false" />
+          <Property Name="game_date" Type="DateTime" Precision="3" />
+          <Property Name="game_id_team_home" Type="Int32" Nullable="false" />
+          <Property Name="game_id_team_away" Type="Int32" Nullable="false" />
+          <Property Name="game_name_team_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_team_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_pitcher_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_pitcher_home_ERA" Type="Double" />
+          <Property Name="game_pitcher_away_ERA" Type="Double" />
+          <Property Name="updated" Type="Boolean" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="last_version" Type="Boolean" />
+          <Property Name="game_team_home_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_home_win" Type="Int32" />
+          <Property Name="game_team_home_lost" Type="Int32" />
+          <Property Name="game_team_home_position" Type="Int32" />
+          <Property Name="game_team_away_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_away_win" Type="Int32" />
+          <Property Name="game_team_away_lost" Type="Int32" />
+          <Property Name="game_team_away_position" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_pitcher">
+          <Key>
+            <PropertyRef Name="id_pitcher" />
+          </Key>
+          <Property Name="id_pitcher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pitcher_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="pitcher_era" Type="Double" />
+          <Property Name="pitcher_last3_era" Type="Double" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="mlb_serie">
+          <Key>
+            <PropertyRef Name="id_serie" />
+          </Key>
+          <Property Name="id_serie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mlb_game_id" Type="Int32" Nullable="false" />
+          <Property Name="mlb_quantity_games" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_team">
+          <Key>
+            <PropertyRef Name="id_team" />
+          </Key>
+          <Property Name="id_team" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="team_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="L10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="actualPosition" Type="Int32" />
+          <Property Name="league" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="win" Type="Int32" />
+          <Property Name="lost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_team_history">
+          <Key>
+            <PropertyRef Name="id_team_history" />
+          </Key>
+          <Property Name="id_team_history" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_team" Type="Int32" Nullable="false" />
+          <Property Name="insert_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="win" Type="Int32" />
+          <Property Name="lost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="covers_last">
+          <Key>
+            <PropertyRef Name="eventid" />
+            <PropertyRef Name="team" />
+            <PropertyRef Name="datetime" />
+            <PropertyRef Name="vrs" />
+            <PropertyRef Name="result" />
+            <PropertyRef Name="score" />
+            <PropertyRef Name="starter_pitcher" />
+            <PropertyRef Name="starter_ip" />
+            <PropertyRef Name="oppenent_pitcher" />
+            <PropertyRef Name="opponent_ip" />
+          </Key>
+          <Property Name="eventid" Type="Int32" Nullable="false" />
+          <Property Name="team" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="vrs" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="result" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="score" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="starter_pitcher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="starter_ip" Type="Single" Nullable="false" />
+          <Property Name="oppenent_pitcher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="opponent_ip" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="covers_pitcher">
+          <Key>
+            <PropertyRef Name="eventid" />
+            <PropertyRef Name="away_pitcher" />
+            <PropertyRef Name="away_era" />
+            <PropertyRef Name="home_pitcher" />
+            <PropertyRef Name="home_era" />
+          </Key>
+          <Property Name="eventid" Type="Int32" Nullable="false" />
+          <Property Name="away_pitcher" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="away_era" Type="Single" Nullable="false" />
+          <Property Name="home_pitcher" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="home_era" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="covers_recent">
+          <Key>
+            <PropertyRef Name="eventid" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="away_team" />
+            <PropertyRef Name="home_team" />
+            <PropertyRef Name="away_score" />
+            <PropertyRef Name="home_score" />
+            <PropertyRef Name="away_pitcher" />
+            <PropertyRef Name="away_ip" />
+            <PropertyRef Name="home_pitcher" />
+            <PropertyRef Name="home_ip" />
+          </Key>
+          <Property Name="eventid" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="away_team" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="home_team" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="away_score" Type="Int32" Nullable="false" />
+          <Property Name="home_score" Type="Int32" Nullable="false" />
+          <Property Name="away_pitcher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="away_ip" Type="Single" Nullable="false" />
+          <Property Name="home_pitcher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="home_ip" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mlb_teams_history">
+          <Key>
+            <PropertyRef Name="team_name" />
+            <PropertyRef Name="id_team_history" />
+            <PropertyRef Name="id_team" />
+            <PropertyRef Name="insert_date" />
+            <PropertyRef Name="L10" />
+            <PropertyRef Name="position" />
+          </Key>
+          <Property Name="team_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_team_history" Type="Int32" Nullable="false" />
+          <Property Name="id_team" Type="Int32" Nullable="false" />
+          <Property Name="insert_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="win" Type="Int32" />
+          <Property Name="lost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_view_games_by_update_date">
+          <Key>
+            <PropertyRef Name="game_name_team_away" />
+          </Key>
+          <Property Name="game_date" Type="DateTime" Precision="3" />
+          <Property Name="game_name_team_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_team_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_pitcher_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_pitcher_home_ERA" Type="Double" />
+          <Property Name="game_pitcher_away_ERA" Type="Double" />
+          <Property Name="updated" Type="Boolean" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="last_version" Type="Boolean" />
+          <Property Name="game_team_home_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_home_win" Type="Int32" />
+          <Property Name="game_team_home_lost" Type="Int32" />
+          <Property Name="game_team_home_position" Type="Int32" />
+          <Property Name="game_team_away_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_away_win" Type="Int32" />
+          <Property Name="game_team_away_lost" Type="Int32" />
+          <Property Name="game_team_away_position" Type="Int32" />
+        </EntityType>
+        <EntityType Name="view_schedule_mlb">
+          <Key>
+            <PropertyRef Name="id_game" />
+            <PropertyRef Name="game_name_team_away" />
+            <PropertyRef Name="game_id_team_home" />
+            <PropertyRef Name="game_id_team_away" />
+          </Key>
+          <Property Name="id_game" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="game_date" Type="DateTime" Precision="3" />
+          <Property Name="game_name_team_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_team_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_pitcher_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_pitcher_home_ERA" Type="Double" />
+          <Property Name="game_pitcher_away_ERA" Type="Double" />
+          <Property Name="updated" Type="Boolean" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="game_id_team_home" Type="Int32" Nullable="false" />
+          <Property Name="game_id_team_away" Type="Int32" Nullable="false" />
+          <Property Name="game_team_home_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_home_win" Type="Int32" />
+          <Property Name="game_team_home_lost" Type="Int32" />
+          <Property Name="game_team_home_position" Type="Int32" />
+          <Property Name="game_team_away_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_away_win" Type="Int32" />
+          <Property Name="game_team_away_lost" Type="Int32" />
+          <Property Name="game_team_away_position" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="STATSEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="covers_details" EntityType="Self.covers_details" />
+          <EntitySet Name="covers_matchup" EntityType="Self.covers_matchup" />
+          <EntitySet Name="mlb_game" EntityType="Self.mlb_game" />
+          <EntitySet Name="mlb_game_history" EntityType="Self.mlb_game_history" />
+          <EntitySet Name="mlb_pitcher" EntityType="Self.mlb_pitcher" />
+          <EntitySet Name="mlb_serie" EntityType="Self.mlb_serie" />
+          <EntitySet Name="mlb_team" EntityType="Self.mlb_team" />
+          <EntitySet Name="mlb_team_history" EntityType="Self.mlb_team_history" />
+          <EntitySet Name="covers_last" EntityType="Self.covers_last" />
+          <EntitySet Name="covers_pitcher" EntityType="Self.covers_pitcher" />
+          <EntitySet Name="covers_recent" EntityType="Self.covers_recent" />
+          <EntitySet Name="mlb_teams_history" EntityType="Self.mlb_teams_history" />
+          <EntitySet Name="mlb_view_games_by_update_date" EntityType="Self.mlb_view_games_by_update_date" />
+          <EntitySet Name="view_schedule_mlb" EntityType="Self.view_schedule_mlb" />
+          <FunctionImport Name="setAllGamesNotUpdated" />
+          <FunctionImport Name="sp_setAllGamesNotUpdated">
+            <Parameter Name="game_date_start" Mode="In" Type="DateTime" />
+            <Parameter Name="game_date_end" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_setGamesNotLastVersion">
+            <Parameter Name="game_date_start" Mode="In" Type="DateTime" />
+            <Parameter Name="game_date_end" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STATSModelStoreContainer" CdmEntityContainer="STATSEntities1">
+          <EntitySetMapping Name="covers_details">
+            <EntityTypeMapping TypeName="STATSModel.covers_details">
+              <MappingFragment StoreEntitySet="covers_details">
+                <ScalarProperty Name="eventid" ColumnName="eventid" />
+                <ScalarProperty Name="away_win" ColumnName="away_win" />
+                <ScalarProperty Name="away_lose" ColumnName="away_lose" />
+                <ScalarProperty Name="home_win" ColumnName="home_win" />
+                <ScalarProperty Name="home_lose" ColumnName="home_lose" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="covers_matchup">
+            <EntityTypeMapping TypeName="STATSModel.covers_matchup">
+              <MappingFragment StoreEntitySet="covers_matchup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="eventid" ColumnName="eventid" />
+                <ScalarProperty Name="conference" ColumnName="conference" />
+                <ScalarProperty Name="matchup" ColumnName="matchup" />
+                <ScalarProperty Name="gamedate" ColumnName="gamedate" />
+                <ScalarProperty Name="away" ColumnName="away" />
+                <ScalarProperty Name="home" ColumnName="home" />
+                <ScalarProperty Name="awaypitcher" ColumnName="awaypitcher" />
+                <ScalarProperty Name="homepitcher" ColumnName="homepitcher" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="createddatetime" ColumnName="createddatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_game">
+            <EntityTypeMapping TypeName="STATSModel.mlb_game">
+              <MappingFragment StoreEntitySet="mlb_game">
+                <ScalarProperty Name="id_game" ColumnName="id_game" />
+                <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
+                <ScalarProperty Name="game_id_team_away" ColumnName="game_id_team_away" />
+                <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
+                <ScalarProperty Name="game_name_team_away" ColumnName="game_name_team_away" />
+                <ScalarProperty Name="game_name_pitcher_home" ColumnName="game_name_pitcher_home" />
+                <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
+                <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
+                <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="last_version" ColumnName="last_version" />
+                <ScalarProperty Name="game_team_home_L10" ColumnName="game_team_home_L10" />
+                <ScalarProperty Name="game_team_home_win" ColumnName="game_team_home_win" />
+                <ScalarProperty Name="game_team_home_lost" ColumnName="game_team_home_lost" />
+                <ScalarProperty Name="game_team_home_position" ColumnName="game_team_home_position" />
+                <ScalarProperty Name="game_team_away_L10" ColumnName="game_team_away_L10" />
+                <ScalarProperty Name="game_team_away_win" ColumnName="game_team_away_win" />
+                <ScalarProperty Name="game_team_away_lost" ColumnName="game_team_away_lost" />
+                <ScalarProperty Name="game_team_away_position" ColumnName="game_team_away_position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_game_history">
+            <EntityTypeMapping TypeName="STATSModel.mlb_game_history">
+              <MappingFragment StoreEntitySet="mlb_game_history">
+                <ScalarProperty Name="id_game_history" ColumnName="id_game_history" />
+                <ScalarProperty Name="id_game" ColumnName="id_game" />
+                <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
+                <ScalarProperty Name="game_id_team_away" ColumnName="game_id_team_away" />
+                <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
+                <ScalarProperty Name="game_name_team_away" ColumnName="game_name_team_away" />
+                <ScalarProperty Name="game_name_pitcher_home" ColumnName="game_name_pitcher_home" />
+                <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
+                <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
+                <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="last_version" ColumnName="last_version" />
+                <ScalarProperty Name="game_team_home_L10" ColumnName="game_team_home_L10" />
+                <ScalarProperty Name="game_team_home_win" ColumnName="game_team_home_win" />
+                <ScalarProperty Name="game_team_home_lost" ColumnName="game_team_home_lost" />
+                <ScalarProperty Name="game_team_home_position" ColumnName="game_team_home_position" />
+                <ScalarProperty Name="game_team_away_L10" ColumnName="game_team_away_L10" />
+                <ScalarProperty Name="game_team_away_win" ColumnName="game_team_away_win" />
+                <ScalarProperty Name="game_team_away_lost" ColumnName="game_team_away_lost" />
+                <ScalarProperty Name="game_team_away_position" ColumnName="game_team_away_position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_pitcher">
+            <EntityTypeMapping TypeName="STATSModel.mlb_pitcher">
+              <MappingFragment StoreEntitySet="mlb_pitcher">
+                <ScalarProperty Name="id_pitcher" ColumnName="id_pitcher" />
+                <ScalarProperty Name="pitcher_name" ColumnName="pitcher_name" />
+                <ScalarProperty Name="pitcher_era" ColumnName="pitcher_era" />
+                <ScalarProperty Name="pitcher_last3_era" ColumnName="pitcher_last3_era" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_serie">
+            <EntityTypeMapping TypeName="STATSModel.mlb_serie">
+              <MappingFragment StoreEntitySet="mlb_serie">
+                <ScalarProperty Name="id_serie" ColumnName="id_serie" />
+                <ScalarProperty Name="mlb_game_id" ColumnName="mlb_game_id" />
+                <ScalarProperty Name="mlb_quantity_games" ColumnName="mlb_quantity_games" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_team">
+            <EntityTypeMapping TypeName="STATSModel.mlb_team">
+              <MappingFragment StoreEntitySet="mlb_team">
+                <ScalarProperty Name="id_team" ColumnName="id_team" />
+                <ScalarProperty Name="team_name" ColumnName="team_name" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="L10" ColumnName="L10" />
+                <ScalarProperty Name="actualPosition" ColumnName="actualPosition" />
+                <ScalarProperty Name="league" ColumnName="league" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="win" ColumnName="win" />
+                <ScalarProperty Name="lost" ColumnName="lost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_team_history">
+            <EntityTypeMapping TypeName="STATSModel.mlb_team_history">
+              <MappingFragment StoreEntitySet="mlb_team_history">
+                <ScalarProperty Name="id_team_history" ColumnName="id_team_history" />
+                <ScalarProperty Name="id_team" ColumnName="id_team" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="L10" ColumnName="L10" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="win" ColumnName="win" />
+                <ScalarProperty Name="lost" ColumnName="lost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="covers_last">
+            <EntityTypeMapping TypeName="STATSModel.covers_last">
+              <MappingFragment StoreEntitySet="covers_last">
+                <ScalarProperty Name="eventid" ColumnName="eventid" />
+                <ScalarProperty Name="team" ColumnName="team" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="vrs" ColumnName="vrs" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="starter_pitcher" ColumnName="starter_pitcher" />
+                <ScalarProperty Name="starter_ip" ColumnName="starter_ip" />
+                <ScalarProperty Name="oppenent_pitcher" ColumnName="oppenent_pitcher" />
+                <ScalarProperty Name="opponent_ip" ColumnName="opponent_ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="covers_pitcher">
+            <EntityTypeMapping TypeName="STATSModel.covers_pitcher">
+              <MappingFragment StoreEntitySet="covers_pitcher">
+                <ScalarProperty Name="eventid" ColumnName="eventid" />
+                <ScalarProperty Name="away_pitcher" ColumnName="away_pitcher" />
+                <ScalarProperty Name="away_era" ColumnName="away_era" />
+                <ScalarProperty Name="home_pitcher" ColumnName="home_pitcher" />
+                <ScalarProperty Name="home_era" ColumnName="home_era" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="covers_recent">
+            <EntityTypeMapping TypeName="STATSModel.covers_recent">
+              <MappingFragment StoreEntitySet="covers_recent">
+                <ScalarProperty Name="eventid" ColumnName="eventid" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="away_team" ColumnName="away_team" />
+                <ScalarProperty Name="home_team" ColumnName="home_team" />
+                <ScalarProperty Name="away_score" ColumnName="away_score" />
+                <ScalarProperty Name="home_score" ColumnName="home_score" />
+                <ScalarProperty Name="away_pitcher" ColumnName="away_pitcher" />
+                <ScalarProperty Name="away_ip" ColumnName="away_ip" />
+                <ScalarProperty Name="home_pitcher" ColumnName="home_pitcher" />
+                <ScalarProperty Name="home_ip" ColumnName="home_ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_teams_history">
+            <EntityTypeMapping TypeName="STATSModel.mlb_teams_history">
+              <MappingFragment StoreEntitySet="mlb_teams_history">
+                <ScalarProperty Name="team_name" ColumnName="team_name" />
+                <ScalarProperty Name="id_team_history" ColumnName="id_team_history" />
+                <ScalarProperty Name="id_team" ColumnName="id_team" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="L10" ColumnName="L10" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="win" ColumnName="win" />
+                <ScalarProperty Name="lost" ColumnName="lost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_view_games_by_update_date">
+            <EntityTypeMapping TypeName="STATSModel.mlb_view_games_by_update_date">
+              <MappingFragment StoreEntitySet="mlb_view_games_by_update_date">
+                <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
+                <ScalarProperty Name="game_name_team_away" ColumnName="game_name_team_away" />
+                <ScalarProperty Name="game_name_pitcher_home" ColumnName="game_name_pitcher_home" />
+                <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
+                <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
+                <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="last_version" ColumnName="last_version" />
+                <ScalarProperty Name="game_team_home_L10" ColumnName="game_team_home_L10" />
+                <ScalarProperty Name="game_team_home_win" ColumnName="game_team_home_win" />
+                <ScalarProperty Name="game_team_home_lost" ColumnName="game_team_home_lost" />
+                <ScalarProperty Name="game_team_home_position" ColumnName="game_team_home_position" />
+                <ScalarProperty Name="game_team_away_L10" ColumnName="game_team_away_L10" />
+                <ScalarProperty Name="game_team_away_win" ColumnName="game_team_away_win" />
+                <ScalarProperty Name="game_team_away_lost" ColumnName="game_team_away_lost" />
+                <ScalarProperty Name="game_team_away_position" ColumnName="game_team_away_position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_schedule_mlb">
+            <EntityTypeMapping TypeName="STATSModel.view_schedule_mlb">
+              <MappingFragment StoreEntitySet="view_schedule_mlb">
+                <ScalarProperty Name="id_game" ColumnName="id_game" />
+                <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
+                <ScalarProperty Name="game_name_team_away" ColumnName="game_name_team_away" />
+                <ScalarProperty Name="game_name_pitcher_home" ColumnName="game_name_pitcher_home" />
+                <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
+                <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
+                <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
+                <ScalarProperty Name="game_id_team_away" ColumnName="game_id_team_away" />
+                <ScalarProperty Name="game_team_home_L10" ColumnName="game_team_home_L10" />
+                <ScalarProperty Name="game_team_home_win" ColumnName="game_team_home_win" />
+                <ScalarProperty Name="game_team_home_lost" ColumnName="game_team_home_lost" />
+                <ScalarProperty Name="game_team_home_position" ColumnName="game_team_home_position" />
+                <ScalarProperty Name="game_team_away_L10" ColumnName="game_team_away_L10" />
+                <ScalarProperty Name="game_team_away_win" ColumnName="game_team_away_win" />
+                <ScalarProperty Name="game_team_away_lost" ColumnName="game_team_away_lost" />
+                <ScalarProperty Name="game_team_away_position" ColumnName="game_team_away_position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="setAllGamesNotUpdated" FunctionName="STATSModel.Store.setAllGamesNotUpdated" />
+          <FunctionImportMapping FunctionImportName="sp_setAllGamesNotUpdated" FunctionName="STATSModel.Store.sp_setAllGamesNotUpdated" />
+          <FunctionImportMapping FunctionImportName="sp_setGamesNotLastVersion" FunctionName="STATSModel.Store.sp_setGamesNotLastVersion" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

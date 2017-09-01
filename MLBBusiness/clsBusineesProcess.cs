@@ -238,7 +238,7 @@ namespace MLBBusiness
             return id_pitcher;
         }
 
-        public int updateTeam(mlb_team entityFound, mlb_team theEntity, DonBestEntities context)
+        public int updateTeam(mlb_team entityFound, mlb_team theEntity, StatstEntities context)
         {
             int res = 0;
 
@@ -670,7 +670,7 @@ namespace MLBBusiness
        
         public void insertNewTeam()
         {
-            using (DonBestEntities context = new DonBestEntities())
+            using (DonBestEntities1 context = new DonBestEntities())
             {
 
 

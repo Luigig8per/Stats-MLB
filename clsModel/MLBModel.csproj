@@ -52,67 +52,90 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="clsGame.Context.cs">
+    <Compile Include="covers_details.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="covers_last.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="covers_matchup.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="covers_pitcher.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="covers_recent.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonBestEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>clsGame.Context.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="clsGame.Designer.cs">
+    <Compile Include="DonBestEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>clsGame.edmx</DependentUpon>
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="clsGame1.cs">
+    <Compile Include="DonBestEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>clsGame.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EFExtensions.cs" />
     <Compile Include="mlb_game.cs">
-      <DependentUpon>clsGame.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="mlb_game_history.cs">
-      <DependentUpon>clsGame.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="mlb_pitcher.cs">
-      <DependentUpon>clsGame.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="mlb_serie.cs">
-      <DependentUpon>clsGame.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="mlb_team.cs">
-      <DependentUpon>clsGame.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mlb_teams_history.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="mlb_team_history.cs">
-      <DependentUpon>clsGame.tt</DependentUpon>
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mlb_view_games_by_update_date.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view_schedule_mlb.cs">
+      <DependentUpon>DonBestEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="clsGame.edmx">
+    <EntityDeploy Include="DonBestEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>clsGame.Designer.cs</LastGenOutput>
+      <LastGenOutput>DonBestEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="clsGame.edmx.diagram">
-      <DependentUpon>clsGame.edmx</DependentUpon>
+    <None Include="DonBestEntities.edmx.diagram">
+      <DependentUpon>DonBestEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="clsGame.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>clsGame.edmx</DependentUpon>
-      <LastGenOutput>clsGame.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="clsGame.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>clsGame.edmx</DependentUpon>
-      <LastGenOutput>clsGame1.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="DonBestEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DonBestEntities.edmx</DependentUpon>
+      <LastGenOutput>DonBestEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DonBestEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DonBestEntities.edmx</DependentUpon>
+      <LastGenOutput>DonBestEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
