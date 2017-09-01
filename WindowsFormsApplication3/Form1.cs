@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            timer1.Start();
 
             loadESPNStandings();
 
@@ -100,6 +100,10 @@ namespace WindowsFormsApplication1
 
         private void loadESPNStandings()
         {
+
+            listBox1.Visible = false;
+            dataGridView1.Visible = true;
+
             DataTable data3 = new DataTable();
             DataTable data4 = new DataTable();
             mlb_team theTeam= new mlb_team();
@@ -114,16 +118,11 @@ namespace WindowsFormsApplication1
 
             foreach (DataRow row in data3.Rows)
             {
-
                 //this.clsBusiness.updateTeam();
-
                
                theTeam = addTeamFromESPNStandins(row, theTeam);
-
-
-                clsBusiness.upserTeam(theTeam);
+               clsBusiness.upserTeam(theTeam);
                 
-
             }
 
             dataGridView1.DataSource = data3;
@@ -682,10 +681,16 @@ namespace WindowsFormsApplication1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            listBox1.Visible = false;
-            dataGridView1.Visible = true;
+           
 
             loadESPNStandings();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            loadESPNStandings();
+
+            extractNextGames();
         }
     }
 }

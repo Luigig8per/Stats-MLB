@@ -30,5 +30,6 @@ namespace clsModel
         public virtual DbSet<mlb_serie> mlb_serie { get; set; }
         public virtual DbSet<mlb_team> mlb_team { get; set; }
         public virtual DbSet<mlb_team_history> mlb_team_history { get; set; }
+        public virtual DbSet<mlb_game_history> mlb_game_history { get; set; }
     }
 }

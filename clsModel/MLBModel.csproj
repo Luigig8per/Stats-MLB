@@ -71,6 +71,9 @@
     <Compile Include="mlb_game.cs">
       <DependentUpon>clsGame.tt</DependentUpon>
     </Compile>
+    <Compile Include="mlb_game_history.cs">
+      <DependentUpon>clsGame.tt</DependentUpon>
+    </Compile>
     <Compile Include="mlb_pitcher.cs">
       <DependentUpon>clsGame.tt</DependentUpon>
     </Compile>

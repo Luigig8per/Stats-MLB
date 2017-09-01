@@ -32,6 +32,34 @@
           <Property Name="game_team_away_lost" Type="int" />
           <Property Name="game_team_away_position" Type="int" />
         </EntityType>
+        <EntityType Name="mlb_game_history">
+          <Key>
+            <PropertyRef Name="id_game_history" />
+          </Key>
+          <Property Name="id_game_history" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_game" Type="int" Nullable="false" />
+          <Property Name="game_date" Type="datetime" />
+          <Property Name="game_id_team_home" Type="int" Nullable="false" />
+          <Property Name="game_id_team_away" Type="int" Nullable="false" />
+          <Property Name="game_name_team_home" Type="varchar(max)" />
+          <Property Name="game_name_team_away" Type="varchar(max)" Nullable="false" />
+          <Property Name="game_name_pitcher_home" Type="varchar(max)" />
+          <Property Name="game_name_pitcher_away" Type="varchar(max)" />
+          <Property Name="game_pitcher_home_ERA" Type="float" />
+          <Property Name="game_pitcher_away_ERA" Type="float" />
+          <Property Name="updated" Type="bit" />
+          <Property Name="insert_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+          <Property Name="last_version" Type="bit" />
+          <Property Name="game_team_home_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_home_win" Type="int" />
+          <Property Name="game_team_home_lost" Type="int" />
+          <Property Name="game_team_home_position" Type="int" />
+          <Property Name="game_team_away_L10" Type="nchar" MaxLength="10" />
+          <Property Name="game_team_away_win" Type="int" />
+          <Property Name="game_team_away_lost" Type="int" />
+          <Property Name="game_team_away_position" Type="int" />
+        </EntityType>
         <EntityType Name="mlb_pitcher">
           <Key>
             <PropertyRef Name="id_pitcher" />
@@ -85,6 +113,7 @@
         </Function>
         <EntityContainer Name="ModelsMLBStoreContainer">
           <EntitySet Name="mlb_game" EntityType="Self.mlb_game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mlb_game_history" EntityType="Self.mlb_game_history" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mlb_pitcher" EntityType="Self.mlb_pitcher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mlb_serie" EntityType="Self.mlb_serie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mlb_team" EntityType="Self.mlb_team" Schema="dbo" store:Type="Tables" />
@@ -100,6 +129,7 @@
           <EntitySet Name="mlb_serie" EntityType="ModelsMLB.mlb_serie" />
           <EntitySet Name="mlb_team" EntityType="ModelsMLB.mlb_team" />
           <EntitySet Name="mlb_team_history" EntityType="ModelsMLB.mlb_team_history" />
+          <EntitySet Name="mlb_game_history" EntityType="ModelsMLB.mlb_game_history" />
         </EntityContainer>
         <EntityType Name="mlb_game">
           <Key>
@@ -173,6 +203,34 @@
           <Property Name="position" Type="Int32" Nullable="false" />
           <Property Name="win" Type="Int32" />
           <Property Name="lost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mlb_game_history">
+          <Key>
+            <PropertyRef Name="id_game_history" />
+          </Key>
+          <Property Name="id_game_history" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_game" Type="Int32" Nullable="false" />
+          <Property Name="game_date" Type="DateTime" Precision="3" />
+          <Property Name="game_id_team_home" Type="Int32" Nullable="false" />
+          <Property Name="game_id_team_away" Type="Int32" Nullable="false" />
+          <Property Name="game_name_team_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_team_away" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_pitcher_home" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_name_pitcher_away" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="game_pitcher_home_ERA" Type="Double" />
+          <Property Name="game_pitcher_away_ERA" Type="Double" />
+          <Property Name="updated" Type="Boolean" />
+          <Property Name="insert_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="last_version" Type="Boolean" />
+          <Property Name="game_team_home_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_home_win" Type="Int32" />
+          <Property Name="game_team_home_lost" Type="Int32" />
+          <Property Name="game_team_home_position" Type="Int32" />
+          <Property Name="game_team_away_L10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="game_team_away_win" Type="Int32" />
+          <Property Name="game_team_away_lost" Type="Int32" />
+          <Property Name="game_team_away_position" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -255,6 +313,35 @@
                 <ScalarProperty Name="insert_date" ColumnName="insert_date" />
                 <ScalarProperty Name="id_team" ColumnName="id_team" />
                 <ScalarProperty Name="id_team_history" ColumnName="id_team_history" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mlb_game_history">
+            <EntityTypeMapping TypeName="ModelsMLB.mlb_game_history">
+              <MappingFragment StoreEntitySet="mlb_game_history">
+                <ScalarProperty Name="game_team_away_position" ColumnName="game_team_away_position" />
+                <ScalarProperty Name="game_team_away_lost" ColumnName="game_team_away_lost" />
+                <ScalarProperty Name="game_team_away_win" ColumnName="game_team_away_win" />
+                <ScalarProperty Name="game_team_away_L10" ColumnName="game_team_away_L10" />
+                <ScalarProperty Name="game_team_home_position" ColumnName="game_team_home_position" />
+                <ScalarProperty Name="game_team_home_lost" ColumnName="game_team_home_lost" />
+                <ScalarProperty Name="game_team_home_win" ColumnName="game_team_home_win" />
+                <ScalarProperty Name="game_team_home_L10" ColumnName="game_team_home_L10" />
+                <ScalarProperty Name="last_version" ColumnName="last_version" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="game_pitcher_away_ERA" ColumnName="game_pitcher_away_ERA" />
+                <ScalarProperty Name="game_pitcher_home_ERA" ColumnName="game_pitcher_home_ERA" />
+                <ScalarProperty Name="game_name_pitcher_away" ColumnName="game_name_pitcher_away" />
+                <ScalarProperty Name="game_name_pitcher_home" ColumnName="game_name_pitcher_home" />
+                <ScalarProperty Name="game_name_team_away" ColumnName="game_name_team_away" />
+                <ScalarProperty Name="game_name_team_home" ColumnName="game_name_team_home" />
+                <ScalarProperty Name="game_id_team_away" ColumnName="game_id_team_away" />
+                <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />
+                <ScalarProperty Name="game_date" ColumnName="game_date" />
+                <ScalarProperty Name="id_game" ColumnName="id_game" />
+                <ScalarProperty Name="id_game_history" ColumnName="id_game_history" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

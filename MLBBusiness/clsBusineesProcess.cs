@@ -7,6 +7,7 @@ using MLBData;
 using clsModel;
 using System.Data.Entity;
 using System.Data;
+using MLBBusiness;
 
 namespace MLBBusiness
 {
@@ -107,7 +108,57 @@ namespace MLBBusiness
 
             {
 
-                var L2EQuery = context.mlb_team_history.Where(t => t.id_team_history == entity.id_team && t.insert_date >= DateTime.Today && t.insert_date <= System.Data.Entity.DbFunctions.AddDays(DateTime.Today, 1));
+                var L2EQuery = context.mlb_team_history.Where(t => t.id_team == entity.id_team && t.insert_date >= DateTime.Today && t.insert_date <= System.Data.Entity.DbFunctions.AddDays(DateTime.Today, 1));
+
+                var teamFound = L2EQuery.FirstOrDefault<mlb_team_history>();
+
+                if (teamFound == null)
+                {
+                    try
+                    {
+
+                        context.mlb_team_history.Add(theEntityHistory);
+                        res = context.SaveChanges();
+                    }
+                    catch (Exception ex)
+
+                    {
+                        Console.WriteLine("Error" + ex.Message);
+
+
+                    }
+
+                    Console.WriteLine(res);
+
+                }
+                else
+                {
+                    id_team_history = teamFound.id_team_history;
+                }
+
+            }
+
+            return id_team_history;
+        }
+
+
+        public int insertGameHistory(mlb_game entity)
+        {
+            mlb_game_history theEntityHistory = new mlb_game_history();
+
+            theEntityHistory.insert_date = DateTime.Now;
+           
+
+
+
+            int res = 0;
+            int id_team_history = 0;
+
+            using (DonBestEntities context = new DonBestEntities())
+
+            {
+
+                var L2EQuery = context.mlb_team_history.Where(t => t.id_team == entity.id_team && t.insert_date >= DateTime.Today && t.insert_date <= System.Data.Entity.DbFunctions.AddDays(DateTime.Today, 1));
 
                 var teamFound = L2EQuery.FirstOrDefault<mlb_team_history>();
 
