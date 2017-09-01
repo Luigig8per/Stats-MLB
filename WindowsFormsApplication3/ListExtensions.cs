@@ -25,6 +25,7 @@ namespace WindowsFormsApplication1
             tmp.Columns.Add("DIFF");
             tmp.Columns.Add("STRK");
             tmp.Columns.Add("L10");
+            tmp.Columns.Add("POFF");
             tmp.Columns.Add("League");
             tmp.Columns.Add("Subgroup");
             tmp.Columns.Add("Position");

@@ -151,7 +151,15 @@ namespace WindowsFormsApplication1
 
             //First all games will be set as outdated, so just the loaded from page on next step will be set as updated.
 
-            clsBusiness.ExeStoredProcedure("[dbo].[setAllGamesNotUpdated]");
+            //clsBusiness.ExeStoredProcedure("[dbo].[sp_setGamesNotLastVersion]", );
+
+            IDictionary<string, string> parametersDictionary = new Dictionary<string, string>();
+
+            parametersDictionary.Add("@game_date_start", dateUrl(DateTime.Today));
+            parametersDictionary.Add("@game_date_end", dateUrl(DateTime.Today.AddDays(qDays)));
+
+            clsBusiness.ExeSPWithResults("sp_setGamesNotLastVersion", parametersDictionary);
+
 
             List<String> theList = new List<String>();
 
@@ -217,9 +225,9 @@ namespace WindowsFormsApplication1
             theTeam.L10 = row["L10"].ToString();
             theTeam.win = int.Parse(row[1].ToString());
             theTeam.lost = int.Parse(row[2].ToString());
-          theTeam.actualPosition = int.Parse(row[14].ToString());
-            theTeam.division = row[13].ToString();
-            theTeam.league = row[12].ToString();
+          theTeam.actualPosition = int.Parse(row[15].ToString());
+            theTeam.division = row[14].ToString();
+            theTeam.league = row[13].ToString();
             theTeam.last_update_date = DateTime.Now;
 
             return theTeam;

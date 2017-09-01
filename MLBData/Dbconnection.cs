@@ -156,6 +156,40 @@ namespace MLBData
 
         }
 
+        public DataTable ExeSPWithResults(string storedProcedureName, IDictionary<string,string> parametersDictionary)
+
+        {
+
+            using (con)
+            {
+                using (SqlCommand cmd = new SqlCommand(storedProcedureName, con))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    foreach (KeyValuePair<string, string> entry in parametersDictionary)
+                    {
+                        // do something with entry.Value or entry.Key
+                        cmd.Parameters.AddWithValue(entry.Key, entry.Value);
+                    }
+
+
+                    con.Open();
+
+                    SqlDataReader sdr;
+                    DataTable dt = new DataTable();
+
+                    sdr = cmd.ExecuteReader();
+                    cmd.Connection = con;
+                    dt.Load(sdr);
+                    con.Close();
+                    return dt;
+                }
+            }
+
+        }
+
         public DataTable GetSPData(string spName, List<string> parametersList)
         {
             //make the list of the type that the method will be returning

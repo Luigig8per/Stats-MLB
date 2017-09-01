@@ -410,6 +410,13 @@ namespace MLBBusiness
             return theConnection.ExeStoredProcedure(storedProcedureName);
         }
 
+        public DataTable ExeSPWithResults(string storedProcedureName, IDictionary<string, string> parametersDictionary)
+        {
+            Dbconnection theConnection = new Dbconnection();
+
+            return theConnection.ExeSPWithResults(storedProcedureName, parametersDictionary);
+        }
+
         public void upsertPitcher(mlb_pitcher theEntity)
         {
             int res = 0;
