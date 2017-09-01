@@ -142,14 +142,16 @@ namespace MLBBusiness
         }
 
 
-        public int insertGameHistory(mlb_game entity)
+        public int insertGameHistory(mlb_game entity, int idGame)
         {
+            clsGeneric genericClass = new clsGeneric();
             mlb_game_history theEntityHistory = new mlb_game_history();
 
-            theEntityHistory.insert_date = DateTime.Now;
+            genericClass.transferPropertiesToAnotherClass(entity, theEntityHistory);
            
 
-
+            theEntityHistory.insert_date = DateTime.Now;
+            theEntityHistory.id_game = idGame;
 
             int res = 0;
             int id_team_history = 0;
@@ -158,16 +160,12 @@ namespace MLBBusiness
 
             {
 
-                var L2EQuery = context.mlb_team_history.Where(t => t.id_team == entity.id_team && t.insert_date >= DateTime.Today && t.insert_date <= System.Data.Entity.DbFunctions.AddDays(DateTime.Today, 1));
-
-                var teamFound = L2EQuery.FirstOrDefault<mlb_team_history>();
-
-                if (teamFound == null)
+              
                 {
                     try
                     {
 
-                        context.mlb_team_history.Add(theEntityHistory);
+                        context.mlb_game_history.Add(theEntityHistory);
                         res = context.SaveChanges();
                     }
                     catch (Exception ex)
@@ -181,10 +179,7 @@ namespace MLBBusiness
                     Console.WriteLine(res);
 
                 }
-                else
-                {
-                    id_team_history = teamFound.id_team_history;
-                }
+               
 
             }
 
@@ -412,8 +407,8 @@ namespace MLBBusiness
                if (countChanges>0)
                 { 
                 gameFound.last_update_date = DateTime.Now;
+                 insertGameHistory(theGame, gameFound.id_game);
 
-              
                 }
                 //context.mlb_game.
                   gameFound.updated = true;
@@ -624,19 +619,15 @@ namespace MLBBusiness
 
                     if (gameFound == null)
                     {
-
-                         
-                        insertGame(theGame);
-
                     
-
+                        insertGame(theGame);                  
                     }
                     else
 
                     {
                         gameFound.last_version = true;
                         updatetGame(gameFound, theGame, context );
-
+                       
                     }
 
                     //if (gameFound i)  

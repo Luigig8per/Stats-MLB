@@ -10,7 +10,7 @@ namespace MLBData
 {
     public class Dbconnection
     {
-        public SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=DonBest;User ID=luisma;Password=12345678");
+        public SqlConnection con = new SqlConnection("Data Source=10.10.10.46;Initial Catalog=STATS;User ID=luisma;Password=12345678");
 
         public SqlConnection getConn()
         {
