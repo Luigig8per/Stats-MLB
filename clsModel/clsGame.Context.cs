@@ -15,10 +15,10 @@ namespace clsModel
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class STATSEntities1 : DbContext
+    public partial class StatsEntities : DbContext
     {
-        public STATSEntities1()
-            : base("name=STATSEntities1")
+        public StatsEntities()
+            : base("name=StatsEntities")
         {
         }
     

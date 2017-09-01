@@ -18,7 +18,7 @@ namespace MLBBusiness
         {
             int res=0;
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -53,7 +53,7 @@ namespace MLBBusiness
             mlb_team teamFound;
            
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -104,7 +104,7 @@ namespace MLBBusiness
             int res = 0;
             int id_team_history = 0;
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -156,7 +156,7 @@ namespace MLBBusiness
             int res = 0;
             int id_team_history = 0;
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -199,7 +199,7 @@ namespace MLBBusiness
             int res = 0;
             int id_pitcher = 0;
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -238,7 +238,7 @@ namespace MLBBusiness
             return id_pitcher;
         }
 
-        public int updateTeam(mlb_team entityFound, mlb_team theEntity, StatstEntities context)
+        public int updateTeam(mlb_team entityFound, mlb_team theEntity, StatsEntities context)
         {
             int res = 0;
 
@@ -301,7 +301,7 @@ namespace MLBBusiness
             }
 
 
-            using (context = new DonBestEntities())
+            using (context = new StatsEntities())
 
             {
 
@@ -316,7 +316,7 @@ namespace MLBBusiness
             return entityFound.id_team;
         }
 
-        public int updatePitcher(mlb_pitcher pitcherFound, mlb_pitcher thePitcher, DonBestEntities context)
+        public int updatePitcher(mlb_pitcher pitcherFound, mlb_pitcher thePitcher, StatsEntities context)
         {
             int res = 0; 
 
@@ -341,7 +341,7 @@ namespace MLBBusiness
             }
 
 
-            using (context = new DonBestEntities())
+            using (context = new StatsEntities())
 
             {
                
@@ -356,7 +356,7 @@ namespace MLBBusiness
             return pitcherFound.id_pitcher;
         }
 
-        public int updatetGame( mlb_game gameFound, mlb_game theGame,  DonBestEntities context)
+        public int updatetGame( mlb_game gameFound, mlb_game theGame,  StatsEntities context)
         {
             int res = 0; int countChanges = 0;
 
@@ -422,8 +422,8 @@ namespace MLBBusiness
 
             }
 
-
-            using (context = new DonBestEntities())
+           
+            using (context = new StatsEntities())
 
             {
                 //Console.WriteLine("TO UPDATE:");
@@ -467,7 +467,7 @@ namespace MLBBusiness
         {
             int res = 0;
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -527,7 +527,7 @@ namespace MLBBusiness
         {
             int res = 0;
             
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -579,7 +579,7 @@ namespace MLBBusiness
         public void outDateGames()
         {
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -598,7 +598,7 @@ namespace MLBBusiness
             theGame.last_version = true;
             int res = 0;
 
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
 
             {
 
@@ -655,7 +655,7 @@ namespace MLBBusiness
 
         public void selectTeam()
         {
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
             {
 
                 mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.id_game == 1);
@@ -670,7 +670,7 @@ namespace MLBBusiness
        
         public void insertNewTeam()
         {
-            using (DonBestEntities1 context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
             {
 
 
@@ -700,7 +700,7 @@ namespace MLBBusiness
 
         public void deleteTeam()
         {
-            using (DonBestEntities context = new DonBestEntities())
+            using (StatsEntities context = new StatsEntities())
             {
                 mlb_game theMlbGame = context.mlb_game.FirstOrDefault(r => r.id_game == 1);
                 context.mlb_game.Remove(theMlbGame);
