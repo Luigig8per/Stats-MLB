@@ -692,5 +692,43 @@ namespace WindowsFormsApplication1
 
             extractNextGames();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            listBox1.Visible = false;
+            dataGridView1.Visible = true;
+            loadMLBSeries();
+        }
+
+        private void loadMLBSeries()
+        {
+            clsBusineesProcess clsBusiness = new clsBusineesProcess();
+            DataTable dtMlbSeries = clsBusiness.ExeSPWithResults("select * from mlb_series_view order by qGames desc, startDate");
+            DataTable dtMlBSeriesGame = new DataTable();
+            IDictionary<string, string> theSpPms = new Dictionary<string, string>();
+
+
+          
+            
+           foreach(DataRow row in dtMlbSeries.Rows)
+            {
+                theSpPms = new Dictionary<string, string>();
+
+                theSpPms.Add("@serie_date_start", row["startDate"].ToString());
+                theSpPms.Add("@serie_date_end", row["end_date"].ToString());
+                theSpPms.Add("@id_game_team_home", row["game_id_team_home"].ToString());
+
+
+
+                dtMlBSeriesGame = clsBusiness.ExeSPWithResults("[dbo].[sp_selectSeriesOfGames]", theSpPms);
+
+                dataGridView1.DataSource = dtMlBSeriesGame;
+
+                break;
+
+            }
+
+
+        }
     }
 }

@@ -463,6 +463,13 @@ namespace MLBBusiness
             return theConnection.ExeSPWithResults(storedProcedureName, parametersDictionary);
         }
 
+        public DataTable ExeSPWithResults(string storedProcedureName)
+        {
+            Dbconnection theConnection = new Dbconnection();
+
+            return theConnection.ExeSPWithResults(storedProcedureName);
+        }
+
         public void upsertPitcher(mlb_pitcher theEntity)
         {
             int res = 0;

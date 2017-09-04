@@ -92,7 +92,7 @@ namespace MLBData
                 {
                     int rowsaffected = -1;
 
-                    cmd.CommandType = CommandType.StoredProcedure;
+                   
                   
 
                     con.Open();
@@ -140,6 +140,32 @@ namespace MLBData
                     cmd.Parameters.AddWithValue("@prmLeague", "");
                     cmd.Parameters.AddWithValue("@prmGroupby", "");
                     cmd.Parameters.AddWithValue("@prmOrderby", "");
+
+                    con.Open();
+
+                    SqlDataReader sdr;
+                    DataTable dt = new DataTable();
+
+                    sdr = cmd.ExecuteReader();
+                    cmd.Connection = con;
+                    dt.Load(sdr);
+                    con.Close();
+                    return dt;
+                }
+            }
+
+        }
+
+        public DataTable ExeSPWithResults(string storedProcedureName)
+
+        {
+
+            using (con)
+            {
+                using (SqlCommand cmd = new SqlCommand(storedProcedureName, con))
+                {
+
+                  
 
                     con.Open();
 
