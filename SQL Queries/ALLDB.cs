@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MLBBusiness;
 using clsModel;
-
-
+using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -729,6 +729,147 @@ namespace WindowsFormsApplication1
             }
 
 
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                saveFile();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar guardar el archivo:" + ex.Message);
+            }
+        }
+
+        public void fillExcelV2(string templateFile, string outputFile, DataGridView dgv)
+        {
+            Excel.Application excelApp = new Excel.Application();
+
+            //Create an Excel workbook instance and open it from the predefined location
+            Excel.Workbook excelWorkBook = excelApp.Workbooks.Open(templateFile);
+
+            //Add a new worksheet to workbook with the Datatable name
+            Excel.Worksheet excelWorkSheet = excelWorkBook.Sheets[1];
+            excelWorkSheet.Name = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+
+         
+
+            clsBusineesProcess clsBusiness = new clsBusineesProcess();
+            DataTable dtMlbSeries = clsBusiness.ExeSPWithResults("select * from mlb_series_view order by qGames desc, startDate");
+            DataTable dtMlBSeriesGame = new DataTable();
+            DataTable dtMlBSeriesGameHome = new DataTable();
+            DataTable dtMlBSeriesGameAway = new DataTable();
+
+            IDictionary<string, string> theSpPms = new Dictionary<string, string>();
+
+
+
+            int i = 4; int j = 0;
+            foreach (DataRow row in dtMlbSeries.Rows)
+            {
+
+                theSpPms = new Dictionary<string, string>();
+
+                theSpPms.Add("@serie_date_start", row["startDate"].ToString());
+                theSpPms.Add("@serie_date_end", row["end_date"].ToString());
+                theSpPms.Add("@id_game_team_home", row["game_id_team_home"].ToString());
+               
+
+
+                dtMlBSeriesGameHome = clsBusiness.ExeSPWithResults("[dbo].[sp_selectSeriesOfGamesHome]", theSpPms);
+                dtMlBSeriesGameAway = clsBusiness.ExeSPWithResults("[dbo].[sp_selectSeriesOfGamesHome]", theSpPms);
+
+                dataGridView1.DataSource = dtMlBSeriesGame;
+               foreach(DataRow row2 in dtMlBSeriesGame.Rows)
+                {
+                    i+=2; j = 0;
+                    foreach (DataColumn dc in dtMlBSeriesGame.Columns)
+                    {
+                        j++;
+                        var field1 = row2[dc].ToString();
+                        //var field2 = row2[dc].ToString();
+                        excelWorkSheet.Cells[i,j] = field1;
+                    }
+                }
+
+                i += 4;
+
+            }
+
+            //dtNFLPreseason= extractCategorySport()
+
+            string dateToDoc = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+           
+
+           
+
+
+            //Next should be deleted after not show text on query result
+         
+
+            //dgv.Rows[32].Cells[2].Style.BackColor = System.Drawing.Color.Tomato;
+            //dgv.Rows[32].Cells[3].Style.BackColor = System.Drawing.Color.Tomato;
+
+
+
+
+
+            try
+            {
+                excelWorkBook.SaveAs(outputFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error trying to save the file: " + ex.Message);
+            }
+            finally
+            {
+                excelWorkBook.Close();
+                excelApp.Quit();
+                if (File.Exists(outputFile))
+                {
+                    System.Diagnostics.Process.Start(outputFile);
+                }
+            }
+
+
+
+
+        }
+
+        private void saveFile()
+        {
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "excel files (*.xls)|*.xls|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FileName = (@"MLB Auto House Report " + dateTimePicker1.Text + ".xlsx");
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                string path = saveFileDialog1.FileName;
+
+                try
+                {
+                    fillExcelV2(@"S:\MLBHouseReport\MLBBASE.xlsx", path, dataGridView1);
+                }
+                catch
+                {
+
+                    fillExcelV2(@"C:\MLBHouseReport\MLBBASE.xlsx", path, dataGridView1);
+                }
+                //fillExcelV2(@"C:\documents2017\desktop\ReportGameStats\DesktopC\bin\Debug\HOUSE REPORT BASE.xlsx", path + string.Format("{0:yyyy-MM-dd}", DateTime.Now) + ".xlsx", dataGridView1);
+
+                //File.WriteAllText(@saveFileDialog1.FileName + ".xls", rtOutput.Text);
+                //MessageBox.Show("Archivo guardado con éxito!.");
+
+            }
         }
     }
 }
