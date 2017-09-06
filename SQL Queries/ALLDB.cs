@@ -27,6 +27,8 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            this.button4.Focus();
+
             dateTimePicker2.Value = dateTimePicker1.Value.AddDays(7);
             loadESPNStandings();
 
@@ -737,6 +739,7 @@ namespace WindowsFormsApplication1
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            button4.Text = "Please wait";
             try
             {
                 saveFile();
@@ -746,6 +749,8 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Error al intentar guardar el archivo:" + ex.Message);
             }
+
+            button4.Text = "Load excel";
         }
 
 
@@ -879,7 +884,7 @@ namespace WindowsFormsApplication1
                 excelWorkBook.SaveAs(outputFile);
 
                 this.WindowState = FormWindowState.Normal;
-               
+
                 DialogResult dialogResult = MessageBox.Show("Excel file saved as  " + outputFile + ", would you like to close this app?", "Excel done", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -890,7 +895,7 @@ namespace WindowsFormsApplication1
                     //do something else
                 }
 
-               
+
             }
             catch (Exception ex)
             {
@@ -905,7 +910,7 @@ namespace WindowsFormsApplication1
 
         private void saveFile()
         {
-            MessageBox.Show("Please wait a moment...");
+           
             //SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             //saveFileDialog1.Filter = "excel files (*.xls)|*.xls|All files (*.*)|*.*";
@@ -938,6 +943,14 @@ namespace WindowsFormsApplication1
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker2.Value = dateTimePicker1.Value.AddDays(7);
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if  (button4.Text != "Load excel")
+                { 
+                   button4.Text += ".";
+                 }
         }
     }
 }
