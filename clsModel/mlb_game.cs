@@ -36,5 +36,7 @@ namespace clsModel
         public Nullable<int> game_team_away_win { get; set; }
         public Nullable<int> game_team_away_lost { get; set; }
         public Nullable<int> game_team_away_position { get; set; }
+        public Nullable<double> game_pitcher_home_last3_ERA { get; set; }
+        public Nullable<double> game_pitcher_away_last3_ERA { get; set; }
     }
 }

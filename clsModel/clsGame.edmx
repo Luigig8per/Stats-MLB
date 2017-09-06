@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StatsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StatsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="covers_details">
           <Key>
             <PropertyRef Name="eventid" />
@@ -125,6 +125,8 @@ warning 6002: The table/view 'STATS.dbo.covers_recent' does not have a primary k
           <Property Name="game_team_away_win" Type="int" />
           <Property Name="game_team_away_lost" Type="int" />
           <Property Name="game_team_away_position" Type="int" />
+          <Property Name="game_pitcher_home_last3_ERA" Type="float" />
+          <Property Name="game_pitcher_away_last3_ERA" Type="float" />
         </EntityType>
         <EntityType Name="mlb_game_history">
           <Key>
@@ -393,8 +395,7 @@ warning 6002: The table/view 'STATS.dbo.view_schedule_mlb' does not have a prima
     FROM [dbo].[view_schedule_mlb] AS [view_schedule_mlb]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StatsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -450,6 +451,8 @@ warning 6002: The table/view 'STATS.dbo.view_schedule_mlb' does not have a prima
           <Property Name="game_team_away_win" Type="Int32" />
           <Property Name="game_team_away_lost" Type="Int32" />
           <Property Name="game_team_away_position" Type="Int32" />
+          <Property Name="game_pitcher_home_last3_ERA" Type="Double" />
+          <Property Name="game_pitcher_away_last3_ERA" Type="Double" />
         </EntityType>
         <EntityType Name="mlb_game_history">
           <Key>
@@ -720,6 +723,8 @@ warning 6002: The table/view 'STATS.dbo.view_schedule_mlb' does not have a prima
           <EntitySetMapping Name="mlb_game">
             <EntityTypeMapping TypeName="StatsModel.mlb_game">
               <MappingFragment StoreEntitySet="mlb_game">
+                <ScalarProperty Name="game_pitcher_away_last3_ERA" ColumnName="game_pitcher_away_last3_ERA" />
+                <ScalarProperty Name="game_pitcher_home_last3_ERA" ColumnName="game_pitcher_home_last3_ERA" />
                 <ScalarProperty Name="id_game" ColumnName="id_game" />
                 <ScalarProperty Name="game_date" ColumnName="game_date" />
                 <ScalarProperty Name="game_id_team_home" ColumnName="game_id_team_home" />

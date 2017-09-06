@@ -300,11 +300,13 @@ namespace WindowsFormsApplication1
                         {
                             theGame.game_name_pitcher_home = rowText;
                             theGame.game_pitcher_home_ERA = float.Parse(row["ROAD"].ToString());
+                            theGame.game_pitcher_home_last3_ERA = float.Parse(row[15].ToString());
                         }
                         else
                         {
                             theGame.game_name_pitcher_away = rowText;
                             theGame.game_pitcher_away_ERA = float.Parse(row["ROAD"].ToString());
+                            theGame.game_pitcher_away_last3_ERA = float.Parse(row[15].ToString());
                         }
 
 
@@ -744,17 +746,17 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void addExcelWorkSheet(Excel.Workbook excelWorkBook, int sheetNumber, int qGames)
+        public void addExcelWorkSheet(Excel.Workbook excelWorkBook, int sheetNumber, int qGames, DateTime prmStartDate, DateTime prmEndDate)
         {
             Excel.Worksheet excelWorkSheet = excelWorkBook.Sheets[sheetNumber];
             //excelWorkSheet.Name = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
 
             excelWorkSheet.Select(Type.Missing);
             excelWorkSheet.Activate();
-
+            string dateToDoc = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
 
             clsBusineesProcess clsBusiness = new clsBusineesProcess();
-            DataTable dtMlbSeries = clsBusiness.ExeSPWithResults("select * from mlb_series_view where startDate<='2017-09-09' and startDate >='2017-09-03' and qGames=" + qGames + " order by startDate");
+            DataTable dtMlbSeries = clsBusiness.ExeSPWithResults("select * from mlb_series_view where startDate<='" + string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value) + "' and startDate >='" + string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value) + "'  and qGames=" + qGames + " order by startDate");
             DataTable dtMlBSeriesGame = new DataTable();
             DataTable dtMlBSeriesGameHome = new DataTable();
             DataTable dtMlBSeriesGameAway = new DataTable();
@@ -780,8 +782,8 @@ namespace WindowsFormsApplication1
                 idTeamHome= int.Parse(row["game_id_team_home"].ToString());
                 idTeamAway = int.Parse(row["game_id_team_away"].ToString());
 
-                teamHome = teamHome.extractTeam(idTeamHome);
-                teamAway = teamAway.extractTeam(idTeamAway);
+                teamHome = clsBusiness.extractTeam(idTeamHome);
+                teamAway = clsBusiness.extractTeam(idTeamAway);
 
                 teamHomeText = generateStandingsHomeText(int.Parse(teamHome.actualPosition.ToString()), teamHome.division);
                 teamAwayText = generateStandingsAwayText(int.Parse(teamAway.actualPosition.ToString()), teamAway.division);
@@ -804,16 +806,22 @@ namespace WindowsFormsApplication1
                     {
                         j++;
                         c++;
+
+
                         var field1 = row2[dc].ToString();
                         //var field2 = row2[dc].ToString();
                         excelWorkSheet.Cells[i, j] = field1;
 
                         var field2 = dtMlBSeriesGameAway.Rows[cont - 1][c - 1].ToString();
                         excelWorkSheet.Cells[i + 1, j] = field2;
+
+
                     }
 
                     excelWorkSheet.Cells[i, 11] = teamHomeText;
                     excelWorkSheet.Cells[i+1, 11] = teamAwayText;
+
+                
 
                 }
 
@@ -833,12 +841,12 @@ namespace WindowsFormsApplication1
             //Add a new worksheet to workbook with the Datatable name
 
 
-            addExcelWorkSheet(excelWorkBook, 1, 3);
+            addExcelWorkSheet(excelWorkBook, 1, 3, dateTimePicker1.Value, dateTimePicker2.Value);
 
-            addExcelWorkSheet(excelWorkBook, 2, 4);
+            addExcelWorkSheet(excelWorkBook, 2, 4, dateTimePicker1.Value, dateTimePicker2.Value);
 
 
-            string dateToDoc = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+          
            
             try
             {
@@ -858,17 +866,17 @@ namespace WindowsFormsApplication1
         private void saveFile()
         {
 
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            //SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "excel files (*.xls)|*.xls|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
-            saveFileDialog1.FileName = (@"MLB Auto House Report " + dateTimePicker1.Text + ".xlsx");
+            //saveFileDialog1.Filter = "excel files (*.xls)|*.xls|All files (*.*)|*.*";
+            //saveFileDialog1.FilterIndex = 2;
+            //saveFileDialog1.RestoreDirectory = true;
+            //saveFileDialog1.FileName = (@"MLB Auto House Report " + dateTimePicker1.Text + ".xlsx");
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
-                string path = saveFileDialog1.FileName;
+                string dateToDoc = string.Format("{0:yyyy-MM-dd HH-mm-ss}", DateTime.Now);
+                string path = (@"S:\MLBHouseReport\MLB Auto House Report " + dateToDoc + ".xlsx");
 
                 try
                 {
@@ -877,7 +885,7 @@ namespace WindowsFormsApplication1
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    //fillExcelV2(@"C:\MLBHouseReport\MLBBASE.xlsx", path, dataGridView1);
+                    fillExcelV2(@"C:\MLBHouseReport\MLBBASE.xlsx", path, dataGridView1);
                 }
                 //fillExcelV2(@"C:\documents2017\desktop\ReportGameStats\DesktopC\bin\Debug\HOUSE REPORT BASE.xlsx", path + string.Format("{0:yyyy-MM-dd}", DateTime.Now) + ".xlsx", dataGridView1);
 
