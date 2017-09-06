@@ -415,7 +415,7 @@ namespace WindowsFormsApplication1
 
             }
 
-            txt1 = "(" + position_ + " in " + division + ")";
+            txt1 = "" + position_ + " in " + division + "";
 
 
             return txt1;
@@ -448,7 +448,7 @@ namespace WindowsFormsApplication1
 
             }
 
-            txt1 = "(" + position_ + " in " + division + ")";
+            txt1 = "" + position_ + " in " + division + "";
 
 
             return txt1;
@@ -758,6 +758,10 @@ namespace WindowsFormsApplication1
             DataTable dtMlBSeriesGame = new DataTable();
             DataTable dtMlBSeriesGameHome = new DataTable();
             DataTable dtMlBSeriesGameAway = new DataTable();
+            int idTeamHome, idTeamAway;
+            string teamHomeText, teamAwayText;
+            mlb_team teamHome = new mlb_team();
+            mlb_team teamAway = new mlb_team();
 
             IDictionary<string, string> theSpPms = new Dictionary<string, string>();
 
@@ -773,7 +777,14 @@ namespace WindowsFormsApplication1
                 theSpPms.Add("@serie_date_end", row["end_date"].ToString());
                 theSpPms.Add("@id_game_team_home", row["game_id_team_home"].ToString());
 
+                idTeamHome= int.Parse(row["game_id_team_home"].ToString());
+                idTeamAway = int.Parse(row["game_id_team_away"].ToString());
 
+                teamHome = teamHome.extractTeam(idTeamHome);
+                teamAway = teamAway.extractTeam(idTeamAway);
+
+                teamHomeText = generateStandingsHomeText(int.Parse(teamHome.actualPosition.ToString()), teamHome.division);
+                teamAwayText = generateStandingsAwayText(int.Parse(teamAway.actualPosition.ToString()), teamAway.division);
 
                 dtMlBSeriesGameHome = clsBusiness.ExeSPWithResults("[dbo].[sp_selectSeriesOfGamesHome]", theSpPms);
 
@@ -783,7 +794,7 @@ namespace WindowsFormsApplication1
 
                 dataGridView1.DataSource = dtMlBSeriesGameAway;
 
-                //dataGridView1.DataSource = dtMlBSeriesGame;
+              
                 foreach (DataRow row2 in dtMlBSeriesGameHome.Rows)
                 {
                     i += 3;
@@ -800,6 +811,9 @@ namespace WindowsFormsApplication1
                         var field2 = dtMlBSeriesGameAway.Rows[cont - 1][c - 1].ToString();
                         excelWorkSheet.Cells[i + 1, j] = field2;
                     }
+
+                    excelWorkSheet.Cells[i, 11] = teamHomeText;
+                    excelWorkSheet.Cells[i+1, 11] = teamAwayText;
 
                 }
 

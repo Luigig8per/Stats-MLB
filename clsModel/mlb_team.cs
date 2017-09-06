@@ -11,7 +11,8 @@ namespace clsModel
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class mlb_team
     {
         public int id_team { get; set; }
@@ -24,5 +25,28 @@ namespace clsModel
         public Nullable<System.DateTime> last_update_date { get; set; }
         public Nullable<int> win { get; set; }
         public Nullable<int> lost { get; set; }
+
+
+        public mlb_team extractTeam(int teamId)
+        {
+
+            mlb_team teamFound;
+
+
+            using (StatsEntities context = new StatsEntities())
+
+            {
+
+                var L2EQuery = context.mlb_team.Where(t => t.id_team == teamId);
+
+
+                teamFound = L2EQuery.FirstOrDefault<mlb_team>();
+
+
+            }
+
+            return teamFound;
+        }
+
     }
 }
