@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Start();
-
+            dateTimePicker2.Value = dateTimePicker1.Value.AddDays(7);
             loadESPNStandings();
 
 
@@ -733,6 +733,8 @@ namespace WindowsFormsApplication1
 
         }
 
+
+
         private void button4_Click_1(object sender, EventArgs e)
         {
             try
@@ -744,6 +746,22 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Error al intentar guardar el archivo:" + ex.Message);
             }
+        }
+
+
+        void activeWorkSheet(Excel.Worksheet worksheet, int row, int col)
+        {
+            Excel.Range range = worksheet.UsedRange;
+
+            int rows = range.Rows.Count;
+            int columns = range.Columns.Count;
+            
+            Excel.Range activeCell = worksheet.Cells[row, col];
+            activeCell.Select();
+            
+
+
+        
         }
 
         public void addExcelWorkSheet(Excel.Workbook excelWorkBook, int sheetNumber, int qGames, DateTime prmStartDate, DateTime prmEndDate)
@@ -807,7 +825,8 @@ namespace WindowsFormsApplication1
                         j++;
                         c++;
 
-
+                       if (j!=2)
+                        { 
                         var field1 = row2[dc].ToString();
                         //var field2 = row2[dc].ToString();
                         excelWorkSheet.Cells[i, j] = field1;
@@ -815,17 +834,24 @@ namespace WindowsFormsApplication1
                         var field2 = dtMlBSeriesGameAway.Rows[cont - 1][c - 1].ToString();
                         excelWorkSheet.Cells[i + 1, j] = field2;
 
+                        }
+
 
                     }
 
                     excelWorkSheet.Cells[i, 11] = teamHomeText;
                     excelWorkSheet.Cells[i+1, 11] = teamAwayText;
 
-                
+                   
 
                 }
 
+              
+
                 i += 1;
+
+                activeWorkSheet(excelWorkSheet, i, 1);
+
                 cont = 0;
 
             }
@@ -839,7 +865,7 @@ namespace WindowsFormsApplication1
             Excel.Workbook excelWorkBook = excelApp.Workbooks.Open(templateFile);
 
             //Add a new worksheet to workbook with the Datatable name
-
+            this.WindowState = FormWindowState.Minimized;
 
             addExcelWorkSheet(excelWorkBook, 1, 3, dateTimePicker1.Value, dateTimePicker2.Value);
 
@@ -851,6 +877,20 @@ namespace WindowsFormsApplication1
             try
             {
                 excelWorkBook.SaveAs(outputFile);
+
+                this.WindowState = FormWindowState.Normal;
+               
+                DialogResult dialogResult = MessageBox.Show("Excel file saved as  " + outputFile + ", would you like to close this app?", "Excel done", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+
+               
             }
             catch (Exception ex)
             {
@@ -865,7 +905,7 @@ namespace WindowsFormsApplication1
 
         private void saveFile()
         {
-
+            MessageBox.Show("Please wait a moment...");
             //SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             //saveFileDialog1.Filter = "excel files (*.xls)|*.xls|All files (*.*)|*.*";
@@ -893,6 +933,11 @@ namespace WindowsFormsApplication1
                 //MessageBox.Show("Archivo guardado con éxito!.");
 
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker2.Value = dateTimePicker1.Value.AddDays(7);
         }
     }
 }
