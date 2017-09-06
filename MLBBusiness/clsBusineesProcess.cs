@@ -88,6 +88,28 @@ namespace MLBBusiness
             return teamFound;
         }
 
+        public mlb_team extractTeam(int teamId)
+        {
+                     
+           mlb_team teamFound;
+
+
+            using (StatsEntities context = new StatsEntities())
+
+            {
+
+                var L2EQuery = context.mlb_team.Where(t => t.id_team == teamId);
+
+
+                teamFound = L2EQuery.FirstOrDefault<mlb_team>();
+
+              
+            }
+
+            return teamFound;
+        }
+
+
         public int insertTeamHistory(mlb_team entity)
         {
             mlb_team_history theEntityHistory = new mlb_team_history();
