@@ -1,0 +1,33 @@
+PSEUDO:
+
+1. CONNECT TO 10.10.10.46> sportbookdba/lumalu
+2. QUERY= SELECT * FROM [Pinnacle].[dbo].[PINN_GAME] WHERE rotNum IN (x) and gameDT > getDate() //X IS GIVVEN BY WHO MAKE REQUEST
+3. CONNECT TO 10.10.10.30> sportbookdba/lumalu
+4. UPDATE  [DGSDATA].[dbo].[_web_gameImporterMatch] SET eventID = (ROW2 EVENTID from QUERY1)  WHERE eventID = (ROW1 EVENTID FROM QUERY1)
+
+ALWAYS WILL BE 3 ROWS AFFECTED
+
+
+	
+
+
+SAMPLE:
+1. CONNECT TO 10.10.10.46> sportbookdba/lumalu
+
+2. SELECT * FROM [Pinnacle].[dbo].[PINN_GAME] WHERE rotNum IN (957) and gameDT > getDate()
+
+27741	3	246	759690238	2017-09-06 19:10:00.000	Philadelphia Phillies	New York Mets	957	2	O	2	N. Pivetta	M. Harvey
+28291	3	246	760118736	2017-09-06 19:10:00.000	Philadelphia Phillies	New York Mets	957	2	I	2	N. Pivetta	R.GSELLMAN
+28296	3	192732	760130361	2017-09-06 19:10:00.000	Philadelphia Phillies Hits+Runs+Errors	New York Mets Hits+Runs+Errors	957	2	O	1	N. Pivetta	R.GSELLMAN
+28297	3	194682	760130362	2017-09-06 19:10:00.000	Philadelphia Phillies To Score First	New York Mets To Score First	957	2	O	1	N. Pivetta	R.GSELLMAN
+28298	3	214	760130364	2017-09-06 19:10:00.000	Philadelphia Phillies	New York Mets	957	2	O	2	N. Pivetta	R.GSELLMAN
+
+3. CONNECT TO 10.10.10.30> sportbookdba/lumalu
+
+4. UPDATE  [DGSDATA].[dbo].[_web_gameImporterMatch] SET eventID = 760118736 WHERE eventID = 759690238
+
+(3 row(s) affected)
+
+
+
+
