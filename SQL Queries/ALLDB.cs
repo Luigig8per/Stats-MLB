@@ -301,13 +301,13 @@ namespace WindowsFormsApplication1
                         if (Equals(theGame.game_name_pitcher_home, null))
                         {
                             theGame.game_name_pitcher_home = rowText;
-                            theGame.game_pitcher_home_ERA = float.Parse(row["ROAD"].ToString());
+                            theGame.game_pitcher_home_ERA = float.Parse(row[3].ToString());
                             theGame.game_pitcher_home_last3_ERA = float.Parse(row[15].ToString());
                         }
                         else
                         {
                             theGame.game_name_pitcher_away = rowText;
-                            theGame.game_pitcher_away_ERA = float.Parse(row["ROAD"].ToString());
+                            theGame.game_pitcher_away_ERA = float.Parse(row[3].ToString());
                             theGame.game_pitcher_away_last3_ERA = float.Parse(row[15].ToString());
                         }
 
@@ -920,17 +920,17 @@ namespace WindowsFormsApplication1
 
             //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string dateToDoc = string.Format("{0:yyyy-MM-dd HH-mm-ss}", DateTime.Now);
-                string path = (@"S:\MLBHouseReport\MLB Auto House Report " + dateToDoc + ".xlsx");
+                string dateToDoc = string.Format("{0:yyyy-MM-dd HH.mm.ss}", DateTime.Now);
+                string path = (@"S:\MLBHouseReport\Reports\MLB Auto Report " + string.Format("{0:MM-dd}", dateTimePicker1.Value) + " ~ " + string.Format("{0:MM-dd}", dateTimePicker2.Value) + "  (" + dateToDoc + ").xlsx");
 
                 try
                 {
-                    fillExcelV2(@"S:\MLBHouseReport\MLBBASE.xlsx", path, dataGridView1);
+                    fillExcelV2(@"S:\MLBHouseReport\G8 MLB House Report\MLBBASE.xlsx", path, dataGridView1);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    fillExcelV2(@"C:\MLBHouseReport\MLBBASE.xlsx", path, dataGridView1);
+                    fillExcelV2(@"C:\MLBHouseReport\G8 MLB House Report\MLBBASE.xlsx", path, dataGridView1);
                 }
                 //fillExcelV2(@"C:\documents2017\desktop\ReportGameStats\DesktopC\bin\Debug\HOUSE REPORT BASE.xlsx", path + string.Format("{0:yyyy-MM-dd}", DateTime.Now) + ".xlsx", dataGridView1);
 
