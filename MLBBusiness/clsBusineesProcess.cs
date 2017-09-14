@@ -426,7 +426,36 @@ namespace MLBBusiness
                     countChanges++;
                 }
 
-               if (countChanges>0)
+                if (gameFound.game_team_home_win != theGame.game_team_home_win)
+                {
+                    gameFound.game_team_home_win = theGame.game_team_home_win;
+                    countChanges++;
+                }
+
+                if (gameFound.game_team_home_lost != theGame.game_team_home_lost)
+                {
+                    gameFound.game_team_home_lost = theGame.game_team_home_lost;
+                    countChanges++;
+                }
+
+
+                if (gameFound.game_team_away_win != theGame.game_team_away_win)
+                {
+                    gameFound.game_team_away_win = theGame.game_team_away_win;
+                    countChanges++;
+                }
+
+                if (gameFound.game_team_away_lost != theGame.game_team_away_lost)
+                {
+                    gameFound.game_team_away_lost = theGame.game_team_away_lost;
+                    countChanges++;
+                }
+
+             
+
+
+
+                if (countChanges>0)
                 { 
                 gameFound.last_update_date = DateTime.Now;
                  insertGameHistory(theGame, gameFound.id_game);

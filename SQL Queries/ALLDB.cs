@@ -877,7 +877,7 @@ namespace WindowsFormsApplication1
             addExcelWorkSheet(excelWorkBook, 2, 4, dateTimePicker1.Value, dateTimePicker2.Value);
 
 
-          
+  
            
             try
             {
@@ -910,15 +910,7 @@ namespace WindowsFormsApplication1
 
         private void saveFile()
         {
-           
-            //SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-            //saveFileDialog1.Filter = "excel files (*.xls)|*.xls|All files (*.*)|*.*";
-            //saveFileDialog1.FilterIndex = 2;
-            //saveFileDialog1.RestoreDirectory = true;
-            //saveFileDialog1.FileName = (@"MLB Auto House Report " + dateTimePicker1.Text + ".xlsx");
-
-            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+              
             {
                 string dateToDoc = string.Format("{0:yyyy-MM-dd HH.mm.ss}", DateTime.Now);
                 string path = (@"S:\MLBHouseReport\Reports\MLB Auto Report " + string.Format("{0:MM-dd}", dateTimePicker1.Value) + " ~ " + string.Format("{0:MM-dd}", dateTimePicker2.Value) + "  (" + dateToDoc + ").xlsx");
