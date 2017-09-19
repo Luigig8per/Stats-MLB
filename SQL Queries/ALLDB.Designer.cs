@@ -93,7 +93,7 @@
             this.numericUpDown1.Size = new System.Drawing.Size(72, 30);
             this.numericUpDown1.TabIndex = 9;
             this.numericUpDown1.Value = new decimal(new int[] {
-            3,
+            20,
             0,
             0,
             0});
@@ -238,7 +238,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "MLB Stats Report v0.6";
+            this.Text = "MLB Stats Report v0.8  9/19/2017";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

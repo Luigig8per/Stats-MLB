@@ -26,16 +26,25 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+           
             timer1.Start();
             this.button4.Focus();
 
             dateTimePicker2.Value = dateTimePicker1.Value.AddDays(7);
+
+           
+
+          
+        }
+
+
+        public void initialLoad()
+        {
             loadESPNStandings();
 
 
             extractNextGames();
-
-          
         }
 
 
@@ -692,9 +701,7 @@ namespace WindowsFormsApplication1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            loadESPNStandings();
-
-            extractNextGames();
+            initialLoad();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -883,6 +890,8 @@ namespace WindowsFormsApplication1
             {
                 excelWorkBook.SaveAs(outputFile);
 
+                initialLoad();
+
                 this.WindowState = FormWindowState.Normal;
 
                 DialogResult dialogResult = MessageBox.Show("Excel file saved as  " + outputFile + ", would you like to close this app?", "Excel done", MessageBoxButtons.YesNo);
@@ -913,16 +922,16 @@ namespace WindowsFormsApplication1
               
             {
                 string dateToDoc = string.Format("{0:yyyy-MM-dd HH.mm.ss}", DateTime.Now);
-                string path = (@"S:\MLBHouseReport\Reports\MLB Auto Report " + string.Format("{0:MM-dd}", dateTimePicker1.Value) + " ~ " + string.Format("{0:MM-dd}", dateTimePicker2.Value) + "  (" + dateToDoc + ").xlsx");
+                string path = (@"S:\MLBSeriesReport\Reports\MLB Series Report " + string.Format("{0:MM-dd}", dateTimePicker1.Value) + " ~ " + string.Format("{0:MM-dd}", dateTimePicker2.Value) + "  (" + dateToDoc + ").xlsx");
 
                 try
                 {
-                    fillExcelV2(@"S:\MLBHouseReport\G8 MLB House Report\MLBBASE.xlsx", path, dataGridView1);
+                    fillExcelV2(@"S:\MLBSeriesReport\G8 MLB Series Report\MLBBASE.xlsx", path, dataGridView1);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    fillExcelV2(@"C:\MLBHouseReport\G8 MLB House Report\MLBBASE.xlsx", path, dataGridView1);
+                    fillExcelV2(@"C:\MLBSeriesReport\G8 MLB Series Report\MLBBASE.xlsx", path, dataGridView1);
                 }
                 //fillExcelV2(@"C:\documents2017\desktop\ReportGameStats\DesktopC\bin\Debug\HOUSE REPORT BASE.xlsx", path + string.Format("{0:yyyy-MM-dd}", DateTime.Now) + ".xlsx", dataGridView1);
 

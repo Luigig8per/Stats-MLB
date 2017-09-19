@@ -477,11 +477,7 @@ namespace MLBBusiness
             using (context = new StatsEntities())
 
             {
-                //Console.WriteLine("TO UPDATE:");
-                //Console.WriteLine("Home team = " + theGame.game_name_team_home);
-                //Console.WriteLine("Away team = " + theGame.game_name_team_away);
-                //Console.WriteLine("Home pitcher = " + theGame.game_name_pitcher_home);
-                //Console.WriteLine("Away pitcher = " + theGame.game_name_pitcher_away);
+                
 
 
                 context.Entry(gameFound).State = System.Data.Entity.EntityState.Modified;
